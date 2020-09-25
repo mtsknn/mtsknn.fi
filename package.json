@@ -1,9 +1,18 @@
 {
   "scripts": {
-    "build": "npx @11ty/eleventy",
-    "start": "npx @11ty/eleventy --serve"
+    "_11ty:build": "npx @11ty/eleventy",
+    "_11ty:watch": "npx @11ty/eleventy --serve",
+    "_css:build": "cross-env NODE_ENV=production npm run _tailwind",
+    "_css:watch": "watch \"npm run _tailwind\" assets/css/",
+    "_tailwind": "tailwindcss build assets/css/main.css -o _site/main.css",
+    "build": "npm run _11ty:build && npm run _css:build",
+    "start": "concurrently --names 11ty,css npm:_11ty:watch npm:_css:watch"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0"
+    "@11ty/eleventy": "^0.11.0",
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.2",
+    "tailwindcss": "^1.8.10",
+    "watch": "^1.0.2"
   }
 }

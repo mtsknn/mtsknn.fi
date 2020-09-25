@@ -7,5 +7,23 @@ html(lang="en")
     link(rel="canonical" href=("https://mtsknn.fi" + page.url))
     if metaDescription
       meta(name="description" content=metaDescription)
-  body
-    != content
+    link(rel="stylesheet" href="/main.css")
+  body.bg-gray-100.break-words.font-sans
+    .max-w-4xl.mx-auto.p-6
+      header.border-b.border-gray-400.mb-6.pb-6
+        nav.flex.justify-between
+          a.font-bold.font-mono(
+            aria-label=("mtsknn.fi &ndash; go to the front page.")
+            class="hover:text-red-600"
+            href="/"
+          )
+            | 👨‍💻 mtsknn
+            span.opacity-50 .fi
+      main.mb-6
+        != content
+      footer.border-t.border-gray-400.flex.justify-between.pt-6.text-center.text-gray-600
+        .text-left
+          | 👋 Let's talk !{'&ndash;'} send a mail to #{' '}
+          a.text-gray-800(href="mailto:blog@mtsknn.fi") blog@mtsknn.fi
+          | !
+        a.pl-4(href="#" title="Scroll to top") 👆

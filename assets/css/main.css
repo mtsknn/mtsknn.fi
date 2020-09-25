@@ -1,0 +1,8 @@
+@tailwind base;
+
+::selection {
+  @apply bg-red-200;
+}
+
+@tailwind components;
+@tailwind utilities;
