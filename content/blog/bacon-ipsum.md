@@ -1,5 +1,4 @@
 ---
-layout: layout
 title: Bacon ipsum
 metaDescription: 'Bacon is good. :yum:'
 ---
