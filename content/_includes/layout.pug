@@ -4,6 +4,8 @@ html(lang="en")
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title #{title} !{'&ndash;'} mts knn .fi
-    meta(name="description" content="Here be dragons, and cats 🐱‍🐉")
+    link(rel="canonical" href=("https://mtsknn.fi" + page.url))
+    if metaDescription
+      meta(name="description" content=metaDescription)
   body
     != content
