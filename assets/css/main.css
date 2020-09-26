@@ -1,8 +1,16 @@
 @tailwind base;
-
-::selection {
-  @apply bg-red-200;
-}
-
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  ::selection {
+    @apply bg-red-200;
+  }
+}
+
+@layer components {
+  .prose .list-none::before {
+    content: none;
+  }
+}
+

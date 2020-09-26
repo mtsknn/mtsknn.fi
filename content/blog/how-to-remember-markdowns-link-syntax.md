@@ -1,5 +1,7 @@
 ---
 title: How to remember Markdown's link syntax
+tags:
+  - Markdown
 intro: |
   Was it `[label](url)` or `(label)[url]`?
   Use this weird trick to remember it &ndash; writers HATE it!
