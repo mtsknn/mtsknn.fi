@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Bacon ipsum
 meta_description: 'Bacon is good. :yum:'
 intro: |
