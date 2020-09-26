@@ -2,7 +2,9 @@ extends ./layout
 
 block content
   .prose
-    != content
+    h1= title
+
+    .prose-xl!= content
 
     h2 Coolest articles, hot off the press
     each post in collections.blog_posts

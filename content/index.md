@@ -1,10 +1,9 @@
 ---
 layout: home
-title: Matias Kinnunen
-metaDescription: Here be dragons, and cats 🐱‍🐉
+title: Hell-o! 👋 I'm Matias
+meta_description: Here be dragons, and cats 🐱‍🐉
+meta_title: Matias Kinnunen
 ---
-
-# Hell-o! I'm Matias
 
 I blog about
 foo, bar and baz.

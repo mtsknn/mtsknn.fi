@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bacon ipsum
-metaDescription: 'Bacon is good. :yum:'
+meta_description: 'Bacon is good. :yum:'
 intro: |
   Dolor **sit** amet. 💁‍♂️
 ---

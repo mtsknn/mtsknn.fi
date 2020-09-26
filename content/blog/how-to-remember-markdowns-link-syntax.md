@@ -1,5 +1,7 @@
 ---
 title: How to remember Markdown's link syntax
+meta_description: |
+  Was it `[label](url)` or `(label)[url]`? Spoiler: it's the former since it looks like a function call.
 tags:
   - Markdown
 intro: |
