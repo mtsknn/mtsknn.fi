@@ -3,6 +3,8 @@ module.exports = (config) => {
     [...collection.getFilteredByGlob('./content/blog/**/*.md')].reverse()
   )
 
+  config.addPassthroughCopy({ './assets/favicon/': '/' })
+
   return {
     dir: { input: 'content' },
   }

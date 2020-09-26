@@ -7,6 +7,15 @@ html(lang="en")
     link(rel="canonical" href=("https://mtsknn.fi" + page.url))
     if metaDescription
       meta(name="description" content=metaDescription)
+
+    // Favicon formats generated with https://realfavicongenerator.net/ 👍
+    link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
+    link(rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png")
+    link(rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png")
+    link(rel="manifest" href="/site.webmanifest")
+    link(rel="mask-icon" href="/safari-pinned-tab.svg" color="#fc8181")
+    meta(name="theme-color" content="#fc8181")
+
     link(rel="stylesheet" href="/main.css")
   body.bg-gray-100.break-words.font-sans
     .max-w-4xl.mx-auto.p-6
