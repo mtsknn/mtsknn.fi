@@ -4,7 +4,7 @@ module.exports = {
     purgeLayersByDefault: true,
   },
   purge: {
-    content: ['content/_includes/**/*.pug'],
+    content: ['./_site/**/*.html'],
     options: {
       // `!` added to the regex because of the `tailwindcss-important` plugin
       defaultExtractor: (content) => content.match(/[\w-/:!]+(?<!:)/g) || []
