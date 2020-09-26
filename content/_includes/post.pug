@@ -1,8 +1,7 @@
----
-layout: layout
----
+extends ./layout
 
-.prose
-  h1= title
-  .prose-xl!= md.render(intro)
-  != content
+block content
+  .prose
+    h1= title
+    .prose-xl!= md.render(intro)
+    != content
