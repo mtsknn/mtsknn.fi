@@ -6,6 +6,12 @@ module.exports = (config) => {
   config.addPassthroughCopy({ './assets/favicon/': '/' })
 
   return {
-    dir: { input: 'content' },
+    dir: {
+      input: 'content',
+
+      // These are relative to the input dir
+      data: '../data',
+      includes: '../views',
+    },
   }
 }
