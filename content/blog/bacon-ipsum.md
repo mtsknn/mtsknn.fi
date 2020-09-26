@@ -1,8 +1,9 @@
 ---
+layout: post
 title: Bacon ipsum
 metaDescription: 'Bacon is good. :yum:'
+intro: |
+  Dolor **sit** amet. 💁‍♂️
 ---
 
-# {{ title }}
-
-Dolor sit amet. 💁‍♂️
+I love pork!
