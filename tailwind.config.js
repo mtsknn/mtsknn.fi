@@ -14,6 +14,7 @@ module.exports = {
     extend: {},
   },
   variants: {
+    margin: ({ after }) => after(['important']),
     padding: ({ after }) => after(['important']),
   },
   plugins: [

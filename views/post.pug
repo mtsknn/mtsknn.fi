@@ -1,7 +1,9 @@
 extends ./layout
 
 block content
-  .prose
-    h1= title
-    .prose-xl!= md.render(intro)
+  article.prose
+    h1(class="!mb-6")= title
+    .mb-6.text-gray-600
+      +post_meta(page.date, tags)
+    .mb-12.prose-xl!= md.render(intro)
     != content

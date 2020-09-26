@@ -11,17 +11,7 @@ block content
       article
         h3: a(href=post.url)= post.data.title
         .text-gray-600.text-sm
-          span.sr-only Published on
-          time(datetime=format.date(post.date, '{yyyy}-{MM}-{dd}'))
-            = format.date(post.date, `${format.localeDate(post.date, '{MMM}')} {dd}, {yyyy}`)
-
-          if (post.data.tags || []).length
-            span.mx-1(aria-hidden) &bull;
-            ul.inline(aria-label="Tags")
-              each tag in post.data.tags
-                li.bg-white.border.border-gray-400.inline.list-none.mr-1.py-px.rounded(
-                  class="!px-1"
-                )= tag
+          +post_meta(post.date, post.data.tags)
         != md.render(post.data.intro)
     else
       p No blog posts yet. 🤷‍♂️
