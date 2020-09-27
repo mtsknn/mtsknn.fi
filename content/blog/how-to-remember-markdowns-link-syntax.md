@@ -15,6 +15,8 @@ intro: |
   Let's also take a look at alternative link syntaxes.
 ---
 
+[[toc]]
+
 ## It's `[text](url)` because it looks like a function call
 
 Anti-mnemonic:

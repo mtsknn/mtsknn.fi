@@ -23,6 +23,13 @@
     box-decoration-break: clone;
     @apply shadow-outline;
   }
+
+  h2,
+  h3,
+  h4 {
+    /* Needed for the styling of permalink links inside headings */
+    @apply relative;
+  }
 }
 
 @layer components {
@@ -54,12 +61,22 @@
   h3 .link {
     text-decoration-thickness: 3px;
   }
-  .link:hover {
+  a.link:hover {
     @apply text-red-600;
   }
-  .link:active {
+  a.link:active {
     @apply text-red-800;
     text-decoration-color: theme('colors.red.600');
+  }
+
+  /* Need to use two classes here to override the `.prose a` selector */
+  .link.permalink {
+    @apply ml-3 text-gray-500;
+  }
+  @screen lg {
+    .link.permalink {
+      @apply absolute left-0 -ml-6 top-0;
+    }
   }
 
   pre code {
@@ -120,4 +137,3 @@
     @apply bg-red-900;
   }
 }
-
