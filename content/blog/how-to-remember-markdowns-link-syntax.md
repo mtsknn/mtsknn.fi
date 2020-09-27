@@ -34,10 +34,10 @@ These are all valid and identical
 [text](url (title))
 
 Result (×3):
-  <a href="url" title="title">text</a>
+<a href="url" title="title">text</a>
 ```
 
-I don't think I have personally ever specified titles for links in Markdown.
+(Looks like PrismJS can't correctly highlight this and some of the following code snippets.)
 
 ## Alternative link syntaxes
 
