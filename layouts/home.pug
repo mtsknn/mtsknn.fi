@@ -13,5 +13,8 @@ block content
         .text-sm
           +post_meta(post.date, post.data.tags)
         != md.render(post.data.intro)
+        a.link.text-sm.tracking-wider.uppercase(href=`${post.url}#continue`)
+          | Continue reading
+          .sr-only "#{post.data.title}"
     else
       p No blog posts yet. 🤷‍♂️
