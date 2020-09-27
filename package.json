@@ -12,6 +12,8 @@
     "@11ty/eleventy": "^0.11.0",
     "@tailwindcss/typography": "^0.2.0",
     "light-date": "^1.1.3",
+    "markdown-it": "^11.0.1",
+    "markdown-it-link-attributes": "^3.0.0",
     "tailwindcss": "^1.8.10",
     "tailwindcss-important": "^1.0.0"
   },
