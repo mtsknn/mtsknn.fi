@@ -5,9 +5,9 @@ block content
     h1(class="!mb-6")= title
     .mb-6
       +post_meta(page.date, tags)
-    .mb-12.prose-xl!= md.render(intro)
+    .prose-xl!= md.render(intro)
 
     //- Anchor for home page's "Continue reading" links
-    span#continue
+    #continue-reading.mb-12
 
     != content
