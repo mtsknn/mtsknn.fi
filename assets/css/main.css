@@ -6,6 +6,15 @@
   ::selection {
     @apply bg-red-200;
   }
+
+  *:focus {
+    /* `outline: 0;` would make the focus ring invisible in Windows's
+     * high-contrast themes. See https://stackoverflow.com/a/52616313 */
+    outline: transparent dotted 2px;
+
+    box-decoration-break: clone;
+    @apply shadow-outline;
+  }
 }
 
 @layer components {
