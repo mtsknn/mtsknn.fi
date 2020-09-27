@@ -11,7 +11,7 @@ module.exports = (config) => {
 
       // These are relative to the input dir
       data: '../data',
-      includes: '../views',
+      includes: '../layouts',
     },
   }
 }
