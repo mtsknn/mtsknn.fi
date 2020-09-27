@@ -6,6 +6,9 @@
   ::selection {
     @apply bg-red-200;
   }
+  pre code::selection {
+    @apply bg-gray-600;
+  }
 
   *:focus {
     /* `outline: 0;` would make the focus ring invisible in Windows's
@@ -18,6 +21,11 @@
 }
 
 @layer components {
+  /* The default is `content: ""` but it causes an empty line at the end */
+  .prose pre code::after {
+    content: none;
+  }
+
   .prose .list-none::before {
     content: none;
   }
