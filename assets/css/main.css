@@ -21,7 +21,12 @@
 }
 
 @layer components {
-  /* The default is `content: ""` but it causes an empty line at the end */
+  /* The default `text-gray-700` is IMO a bit too light */
+  .prose {
+    @apply text-gray-800;
+  }
+
+  /* The default `content: ""` causes an empty line at the end */
   .prose pre code::after {
     content: none;
   }

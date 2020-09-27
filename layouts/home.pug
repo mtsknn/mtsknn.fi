@@ -10,7 +10,7 @@ block content
     each post in collections.blog_posts
       article
         h3: a.link(href=post.url)= post.data.title
-        .text-gray-600.text-sm
+        .text-sm
           +post_meta(post.date, post.data.tags)
         != md.render(post.data.intro)
     else
