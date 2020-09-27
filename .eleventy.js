@@ -1,3 +1,5 @@
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight")
+
 const md = require('./data/md')
 
 module.exports = (config) => {
@@ -6,6 +8,8 @@ module.exports = (config) => {
   )
 
   config.addPassthroughCopy({ './assets/favicon/': '/' })
+
+  config.addPlugin(syntaxHighlight)
 
   // "This will likely become the default in an upcoming major version."
   // See https://www.11ty.dev/docs/data-deep-merge/
