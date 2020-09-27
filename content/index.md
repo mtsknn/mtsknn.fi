@@ -7,5 +7,7 @@ meta_title: Matias Kinnunen
 
 I'm a web developer from Oulu, Finland.
 
-Here's a collection of my wildest adventures in the unnecessarily complex world of web development.
+Here's a collection of my wildest adventures involving
+computers, cats and dragons. 🐱‍🐉
+
 New blog post every now and then!
