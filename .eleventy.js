@@ -7,6 +7,10 @@ module.exports = (config) => {
 
   config.addPassthroughCopy({ './assets/favicon/': '/' })
 
+  // "This will likely become the default in an upcoming major version."
+  // See https://www.11ty.dev/docs/data-deep-merge/
+  config.setDataDeepMerge(true)
+
   config.setLibrary('md', md)
 
   return {
