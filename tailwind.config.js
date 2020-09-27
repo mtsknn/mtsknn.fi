@@ -16,6 +16,7 @@ module.exports = {
   variants: {
     margin: ({ after }) => after(['important']),
     padding: ({ after }) => after(['important']),
+    textColor: ({ after }) => after(['active']),
   },
   plugins: [
     require('@tailwindcss/typography'),

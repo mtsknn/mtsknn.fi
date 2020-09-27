@@ -23,9 +23,9 @@ html(lang="en")
     .max-w-4xl.mx-auto.p-6
       header.border-b.border-gray-400.mb-6.pb-6
         nav.flex.justify-between
-          a.font-bold.font-mono(
+          a.duration-150.font-bold.font-mono.transition-colors(
             aria-label=("mtsknn.fi &ndash; go to the front page.")
-            class="hover:text-red-600"
+            class="hover:text-red-600 active:text-red-700"
             href="/"
           )
             | 👨‍💻 mtsknn
@@ -38,4 +38,8 @@ html(lang="en")
           | 👋 Let's talk !{'&ndash;'} send a mail to #{' '}
           a.link.text-gray-800(href="mailto:blog@mtsknn.fi") blog@mtsknn.fi
           | !
-        a.ml-4(href="#" title="Scroll to top") 👆
+        a.duration-150.ml-4.transition-opacity(
+          class="hover:opacity-75"
+          href="#"
+          title="Scroll to top"
+        ) 👆
