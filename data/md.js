@@ -10,20 +10,28 @@ const md = markdownIt({ html: true })
       'aria-hidden': 'true',
       title: 'Link to this section',
     }),
-    permalinkClass: 'link permalink',
+    permalinkClass: 'link link-permalink',
     permalinkSpace: false,
     permalinkSymbol: '#',
     slugify: slugifier,
   })
-  .use(require('markdown-it-link-attributes'), {
-    // Skip the permalink links created by the `markdown-it-anchor` and
-    // `markdown-it-toc-done-right` plugins because those plugins have their own
-    // similar options (and the values are different)
-    pattern: /^[^#]/,
-    attrs: {
-      class: 'link',
+  .use(require('markdown-it-link-attributes'), [
+    {
+      pattern: /^https:\/\/(?!(www\.)?mtsknn\.fi)/,
+      attrs: {
+        class: 'link link-external',
+      },
     },
-  })
+    {
+      // Skip the permalink links created by the `markdown-it-anchor` and
+      // `markdown-it-toc-done-right` plugins because those plugins have their
+      // own similar options (and the values may be different)
+      pattern: /^[^#]/,
+      attrs: {
+        class: 'link',
+      },
+    }
+  ])
   .use(require('markdown-it-toc-done-right'), {
     containerClass: '',
     linkClass: 'link',

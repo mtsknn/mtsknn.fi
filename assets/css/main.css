@@ -69,12 +69,38 @@
     text-decoration-color: theme('colors.red.600');
   }
 
+  /* O'boy how difficult it was to find a solid technique for adding an external
+   * link icon with these criteria:
+   * - Doesn't wrap to the next line
+   * - Doesn't make trailing punctuation wrap to the next line (e.g. a period
+   *   right after the link text)
+   * - Doesn't require modifying the HTML (i.e. I wanted a CSS-only solution)
+   *
+   * Luckily I found this underappreciated SO answer with a simple solution:
+   * https://stackoverflow.com/a/38418279
+   */
+  .link.link-external::after {
+    @apply bg-center bg-no-repeat;
+    @apply ml-1; /* Spacing */
+    @apply px-2; /* Sizing */
+
+    /* `external-link` icon by Heroicons (https://heroicons.com/), MIT Licensed.
+     * `%23718096` = `#718096` = `text-gray-600` */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23718096"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"/><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>');
+
+    /* `alt` and the second value of `content` are for screen readers. See e.g.
+     * https://www.stefanjudis.com/today-i-learned/css-content-accepts-alternative-text/ */
+    alt: 'external'; /* Supported by Safari */
+    content: ''; /* Fallback */
+    content: '' / 'external'; /* Supported by most but not FF or Safari */
+  }
+
   /* Need to use two classes here to override the `.prose a` selector */
-  .link.permalink {
+  .link.link-permalink {
     @apply ml-3 text-gray-500;
   }
   @screen lg {
-    .link.permalink {
+    .link.link-permalink {
       @apply absolute left-0 -ml-6 top-0;
     }
   }
