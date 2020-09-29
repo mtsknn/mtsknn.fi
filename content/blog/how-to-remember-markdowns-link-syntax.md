@@ -39,7 +39,8 @@ Result (×3):
 <a href="url" title="title">text</a>
 ```
 
-(Looks like PrismJS can't correctly highlight this and some of the following code snippets.)
+(Looks like PrismJS can't correctly highlight this and some of the following code snippets,
+but let's not be bothered by it.)
 
 ## Alternative link syntaxes
 
