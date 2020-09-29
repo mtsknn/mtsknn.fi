@@ -99,10 +99,6 @@
     }
   }
 
-  pre code {
-    @apply inline-block min-w-full;
-  }
-
   /* Syntax highlighting colors borrowed from https://blog.tailwindcss.com. See:
    * - https://github.com/tailwindlabs/blog.tailwindcss.com/blob/39d37c/next.config.js#L8-L20
    * - https://github.com/tailwindlabs/blog.tailwindcss.com/blob/39d37c/tailwind.config.js#L42-L51
