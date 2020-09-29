@@ -84,9 +84,9 @@
 
     /* `alt` and the second value of `content` are for screen readers. See e.g.
      * https://www.stefanjudis.com/today-i-learned/css-content-accepts-alternative-text/ */
-    alt: 'external'; /* Supported by Safari */
+    alt: '(external link)'; /* Supported by Safari */
     content: ''; /* Fallback */
-    content: '' / 'external'; /* Supported by most but not FF or Safari */
+    content: '' / '(external link)'; /* Supported by most but not FF or Safari */
   }
 
   /* Need to use two classes here to override the `.prose a` selector */
