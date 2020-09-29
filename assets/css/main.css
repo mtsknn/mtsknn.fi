@@ -39,18 +39,6 @@
 }
 
 @layer components {
-  /* The default `text-gray-700` is IMO a bit too light */
-  .prose {
-    @apply text-gray-800;
-  }
-
-  /* The default `content: ""` causes an empty line at the end with `::after`
-   * and is just unnecessary with `::before`. */
-  .prose pre code::before,
-  .prose pre code::after {
-    content: none;
-  }
-
   .prose .list-none::before {
     content: none;
   }

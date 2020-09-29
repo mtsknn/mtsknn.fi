@@ -14,8 +14,20 @@ module.exports = {
     typography: (theme) => ({
       default: {
         css: {
+          // The default (`colors.gray.700`) is IMO a bit too light
+          color: theme('colors.gray.800'),
+
           'ul > li::before': {
+            // The default (`colors.gray.400`) is also a bit too light
             backgroundColor: theme('colors.gray.500'),
+          },
+          'pre code::before': {
+            // Unnecessary
+            content: 'none',
+          },
+          'pre code::after': {
+            // Causes an empty line at the end of the code block
+            content: 'none',
           },
         },
       },
