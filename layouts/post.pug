@@ -14,6 +14,11 @@ block content
     if content.startsWith('<nav class="table-of-contents">')
       h2.tracking-widest.uppercase(class="!text-base !text-gray-700")
         | Table of contents
-      != content.replace('</nav>', '</nav><hr aria-hidden="true">') /* Ugly hack :-) */
+      -
+        // Ugly hack :-)
+        content = content
+          .replace('<nav', '<nav aria-label="Table of contents"')
+          .replace('</nav>', '</nav><hr aria-hidden="true">')
+      != content
     else
       != content
