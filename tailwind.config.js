@@ -11,7 +11,15 @@ module.exports = {
     },
   },
   theme: {
-    extend: {},
+    typography: (theme) => ({
+      default: {
+        css: {
+          'ul > li::before': {
+            backgroundColor: theme('colors.gray.500'),
+          },
+        },
+      },
+    }),
   },
   variants: {
     margin: ({ after }) => after(['important']),
