@@ -22,9 +22,10 @@ module.exports = {
     }),
   },
   variants: {
+    fontSize: ({ after }) => after(['important']),
     margin: ({ after }) => after(['important']),
     padding: ({ after }) => after(['important']),
-    textColor: ({ after }) => after(['active']),
+    textColor: ({ after }) => after(['active', 'important']),
   },
   plugins: [
     require('@tailwindcss/typography'),

@@ -33,7 +33,6 @@ const md = markdownIt({ html: true })
     }
   ])
   .use(require('markdown-it-toc-done-right'), {
-    containerClass: '',
     linkClass: 'link',
     slugify: slugifier,
   })
