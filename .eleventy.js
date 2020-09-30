@@ -14,12 +14,15 @@ module.exports = (config) => {
 
   config.setBrowserSyncConfig({
     callbacks: {
-      // This nifty code was copied from here:
-      // https://github.com/11ty/eleventy-base-blog/blob/v5.0.2/.eleventy.js#L56-L64
       ready(err, browserSync) {
-        const notFoundContent = fs.readFileSync('./_site/404.html')
+        browserSync.addMiddleware('/blog/', (req, res) => {
+          res.writeHead(302, { location: '/' })
+          res.end()
+        })
 
-        // Provides the 404 content without redirect
+        // Provides the 404 content without redirect. Source:
+        // https://github.com/11ty/eleventy-base-blog/blob/v5.0.2/.eleventy.js#L56-L64
+        const notFoundContent = fs.readFileSync('./_site/404.html')
         browserSync.addMiddleware('*', (req, res) => {
           res.write(notFoundContent)
           res.end()
