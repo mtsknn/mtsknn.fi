@@ -1,8 +1,8 @@
 mixin post_meta(date, tags = [])
   .text-gray-700
     span.sr-only Published on#{' '}
-    time.tracking-wider.uppercase(datetime=format.date(date, '{yyyy}-{MM}-{dd}'))
-      = format.date(date, `${format.localeDate(date, '{MMM}')} {dd}, {yyyy}`)
+    time.tracking-wider.uppercase(datetime=datetime.robot(date))
+      = datetime.human(date)
 
     if tags.length
       span.mx-2(aria-hidden="true") ~
