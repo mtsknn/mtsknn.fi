@@ -21,19 +21,21 @@ html(lang="en")
     link(rel="stylesheet" href="/main.css")
   body.bg-gray-100.break-words.font-sans
     .max-w-4xl.mx-auto.p-6
-      header.border-b.border-gray-400.mb-6.pb-6
+      header.border-b.border-gray-400.mb-6.pb-6(class="lg:mb-12")
         nav.flex.justify-between(aria-label="Main navigation")
           a.duration-150.font-bold.font-mono.transition-colors(
             aria-label=("mtsknn.fi &ndash; go to the front page.")
-            class="hover:text-red-600 active:text-red-700"
+            class="hover:text-red-600 active:text-red-700 xl:text-lg"
             href="/"
           )
             | 👨‍💻 mtsknn
             span.opacity-50 .fi
-      main.mb-6
+      main.mb-6(class="lg:mb-12")
         block content
-          .prose!= content
-      footer.border-t.border-gray-400.flex.items-baseline.justify-between.pt-6.text-gray-700.text-sm
+          .prose(class="xl:prose-lg")!= content
+      footer.border-t.border-gray-400.flex.items-baseline.justify-between.pt-6.text-gray-700.text-sm(
+        class="xl:text-base"
+      )
         .text-left
           | 📣 Let's talk !{'&ndash;'} send a mail to #{' '}
           a.link.text-gray-800(href="mailto:blog@mtsknn.fi") blog@mtsknn.fi

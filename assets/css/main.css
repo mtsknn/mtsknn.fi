@@ -97,6 +97,23 @@
     .link.link-permalink {
       @apply absolute left-0 -ml-6 top-0;
     }
+    h3 .link.link-permalink {
+      @apply -ml-5;
+    }
+    h4 .link.link-permalink {
+      @apply -ml-4;
+    }
+  }
+  @screen xl {
+    .link.link-permalink {
+      @apply -ml-8;
+    }
+    h3 .link.link-permalink {
+      @apply -ml-6;
+    }
+    h4 .link.link-permalink {
+      @apply -ml-5;
+    }
   }
 
   /* Syntax highlighting colors borrowed from https://blog.tailwindcss.com. See:

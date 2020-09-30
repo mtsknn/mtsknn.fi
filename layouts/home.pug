@@ -1,7 +1,7 @@
 extends ./layout
 
 block content
-  .prose
+  .prose(class="xl:prose-lg")
     h1= title
 
     .lead!= content
@@ -10,7 +10,7 @@ block content
     each post in collections.blog_posts
       article
         h3: a.link(href=post.url)= post.data.title
-        .text-sm
+        .text-sm(class="xl:text-base")
           +post_meta(post.date, post.data.tags)
         != md.render(post.data.intro)
         a.link.text-sm.tracking-wider.uppercase(href=`${post.url}#continue-reading`)
