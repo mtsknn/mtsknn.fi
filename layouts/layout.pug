@@ -40,6 +40,9 @@ html(lang="en")
           | 📣 Let's talk !{'&ndash;'} send a mail to #{' '}
           a.link.text-gray-800(href="mailto:blog@mtsknn.fi") blog@mtsknn.fi
           | !
-        a.duration-150.ml-4.transition-opacity(class="hover:opacity-75" href="#")
+        a.duration-150.ml-4.transition-opacity(
+          aria-label="Scroll to top"
+          class="hover:opacity-75"
+          href="#"
+        )
           span(aria-hidden="true" title="Scroll to top") 👆
-          .sr-only Scroll to top
