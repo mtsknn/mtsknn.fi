@@ -1,5 +1,5 @@
 const fs = require('fs')
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
+const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 
 const md = require('./data/md')
 
@@ -10,7 +10,7 @@ module.exports = (config) => {
 
   config.addPassthroughCopy({ './assets/favicon/': '/' })
 
-  config.addPlugin(syntaxHighlight, { alwaysWrapLineHighlights: true })
+  config.addPlugin(pluginSyntaxHighlight, { alwaysWrapLineHighlights: true })
 
   config.setBrowserSyncConfig({
     callbacks: {
