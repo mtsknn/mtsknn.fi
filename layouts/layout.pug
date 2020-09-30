@@ -30,9 +30,9 @@ html(lang="en")
           )
             | 👨‍💻 mtsknn
             span.opacity-50 .fi
-      main.mb-6(class="lg:mb-12")
+      main.mb-6.prose(class="lg:mb-12 xl:prose-lg")
         block content
-          .prose(class="xl:prose-lg")!= content
+          != content
       footer.border-t.border-gray-400.flex.items-baseline.justify-between.pt-6.text-gray-700.text-sm(
         class="xl:text-base"
       )

@@ -1,7 +1,7 @@
 extends ./layout
 
 block content
-  article.prose(class="xl:prose-lg")
+  article
     h1(class="!mb-6")= title
     .mb-6
       +post_meta(page.date, tags)
