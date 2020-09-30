@@ -5,6 +5,7 @@ const slugifier = (text) => slugify(text, { lower: true, strict: true })
 
 const md = markdownIt({ html: true })
   .use(require('markdown-it-anchor'), {
+    level: 2,
     permalink: true,
     permalinkAttrs: () => ({
       'aria-hidden': 'true',
@@ -33,6 +34,7 @@ const md = markdownIt({ html: true })
     }
   ])
   .use(require('markdown-it-toc-done-right'), {
+    level: 2,
     linkClass: 'link',
     slugify: slugifier,
   })
