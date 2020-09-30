@@ -10,7 +10,7 @@ module.exports = (config) => {
 
   config.addPassthroughCopy({ './assets/favicon/': '/' })
 
-  config.addPlugin(syntaxHighlight)
+  config.addPlugin(syntaxHighlight, { alwaysWrapLineHighlights: true })
 
   config.setBrowserSyncConfig({
     callbacks: {

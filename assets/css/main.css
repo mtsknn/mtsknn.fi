@@ -153,12 +153,27 @@
     color: #9fa6b2; /* gray */
   }
 
+  .prose pre {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .highlight-line {
+    @apply inline-block min-w-full px-4;
+  }
+  @screen xl {
+    .highlight-line {
+      @apply px-5;
+    }
+  }
+  .highlight-line::after {
+    /* Without this, empty highlighted lines wouldn't be highlighted */
+    content: '';
+  }
   .highlight-line-active,
   .highlight-line-add,
   .highlight-line-remove {
-    @apply inline-block -mx-4 no-underline px-4;
+    @apply no-underline;
     color: inherit;
-    min-width: calc(100% + 2rem);
   }
   .highlight-line-active {
     @apply bg-gray-700;
