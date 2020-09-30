@@ -59,7 +59,8 @@ html(lang="en")
         class="xl:text-base"
       )
         .text-left
-          | 📣 Let's talk !{'&ndash;'} send a mail to #{' '}
+          span(aria-hidden="true") 📣#{' '}
+          | Let's talk !{'&ndash;'} send a mail to#{' '}
           a.link.text-gray-800(href="mailto:blog@mtsknn.fi") blog@mtsknn.fi
           | !
         a.duration-150.ml-4.transition-opacity(
