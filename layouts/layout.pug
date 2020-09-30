@@ -10,7 +10,7 @@ html(lang="en")
     if meta_description
       meta(name="description" content=meta_description.trim())
 
-    // Favicon formats generated with https://realfavicongenerator.net/ 👍
+    //Favicon formats generated with https://realfavicongenerator.net/ 👍
     link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
     link(rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png")
     link(rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png")
@@ -19,6 +19,7 @@ html(lang="en")
     meta(name="theme-color" content="#fc8181")
 
     link(rel="stylesheet" href="/main.css")
+    link(rel="alternate" type="application/rss+xml" href="/blog/feed.xml")
   body.bg-gray-100.break-words.font-sans
     .max-w-4xl.mx-auto.p-6
       header.border-b.border-gray-400.mb-6.pb-6(class="lg:mb-12")
@@ -30,6 +31,26 @@ html(lang="en")
           )
             | 👨‍💻 mtsknn
             span.opacity-50 .fi
+          a.duration-150.h-6.text-gray-600.transition-colors.w-6(
+            aria-label="RSS feed (opens in a new window)"
+            class="hover:text-red-600 active:text-red-800 xl:mt-px"
+            href="/blog/feed.xml"
+            target="_blank"
+          )
+            //`rss` icon by Heroicons (https://heroicons.com/), MIT Licensed
+            svg.align-top.inline-block(
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            )
+              title RSS feed
+              path(
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z"
+              )
       main.mb-6.prose(class="lg:mb-12 xl:prose-lg")
         block content
           != content
