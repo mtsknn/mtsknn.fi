@@ -11,4 +11,4 @@ mixin post_meta(date, tags = [])
         each tag in tags
           li.bg-white.border.border-gray-500.inline.list-none.mr-1.py-px.rounded(
             class="!px-1"
-          )= tag
+          ): a.link(href=`/blog/tags/${tag.toLowerCase()}/`)= tag
