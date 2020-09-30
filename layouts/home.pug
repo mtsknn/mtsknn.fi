@@ -14,6 +14,6 @@ block content
       != md.render(post.data.intro)
       a.link.text-sm.tracking-wider.uppercase(href=`${post.url}#continue-reading`)
         | Continue reading
-        .sr-only= ` "${post.data.title}"`
+        span.sr-only= ` "${post.data.title}"`
   else
     p No blog posts yet. 🤷‍♂️

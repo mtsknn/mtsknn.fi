@@ -1,12 +1,13 @@
 mixin post_meta(date, tags = [])
   .text-gray-700
-    span.sr-only Published on
+    span.sr-only Published on#{' '}
     time.tracking-wider.uppercase(datetime=format.date(date, '{yyyy}-{MM}-{dd}'))
       = format.date(date, `${format.localeDate(date, '{MMM}')} {dd}, {yyyy}`)
 
     if tags.length
       span.mx-2(aria-hidden="true") ~
-      ul.inline(aria-label="Tags")
+      span.sr-only &ndash; Tags:
+      ul.inline
         each tag in tags
           li.bg-white.border.border-gray-500.inline.list-none.mr-1.py-px.rounded(
             class="!px-1"
