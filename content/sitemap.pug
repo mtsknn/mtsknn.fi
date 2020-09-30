@@ -1,0 +1,8 @@
+---
+layout: null
+eleventyExcludeFromCollections: true
+dynamicPermalink: false
+permalink: sitemap.txt
+---
+each page in collections.all
+  = `https://mtsknn.fi${page.url}\n`
