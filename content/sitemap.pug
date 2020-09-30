@@ -1,8 +1,8 @@
 ---
 layout: null
 eleventyExcludeFromCollections: true
-dynamicPermalink: false
+dynamicPermalink: false # Don't parse `permalink` using Pug
 permalink: sitemap.txt
 ---
 each page in collections.all
-  = `https://mtsknn.fi${page.url}\n`
+  = `${site.url}${page.url}\n`
