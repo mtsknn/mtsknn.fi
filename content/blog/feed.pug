@@ -22,7 +22,7 @@ feed(xmlns="http://www.w3.org/2005/Atom")
   link(href=`${site.url}${permalink}` rel="self")
   link(href=`${site.url}/`)
   updated= get_updated_date(latest_post.date)
-  id= metadata.siteUrl
+  id= `${site.url}/`
   author
     name= metadata.author.name
     email= metadata.author.email
