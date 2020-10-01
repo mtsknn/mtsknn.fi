@@ -1,7 +1,6 @@
 const markdownIt = require('markdown-it')
-const slugify = require('slugify')
 
-const slugifier = (text) => slugify(text, { lower: true, strict: true })
+const slugify = require('./slugify')()
 
 const md = markdownIt({ html: true })
   .use(require('markdown-it-anchor'), {
@@ -14,7 +13,7 @@ const md = markdownIt({ html: true })
     permalinkClass: 'link link-permalink',
     permalinkSpace: false,
     permalinkSymbol: '#',
-    slugify: slugifier,
+    slugify,
   })
   .use(require('markdown-it-link-attributes'), [
     {
@@ -36,7 +35,7 @@ const md = markdownIt({ html: true })
   .use(require('markdown-it-toc-done-right'), {
     level: 2,
     linkClass: 'link',
-    slugify: slugifier,
+    slugify,
   })
 
 // Since Pug filters don't support dynamic data (e.g. `:md= post.data.intro`),

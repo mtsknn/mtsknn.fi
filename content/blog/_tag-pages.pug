@@ -7,7 +7,7 @@ pagination:
   filter:
     - all
     - blog_posts
-permalink: '| /blog/tags/#{tag.toLowerCase()}/'
+permalink: '| /blog/tags/#{slugify(tag)}/'
 ---
 h1 Blog posts tagged with "#{tag}"
 ol

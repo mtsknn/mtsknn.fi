@@ -8,6 +8,6 @@ h1 All blog tags
 ul
   each entry in Object.entries(collections).filter(([tag]) => !filter.includes(tag)).sort()
     - const [tag, posts] = entry
-    li: a.link(href=`/blog/tags/${tag.toLowerCase()}/`)
+    li: a.link(href=`/blog/tags/${slugify(tag)}/`)
       = `${tag} (${posts.length} blog post${posts.length === 1 ? '' : 's'})`
 p: a.link(href="/blog/") Go back to the blog
