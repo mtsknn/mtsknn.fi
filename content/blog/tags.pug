@@ -1,21 +1,13 @@
 ---
 layout: layout
-pagination:
-  data: collections
-  size: 1
-  alias: tag
-  filter:
-    - all
-    - blog_posts
-permalink: '| /blog/tags/#{tag.toLowerCase()}/'
+filter:
+  - all
+  - blog_posts
 ---
-h1 Blog posts tagged with "#{tag}"
-ol
-  each post in [...collections[tag]].reverse()
-    li
-      a.link(href=post.url)= post.data.title
-      | #{' '}(#[span.sr-only published on ]#{datetime.human(post.date)})
-p
-  a.link(href="/blog/tags/") See all blog tags
-  = ' or '
-  a.link(href="/blog/") go back to the blog
+h1 All blog tags
+ul
+  each entry in Object.entries(collections).filter(([tag]) => !filter.includes(tag)).sort()
+    - const [tag, posts] = entry
+    li: a.link(href=`/blog/tags/${tag.toLowerCase()}/`)
+      = `${tag} (${posts.length} blog post${posts.length === 1 ? '' : 's'})`
+p: a.link(href="/blog/") Go back to the blog
