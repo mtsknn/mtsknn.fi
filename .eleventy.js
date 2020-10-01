@@ -31,7 +31,6 @@ module.exports = (config) => {
     },
     files: './_site/main.css',
     ghostMode: false,
-    open: true,
     ui: false,
 
     /* Uncomment this to create a public URL (`something.loca.lt`); useful when
