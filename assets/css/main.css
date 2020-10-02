@@ -117,7 +117,7 @@
   }
 
   .link.link-tag::before {
-    @apply bg-bottom bg-no-repeat h-4 inline-block mr-1 mx-1 w-4;
+    @apply bg-bottom bg-no-repeat h-4 inline-block mr-1 w-4;
     content: '';
     vertical-align: -0.15rem;
 
