@@ -20,9 +20,9 @@ html(lang="en")
 
     link(rel="stylesheet" href="/main.css")
     link(rel="alternate" type="application/rss+xml" href="/blog/feed.xml")
-  body.bg-gray-100.break-words.font-sans
+  body.bg-gray-50.break-words.font-sans
     .max-w-4xl.mx-auto.p-6
-      header.border-b.border-gray-400.mb-6.pb-6(class="md:mb-12")
+      header.border-b.border-gray-300.mb-6.pb-6(class="md:mb-12")
         nav.flex.justify-between(aria-label="Main navigation")
           a.duration-150.font-bold.font-mono.transition-colors(
             aria-label=`mtsknn dot f i ${entity.ndash} go to the front page.`
@@ -36,7 +36,7 @@ html(lang="en")
             span(aria-hidden="true")
               | 👨‍💻 mtsknn
               span.opacity-50 .fi
-          a.duration-150.h-6.text-gray-600.transition-colors.w-6(
+          a.duration-150.h-6.text-gray-500.transition-colors.w-6(
             aria-label="RSS feed (opens in a new window)"
             class="hover:text-red-600 active:text-red-800 xl:mt-px"
             href="/blog/feed.xml"
@@ -60,7 +60,7 @@ html(lang="en")
       main.mb-6.prose(class="md:mb-12 xl:prose-lg")
         block content
           != content
-      footer.border-t.border-gray-400.flex.items-baseline.justify-between.pt-6.text-gray-700.text-sm(
+      footer.border-t.border-gray-300.flex.items-baseline.justify-between.pt-6.text-gray-700.text-sm(
         class="xl:text-base"
       )
         .text-left

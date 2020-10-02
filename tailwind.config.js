@@ -11,23 +11,90 @@ module.exports = {
     },
   },
   theme: {
+    extend: {
+      colors: {
+        // `cool-gray` colors borrowed from `@tailwindcss/ui`. These seem to be
+        // better from accessibility perspective (easier to get high enough
+        // contrasts)
+        gray: {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cfd8e3',
+          400: '#97a6ba',
+          500: '#64748b',
+          600: '#475569',
+          700: '#364152',
+          800: '#27303f',
+          900: '#1a202e',
+        },
+      },
+    },
     typography: (theme) => ({
       default: {
         css: {
-          // The default (`colors.gray.700`) is IMO a bit too light
-          color: theme('colors.gray.800'),
-
-          'ul > li::before': {
-            // The default (`colors.gray.400`) is also a bit too light
-            backgroundColor: theme('colors.gray.500'),
-          },
           'pre code::before': {
-            // Unnecessary
+            // The default (empty string) is unnecessary
             content: 'none',
           },
           'pre code::after': {
-            // Causes an empty line at the end of the code block
+            // The default (empty string) causes an empty line at the end of the
+            // code block
             content: 'none',
+          },
+
+          // Overwrite all colors since we have modified the gray palette
+          color: theme('colors.gray.700'),
+          '[class~="lead"]': {
+            color: theme('colors.gray.700'),
+          },
+          a: {
+            color: theme('colors.gray.900'),
+          },
+          strong: {
+            color: theme('colors.gray.900'),
+          },
+          'ol > li::before': {
+            color: theme('colors.gray.500'), // The default is 600 but too dark
+          },
+          'ul > li::before': {
+            backgroundColor: theme('colors.gray.400'),
+          },
+          hr: {
+            borderColor: theme('colors.gray.300'),
+          },
+          blockquote: {
+            color: theme('colors.gray.900'),
+            borderLeftColor: theme('colors.gray.300'),
+          },
+          h1: {
+            color: theme('colors.gray.900'),
+          },
+          h2: {
+            color: theme('colors.gray.900'),
+          },
+          h3: {
+            color: theme('colors.gray.900'),
+          },
+          h4: {
+            color: theme('colors.gray.900'),
+          },
+          'figure figcaption': {
+            color: theme('colors.gray.600'),
+          },
+          code: {
+            color: theme('colors.gray.900'),
+          },
+          pre: {
+            color: theme('colors.gray.100'), // The default is 300 but too dark
+            backgroundColor: theme('colors.gray.800'),
+          },
+          thead: {
+            color: theme('colors.gray.900'),
+            borderBottomColor: theme('colors.gray.400'),
+          },
+          'tbody tr': {
+            borderBottomColor: theme('colors.gray.300'),
           },
         },
       },
