@@ -5,9 +5,9 @@ mixin post_meta(date, tags = [])
       = datetime.human(date)
 
     if tags.length
-      span.ml-3(aria-hidden="true") &ndash;
+      span.ml-4(aria-hidden="true") &ndash;
       span.sr-only &ndash; Tags:
       ul.inline
         each tag in tags
-          li.inline.list-none.ml-3(class="!pl-0")
-            a.link.link-tag(href=`/blog/tags/${slugify(tag)}/`)= tag
+          li.inline-block.list-none.ml-4.whitespace-no-wrap(class="!my-1 !pl-0")
+            a.link.link-tag.py-1(href=`/blog/tags/${slugify(tag)}/`)= tag
