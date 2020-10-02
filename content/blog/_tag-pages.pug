@@ -10,12 +10,35 @@ pagination:
     - blog_posts
 permalink: '| /blog/tags/#{slugify(tag)}/'
 ---
-h1 Blog posts tagged with "#{tag}"
+//`hashtag` icon by Heroicons (https://heroicons.com/), MIT Licensed
+h1(aria-label=`Blog posts tagged with ${tag}`)
+  .font-bold.mb-4.text-gray-600.text-lg(
+    aria-hidden="true"
+    class="xl:text-xl"
+  ) Blog posts tagged with#{' '}
+  svg.inline-block.mr-1.text-gray-600(
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    class="xl:!w-12"
+    fill="none"
+    stroke="currentColor"
+    style={'vertical-align': '-0.3rem', width: '2rem'}
+    viewBox="0 0 24 24"
+  )
+    path(
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+    )
+  = tag
+
 ol
   each post in [...collections[tag]].reverse()
     li
       a.link(href=post.url)= post.data.title
       | #{' '}(#[span.sr-only published on ]#{datetime.human(post.date)})
+
 p
   a.link(href="/blog/tags/") See all blog tags
   = ' or '

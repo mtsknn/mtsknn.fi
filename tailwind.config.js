@@ -38,6 +38,7 @@ module.exports = {
     margin: ({ after }) => after(['important']),
     padding: ({ after }) => after(['important']),
     textColor: ({ after }) => after(['active', 'important']),
+    width: ({ after }) => after(['important']),
   },
   plugins: [
     require('@tailwindcss/typography'),
