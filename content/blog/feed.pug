@@ -19,8 +19,8 @@ doctype xml
 feed(xmlns="http://www.w3.org/2005/Atom")
   title= metadata.title
   subtitle= metadata.subtitle
-  link(href=`${site.url}${permalink}` rel="self")
-  link(href=`${site.url}/`)
+  link(href=`${site.url}${permalink}` rel="self")/
+  link(href=`${site.url}/`)/
   updated= get_updated_date(latest_post.date)
   id= `${site.url}/`
   author
@@ -30,7 +30,7 @@ feed(xmlns="http://www.w3.org/2005/Atom")
     - const full_url = `${site.url}${post.url}`
     entry
       title= post.data.title
-      link(href=full_url)
+      link(href=full_url)/
       updated= get_updated_date(post.date)
       id= full_url
       content(type="html")
