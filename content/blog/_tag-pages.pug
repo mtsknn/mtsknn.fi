@@ -16,22 +16,23 @@ h1(aria-label=`Blog posts tagged with ${tag}`)
     aria-hidden="true"
     class="xl:mb-4 xl:text-2xl"
   ) Blog posts tagged with#{' '}
-  svg.inline-block.mr-1.text-gray-500(
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-    class="xl:!w-12"
-    fill="none"
-    stroke="currentColor"
-    style={'vertical-align': '-0.3rem', width: '2rem'}
-    viewBox="0 0 24 24"
-  )
-    path(
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+  .pl-10.relative(class="xl:pl-12")
+    svg.absolute.inline-block.left-0.mt-1.mr-1.text-gray-500(
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      class="xl:!w-12"
+      fill="none"
+      stroke="currentColor"
+      style={'vertical-align': '-0.3rem', width: '2rem'}
+      viewBox="0 0 24 24"
     )
-  = tag
+      path(
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+      )
+    div(class="xl:ml-2")= tag
 
 ol
   each post in [...collections[tag]].reverse()
