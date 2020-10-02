@@ -32,7 +32,7 @@ html(lang="en")
       href="/blog/feed.json"
       title=`Blog ${entity.ndash} Matias Kinnunen`
     )
-  body.bg-gray-50.break-words.font-sans
+  body#top.bg-gray-50.break-words.font-sans
     .max-w-4xl.mx-auto.p-6
       header.border-b.border-gray-300.mb-6.pb-6(class="md:mb-12")
         nav.flex.justify-between(aria-label="Main navigation")
@@ -86,6 +86,6 @@ html(lang="en")
         a.duration-150.ml-4.transition-opacity(
           aria-label="Scroll to top"
           class="hover:opacity-75"
-          href="#"
+          href="#top"
         )
           span(aria-hidden="true" title="Scroll to top") 👆
