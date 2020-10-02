@@ -1,20 +1,23 @@
 module.exports = class JsonFeed {
   data() {
-    return {
-      layout: null,
-      eleventyExcludeFromCollections: true,
-      permalink: '/blog/feed.json',
-    }
+    return { permalink: '/blog/feed.json' }
   }
 
-  render({ collections, datetime, entity, md, permalink, site }) {
+  render({
+    collections,
+    description,
+    getFullContent,
+    getPublishedDate,
+    permalink,
+    site,
+    title,
+  }) {
     const json = {
       version: 'https://jsonfeed.org/version/1.1',
-      title: `Blog ${entity.ndash} Matias Kinnunen`,
+      title,
       home_page_url: `${site.url}/`,
       feed_url: `${site.url}${permalink}`,
-      description:
-        'A collection of my wildest adventures involving computers, cats and dragons. 🐱‍🐉',
+      description,
 
       // Maybe add `icon` later. (A picture of me? From the spec: "an image for
       // the feed suitable to be used in a timeline, much the way an avatar
@@ -39,18 +42,9 @@ module.exports = class JsonFeed {
           id: fullUrl,
           url: fullUrl,
           title: post.data.title,
-          content_html:
-            md.render(post.data.intro) +
-            post.templateContent.replace(
-              /<a class="link link-permalink".+<\/a>/g,
-              ''
-            ),
+          content_html: getFullContent(post),
           summary: post.data.meta_description?.trim() || undefined,
-
-          // Blog posts don't have publication times, so let's just hard-code
-          // some value
-          date_published: `${datetime.robot(post.date)}T12:00:00+03:00`,
-
+          date_published: getPublishedDate(post),
           tags: post.data.tags,
         }
       }),
