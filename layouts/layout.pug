@@ -19,7 +19,19 @@ html(lang="en")
     meta(name="theme-color" content="#fc8181")
 
     link(rel="stylesheet" href="/main.css")
-    link(rel="alternate" type="application/atom+xml" href="/blog/feed.xml")
+
+    link(
+      rel="alternate"
+      type="application/atom+xml"
+      href="/blog/feed.xml"
+      title=`Blog ${entity.ndash} Matias Kinnunen`
+    )
+    link(
+      rel="alternate"
+      type="application/json+feed"
+      href="/blog/feed.json"
+      title=`Blog ${entity.ndash} Matias Kinnunen`
+    )
   body.bg-gray-50.break-words.font-sans
     .max-w-4xl.mx-auto.p-6
       header.border-b.border-gray-300.mb-6.pb-6(class="md:mb-12")
