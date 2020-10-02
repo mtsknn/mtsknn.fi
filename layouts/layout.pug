@@ -7,7 +7,7 @@ html(lang="en")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title #{meta_title || title} !{'&ndash;'} mts knn .fi
     link(rel="canonical" href=`${site.url}${page.url}`)
-    if meta_description
+    if (meta_description || '').trim()
       meta(name="description" content=meta_description.trim())
 
     //Favicon formats generated with https://realfavicongenerator.net/ 👍
