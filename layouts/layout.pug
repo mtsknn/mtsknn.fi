@@ -25,12 +25,17 @@ html(lang="en")
       header.border-b.border-gray-400.mb-6.pb-6(class="md:mb-12")
         nav.flex.justify-between(aria-label="Main navigation")
           a.duration-150.font-bold.font-mono.transition-colors(
-            aria-label=("mtsknn.fi &ndash; go to the front page.")
+            aria-label=`mtsknn dot f i ${entity.ndash} go to the front page.`
             class="hover:text-red-600 active:text-red-700 xl:text-lg"
             href="/"
           )
-            | 👨‍💻 mtsknn
-            span.opacity-50 .fi
+            //- Even though the link has an `aria-label`, VoiceOver on iPad
+            //- would sometimes choose one of the two texts below and read it
+            //- instead of the `aria-label`. Thus the `aria-hidden` is required
+            //- even though it seems redundant.
+            span(aria-hidden="true")
+              | 👨‍💻 mtsknn
+              span.opacity-50 .fi
           a.duration-150.h-6.text-gray-600.transition-colors.w-6(
             aria-label="RSS feed (opens in a new window)"
             class="hover:text-red-600 active:text-red-800 xl:mt-px"
@@ -61,8 +66,11 @@ html(lang="en")
         .text-left
           span(aria-hidden="true") 📣#{' '}
           | Let's talk !{'&ndash;'} send a mail to#{' '}
-          a.link.text-gray-800(href="mailto:blog@mtsknn.fi") blog@mtsknn.fi
-          | !
+          a.link.text-gray-800(
+            aria-label="my email address: blog@mtsknn.fi"
+            href="mailto:blog@mtsknn.fi"
+          ) blog@mtsknn.fi
+          span(aria-hidden="true") !
         a.duration-150.ml-4.transition-opacity(
           aria-label="Scroll to top"
           class="hover:opacity-75"

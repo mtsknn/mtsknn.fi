@@ -12,8 +12,9 @@ block content
       .text-sm(class="xl:text-base")
         +post_meta(post.date, post.data.tags)
       != md.render(post.data.intro)
-      a.link.text-sm.tracking-wider.uppercase(href=`${post.url}#continue-reading`)
-        | Continue reading
-        span.sr-only= ` "${post.data.title}"`
+      a.link.text-sm.tracking-wider.uppercase(
+        aria-label=`Continue reading "${post.data.title}"`
+        href=`${post.url}#continue-reading`
+      ) Continue reading
   else
     p No blog posts yet. 🤷‍♂️
