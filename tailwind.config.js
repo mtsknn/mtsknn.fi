@@ -32,18 +32,10 @@ module.exports = {
     },
     typography: (theme) => ({
       default: {
+        // All colors have been overwritten since we have modified the gray
+        // palette. The order of the object keys is the same as in the source:
+        // https://github.com/tailwindlabs/tailwindcss-typography/blob/v0.2.0/src/styles.js
         css: {
-          'pre code::before': {
-            // The default (empty string) is unnecessary
-            content: 'none',
-          },
-          'pre code::after': {
-            // The default (empty string) causes an empty line at the end of the
-            // code block
-            content: 'none',
-          },
-
-          // Overwrite all colors since we have modified the gray palette
           color: theme('colors.gray.700'),
           '[class~="lead"]': {
             color: theme('colors.gray.700'),
@@ -64,8 +56,16 @@ module.exports = {
             borderColor: theme('colors.gray.300'),
           },
           blockquote: {
+            fontWeight: null,
+            fontStyle: null,
             color: theme('colors.gray.900'),
             borderLeftColor: theme('colors.gray.300'),
+          },
+          'blockquote p:first-of-type::before': {
+            content: null,
+          },
+          'blockquote p:last-of-type::after': {
+            content: null,
           },
           h1: {
             color: theme('colors.gray.900'),
@@ -88,6 +88,15 @@ module.exports = {
           pre: {
             color: theme('colors.gray.100'), // The default is 300 but too dark
             backgroundColor: theme('colors.gray.800'),
+          },
+          'pre code::before': {
+            // The default (empty string) is unnecessary
+            content: 'none',
+          },
+          'pre code::after': {
+            // The default (empty string) causes an empty line at the end of the
+            // code block
+            content: 'none',
           },
           thead: {
             color: theme('colors.gray.900'),
