@@ -1,13 +1,14 @@
 {
   "scripts": {
-    "_11ty:build": "npx @11ty/eleventy",
-    "_11ty:watch": "npx @11ty/eleventy --serve",
-    "_css:build": "npm run _tailwind",
-    "_css:watch": "watch \"npm run _tailwind\" ./assets/css/",
-    "_tailwind": "tailwindcss build ./assets/css/main.css -o ./_site/main.css",
-    "build": "cross-env NODE_ENV=production sh -c \"npm run clean && npm run _11ty:build && npm run _css:build\"",
+    "build": "npm run clean && npm run build:11ty && npm run build:css",
+    "build:11ty": "cross-env NODE_ENV=production npx @11ty/eleventy",
+    "build:css": "cross-env NODE_ENV=production npm run tailwind",
     "clean": "rm -rf ./_site/",
-    "start": "cross-env NODE_ENV=development sh -c \"npm run clean && concurrently --names 11ty,css npm:_11ty:watch npm:_css:watch\""
+    "start": "npm run watch",
+    "tailwind": "tailwindcss build ./assets/css/main.css -o ./_site/main.css",
+    "watch": "npm run clean && concurrently --names 11ty,css npm:watch:11ty npm:watch:css",
+    "watch:11ty": "cross-env NODE_ENV=development npx @11ty/eleventy --serve",
+    "watch:css": "cross-env NODE_ENV=development watch \"npm run tailwind\" ./assets/css/"
   },
   "dependencies": {
     "@11ty/eleventy": "^0.11.0",
