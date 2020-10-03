@@ -27,7 +27,7 @@
   h2,
   h3,
   h4 {
-    /* Needed for the styling of permalink links inside headings */
+    /* Needed for the styling of anchor links (permalinks) inside headings */
     @apply relative;
   }
 }
@@ -83,29 +83,35 @@
     content: '' / '(external link)'; /* Supported by most but not FF or Safari */
   }
 
-  /* Need to use two classes here to override the `.prose a` selector */
-  .link.link-permalink {
+  h2 .link-anchor,
+  h3 .link-anchor,
+  h4 .link-anchor {
     @apply ml-3 text-gray-400;
   }
   @screen lg {
-    .link.link-permalink {
-      @apply absolute left-0 -ml-6 top-0;
+    h2 .link-anchor,
+    h3 .link-anchor,
+    h4 .link-anchor {
+      @apply absolute left-0 top-0;
     }
-    h3 .link.link-permalink {
+    h2 .link-anchor {
+      @apply -ml-6;
+    }
+    h3 .link-anchor {
       @apply -ml-5;
     }
-    h4 .link.link-permalink {
+    h4 .link-anchor {
       @apply -ml-4;
     }
   }
   @screen xl {
-    .link.link-permalink {
+    h2 .link-anchor {
       @apply -ml-8;
     }
-    h3 .link.link-permalink {
+    h3 .link-anchor {
       @apply -ml-6;
     }
-    h4 .link.link-permalink {
+    h4 .link-anchor {
       @apply -ml-5;
     }
   }

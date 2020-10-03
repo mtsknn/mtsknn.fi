@@ -10,12 +10,21 @@ const md = markdownIt({ html: true })
       'aria-hidden': 'true',
       title: 'Link to this section',
     }),
-    permalinkClass: 'link link-permalink',
+
+    // `permalinkClass` not set because it would anyway get overridden by the
+    // `link-attributes` plugin
+
     permalinkSpace: false,
     permalinkSymbol: '#',
     slugify,
   })
   .use(require('markdown-it-link-attributes'), [
+    {
+      pattern: /^#/,
+      attrs: {
+        class: 'link link-anchor',
+      },
+    },
     {
       pattern: /^https:\/\/(?!(www\.)?mtsknn\.fi)/,
       attrs: {
@@ -23,14 +32,10 @@ const md = markdownIt({ html: true })
       },
     },
     {
-      // Skip the permalink links created by the `markdown-it-anchor` and
-      // `markdown-it-toc-done-right` plugins because those plugins have their
-      // own similar options (and the values may be different)
-      pattern: /^[^#]/,
       attrs: {
         class: 'link',
       },
-    }
+    },
   ])
   .use(require('markdown-it-toc-done-right'), {
     level: 2,
