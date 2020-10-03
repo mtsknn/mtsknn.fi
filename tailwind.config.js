@@ -84,19 +84,25 @@ module.exports = {
           },
           code: {
             color: theme('colors.gray.900'),
+            fontWeight: null,
+
+            backgroundColor: theme('colors.gray.200'),
+            borderRadius: theme('borderRadius.default'),
+            padding: `${theme('padding.px')} ${theme('padding.1')}`,
+            whiteSpace: 'nowrap',
+          },
+          'code::before': {
+            content: null,
+          },
+          'code::after': {
+            content: null,
           },
           pre: {
             color: theme('colors.gray.100'), // The default is 300 but too dark
             backgroundColor: theme('colors.gray.800'),
           },
-          'pre code::before': {
-            // The default (empty string) is unnecessary
-            content: 'none',
-          },
-          'pre code::after': {
-            // The default (empty string) causes an empty line at the end of the
-            // code block
-            content: 'none',
+          'pre code': {
+            whiteSpace: 'pre',
           },
           thead: {
             color: theme('colors.gray.900'),
