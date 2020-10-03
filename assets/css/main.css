@@ -3,12 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      scroll-behavior: smooth;
-    }
-  }
-
   ::selection {
     @apply bg-red-200;
   }
