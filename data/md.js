@@ -26,7 +26,7 @@ const md = markdownIt({ html: true })
       },
     },
     {
-      pattern: /^https:\/\/(?!(www\.)?mtsknn\.fi)/,
+      pattern: /^https?:\/\/(?!mtsknn\.fi)/,
       attrs: {
         class: 'link link-external',
       },
