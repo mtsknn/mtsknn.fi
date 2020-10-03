@@ -1,13 +1,13 @@
 ---
 title: The `default` case of a `switch` statement doesn't have to be the last one
 date: 2020-10-03
-meta_description: Sometimes it even makes sense to have the `default` case as the first case. Let's see how.
+meta_description: Sometimes it even makes sense to have the `default` case at the beginning or in the middle. Let's see how.
 tags:
   - Clean code
 intro: |
   Sometimes it even makes sense
-  to have the `default` case as the first case
-  or even in the middle.
+  to have the `default` case at the beginning
+  or in the middle.
   Let's see how.
 ---
 
@@ -308,7 +308,8 @@ switch (color) {
 ```
 
 This is now similar to supercat's
-"alternative arrangement [of the state machine where] an invalid state should not reset the machine but should be readily identifiable as an invalid state":
+"alternative arrangement [of the state machine where] an invalid state should not reset the machine
+but should be readily identifiable as an invalid state":
 
 ```c
 switch (widget_state)
