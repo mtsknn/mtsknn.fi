@@ -1,13 +1,10 @@
 ---
 layout: layout
 pagination:
-  data: collections
+  data: collections.blog_tags
   addAllPagesToCollections: true
   size: 1
   alias: tag
-  filter:
-    - all
-    - blog_posts
 permalink: '| /blog/tags/#{slugify(tag)}/'
 eleventyComputed:
   meta_description: '| Blog posts tagged with "#{tag}."'

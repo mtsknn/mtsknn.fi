@@ -7,6 +7,12 @@ module.exports = (config) => {
   config.addCollection('blog_posts', (collection) =>
     collection.getFilteredByGlob('./content/blog/**/*.md').reverse()
   )
+  config.addCollection('blog_tags', (collection) => {
+    const tags = new Set(
+      collection.getAll().flatMap((item) => item.data.tags || [])
+    )
+    return [...tags].sort()
+  })
 
   config.addPassthroughCopy({ './assets/favicon/': '/' })
 
