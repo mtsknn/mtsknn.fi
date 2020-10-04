@@ -38,7 +38,8 @@ ol
   each post in [...collections[tag]].reverse()
     li
       a.link(href=post.url)= post.data.title
-      | #{' '}(#[span.sr-only published on ]#{datetime.human(post.date)})
+      span.whitespace-no-wrap
+        | #{' '}(#[span.sr-only published on ]#{datetime.human(post.date)})
 
 p
   a.link(href="/blog/tags/") See all blog tags
