@@ -11,3 +11,10 @@ mixin postMeta(date, tags = [])
         each tag in tags
           li.inline-block.list-none.ml-4.whitespace-no-wrap(class="!my-1 !pl-0")
             a.link.link-tag.py-1(href=`/blog/tags/${slugify(tag)}/`)= tag
+
+mixin skipLink(text, href, classes = '')
+  .absolute.z-10
+    a.bg-orange-300.font-bold.inline-block.rounded.sr-only.underline(
+      class=`!text-black focus:px-6 focus:py-4 focus:not-sr-only ${classes}`
+      href=href
+    )= text

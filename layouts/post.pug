@@ -14,11 +14,20 @@ block content
     if content.startsWith('<nav class="table-of-contents">')
       h2.tracking-widest.uppercase(class="!text-base !text-gray-700 xl:!text-lg")
         | Table of contents
+      +skipLink('Skip table of contents', '#skip-toc')
+
       -
         // Ugly hack :-)
-        content = content
+        const modifiedContent = content
           .replace('<nav', '<nav aria-label="Table of contents"')
-          .replace('</nav>', '</nav><hr aria-hidden="true">')
-      != content
+          .replace(
+            '</nav>',
+            `
+              </nav>
+              <hr aria-hidden="true" class="!mb-0">
+              <div id="skip-toc"></div>
+            `
+          )
+      != modifiedContent
     else
       != content

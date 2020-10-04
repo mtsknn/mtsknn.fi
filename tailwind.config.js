@@ -115,10 +115,12 @@ module.exports = {
       },
     }),
   },
+  // https://tailwindcss.com/docs/configuring-variants#ordering-variants
+  // https://tailwindcss.com/docs/configuring-variants#default-variants-reference
   variants: {
     fontSize: ({ after }) => after(['important']),
     margin: ({ after }) => after(['important']),
-    padding: ({ after }) => after(['important']),
+    padding: ({ after }) => after(['focus', 'important']),
     textColor: ({ after }) => after(['active', 'important']),
     width: ({ after }) => after(['important']),
   },

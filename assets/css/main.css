@@ -33,6 +33,12 @@
 }
 
 @layer components {
+  @screen xl {
+    .main-skip-link {
+      margin-left: -100% !important;
+    }
+  }
+
   .prose .list-none::before {
     content: none;
   }
