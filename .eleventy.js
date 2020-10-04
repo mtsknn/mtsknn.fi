@@ -1,15 +1,19 @@
-const fs = require('fs')
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
+const fs = require('fs')
 
 const md = require('./data/md')
+const { isDraftOrScheduledPost, isProd } = require('./data/utils')
 
 module.exports = (config) => {
-  config.addCollection('blogPosts', (collection) =>
-    collection.getFilteredByGlob('./content/blog/**/*.md').reverse()
+  config.addCollection('blogPosts', (collections) =>
+    collections
+      .getFilteredByGlob('./content/blog/**/*.md')
+      .filter((page) => isProd() ? !isDraftOrScheduledPost(page.data) : true)
+      .reverse()
   )
-  config.addCollection('blogTags', (collection) => {
+  config.addCollection('blogTags', (collections) => {
     const tags = new Set(
-      collection.getAll().flatMap((item) => item.data.tags || [])
+      collections.getAll().flatMap((item) => item.data.tags || [])
     )
     return [...tags].sort()
   })

@@ -1,9 +1,13 @@
 mixin postMeta(date, tags = [])
+  - const isScheduled = date > Date.now()
+
   .text-gray-600
     span.sr-only Published on#{' '}
     time.border-gray-300.border-r-2.pr-4.tracking-wider.uppercase(
       datetime=datetime.robot(date)
     )
+      if isScheduled
+        span.pr-2(aria-hidden="true" title="Scheduled") ⌚
       = datetime.human(date)
 
     if tags.length
