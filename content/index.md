@@ -1,8 +1,8 @@
 ---
 layout: home
 title: Hell-o! 👋 I'm Matias
-meta_description: Here be dragons, and cats 🐱‍🐉
-meta_title: Matias Kinnunen
+metaDescription: Here be dragons, and cats 🐱‍🐉
+metaTitle: Matias Kinnunen
 ---
 
 I'm a web developer from Oulu, Finland.

@@ -1,14 +1,14 @@
 ---
 layout: layout
 pagination:
-  data: collections.blog_tags
+  data: collections.blogTags
   addAllPagesToCollections: true
   size: 1
   alias: tag
 permalink: '| /blog/tags/#{slugify(tag)}/'
 eleventyComputed:
-  meta_description: '| Blog posts tagged with "#{tag}."'
-  meta_title: '| ##{tag}'
+  metaDescription: '| Blog posts tagged with "#{tag}."'
+  metaTitle: '| ##{tag}'
 ---
 //`hashtag` icon by Heroicons (https://heroicons.com/), MIT Licensed
 h1(aria-label=`Blog posts tagged with ${tag}`)

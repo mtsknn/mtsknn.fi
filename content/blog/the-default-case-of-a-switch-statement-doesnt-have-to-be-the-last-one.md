@@ -1,7 +1,7 @@
 ---
 title: The `default` case of a `switch` statement doesn't have to be the last one
 date: 2020-10-03
-meta_description: Sometimes it even makes sense to have the `default` case at the beginning or in the middle. Let's see how.
+metaDescription: Sometimes it even makes sense to have the `default` case at the beginning or in the middle. Let's see how.
 tags:
   - Clean code
 intro: |

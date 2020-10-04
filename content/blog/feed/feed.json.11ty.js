@@ -36,14 +36,14 @@ module.exports = class JsonFeed {
         },
       ],
       language: 'en-US',
-      items: collections.blog_posts.map((post) => {
+      items: collections.blogPosts.map((post) => {
         const fullUrl = `${site.url}${post.url}`
         return {
           id: fullUrl,
           url: fullUrl,
           title: post.data.title,
           content_html: getFullContent(post),
-          summary: post.data.meta_description?.trim() || undefined,
+          summary: post.data.metaDescription?.trim() || undefined,
           date_published: getPublishedDate(post),
           tags: post.data.tags,
         }

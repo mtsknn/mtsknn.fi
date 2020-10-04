@@ -6,11 +6,11 @@ block content
   .lead!= content
 
   h2 Coolest articles, hot off the press
-  each post in collections.blog_posts
+  each post in collections.blogPosts
     article
       h3: a.link(href=post.url)= post.data.title
       .text-sm(class="xl:text-base")
-        +post_meta(post.date, post.data.tags)
+        +postMeta(post.date, post.data.tags)
       != md.render(post.data.intro)
       a.link.text-sm.tracking-wider.uppercase(
         aria-label=`Continue reading "${post.data.title}"`

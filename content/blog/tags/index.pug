@@ -1,12 +1,12 @@
 ---
 layout: layout
 title: All blog tags
-meta_description: Listing of all blog tags.
+metaDescription: Listing of all blog tags.
 ---
 h1= title
 
 ul
-  each tag in collections.blog_tags
+  each tag in collections.blogTags
     -
       const count = collections.all.filter(
         (item) => (item.data.tags || []).includes(tag)

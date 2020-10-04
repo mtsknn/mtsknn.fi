@@ -1,7 +1,7 @@
 ---
 title: How to remember Markdown's link syntax
 date: 2020-09-28
-meta_description: |
+metaDescription: |
   What was it again, `[text](url)` or `(text)[url]`? Spoiler: it's the former since it looks like a function call.
 tags:
   - Markdown

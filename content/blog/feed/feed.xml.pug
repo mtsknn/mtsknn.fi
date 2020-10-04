@@ -2,7 +2,7 @@
 dynamicPermalink: false # Don't parse `permalink` using Pug
 permalink: /blog/feed.xml
 ---
-- const latest_post = collections.blog_posts[collections.blog_posts.length - 1]
+- const latestPost = collections.blogPosts[collections.blogPosts.length - 1]
 
 doctype xml
 feed(xmlns="http://www.w3.org/2005/Atom")
@@ -10,16 +10,16 @@ feed(xmlns="http://www.w3.org/2005/Atom")
   subtitle= description
   link(href=`${site.url}${permalink}` rel="self")/
   link(href=`${site.url}/`)/
-  updated= getPublishedDate(latest_post)
+  updated= getPublishedDate(latestPost)
   id= `${site.url}/`
   author
     name Matias Kinnunen
     email blog@mtsknn.fi
-  each post in collections.blog_posts
-    - const full_url = `${site.url}${post.url}`
+  each post in collections.blogPosts
+    - const fullUrl = `${site.url}${post.url}`
     entry
       title= post.data.title
-      link(href=full_url)/
+      link(href=fullUrl)/
       updated= getPublishedDate(post)
-      id=full_url
+      id= fullUrl
       content(type="html")= getFullContent(post)

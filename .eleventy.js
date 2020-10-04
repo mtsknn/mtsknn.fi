@@ -4,10 +4,10 @@ const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const md = require('./data/md')
 
 module.exports = (config) => {
-  config.addCollection('blog_posts', (collection) =>
+  config.addCollection('blogPosts', (collection) =>
     collection.getFilteredByGlob('./content/blog/**/*.md').reverse()
   )
-  config.addCollection('blog_tags', (collection) => {
+  config.addCollection('blogTags', (collection) => {
     const tags = new Set(
       collection.getAll().flatMap((item) => item.data.tags || [])
     )
