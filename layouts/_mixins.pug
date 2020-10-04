@@ -1,11 +1,12 @@
 mixin postMeta(date, tags = [])
   .text-gray-600
     span.sr-only Published on#{' '}
-    time.tracking-wider.uppercase(datetime=datetime.robot(date))
+    time.border-gray-300.border-r-2.pr-4.tracking-wider.uppercase(
+      datetime=datetime.robot(date)
+    )
       = datetime.human(date)
 
     if tags.length
-      span.ml-4(aria-hidden="true") &ndash;
       span.sr-only &ndash; Tags:
       ul.inline
         each tag in tags
