@@ -1,0 +1,3 @@
+[submodule "private blog posts"]
+	path = content/blog/posts/private
+	url = git@github.com:mtsknn/blog-posts.git

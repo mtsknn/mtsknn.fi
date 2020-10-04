@@ -10,7 +10,10 @@ module.exports = {
     permalink: (data) =>
       isProd() && isDraftOrScheduledPost(data)
         ? false
-        : data.page.filePathStem.replace('/blog/posts/', '/blog/') + '/',
+        : data.page.filePathStem.replace(
+            new RegExp('/blog/posts/(private/)?'),
+            '/blog/'
+          ) + '/',
   },
   layout: 'post.pug',
 }
