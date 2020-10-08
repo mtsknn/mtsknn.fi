@@ -115,6 +115,9 @@ module.exports = {
         },
       },
     }),
+    debugScreens: {
+      position: ['bottom', 'right'],
+    },
   },
   // https://tailwindcss.com/docs/configuring-variants#ordering-variants
   // https://tailwindcss.com/docs/configuring-variants#default-variants-reference
@@ -128,5 +131,6 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('tailwindcss-important')(),
+    require('tailwindcss-debug-screens'),
   ],
 }

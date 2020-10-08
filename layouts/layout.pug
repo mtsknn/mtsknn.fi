@@ -32,7 +32,9 @@ html(lang="en")
       href="/blog/feed.json"
       title=`Blog ${entity.ndash} Matias Kinnunen`
     )
-  body#top.bg-gray-50.break-words.font-sans
+  body#top.bg-gray-50.break-words.font-sans(
+    class={ 'debug-screens': process.env.NODE_ENV === 'development' }
+  )
     .max-w-4xl.mx-auto.p-6
       +skipLink('Skip to content', '#main', 'main-skip-link xl:!mr-6')
 

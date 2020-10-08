@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
+    "tailwindcss-debug-screens": "^1.1.0",
     "watch": "^1.0.2"
   }
 }
