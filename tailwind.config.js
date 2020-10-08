@@ -90,7 +90,7 @@ module.exports = {
             backgroundColor: theme('colors.gray.200'),
             borderRadius: theme('borderRadius.default'),
             padding: `${theme('padding.px')} ${theme('padding.1')}`,
-            whiteSpace: 'nowrap',
+            whiteSpace: 'break-spaces',
           },
           'code::before': {
             content: null,
