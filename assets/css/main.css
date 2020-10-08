@@ -39,6 +39,13 @@
     }
   }
 
+  .prose > * {
+    max-width: 65ch;
+  }
+  .prose > pre {
+    @apply max-w-none;
+  }
+
   .prose .list-none::before {
     content: none;
   }

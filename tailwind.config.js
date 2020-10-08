@@ -37,6 +37,7 @@ module.exports = {
         // https://github.com/tailwindlabs/tailwindcss-typography/blob/v0.2.0/src/styles.js
         css: {
           color: theme('colors.gray.700'),
+          maxWidth: null,
           '[class~="lead"]': {
             color: theme('colors.gray.700'),
           },

@@ -1,23 +1,24 @@
 extends ./layout
 
 block content
-  h1= title
+  .prose(class="xl:prose-lg")
+    h1= title
 
-  .lead!= content
+    .lead!= content
 
-  h2 Coolest articles, hot off the press
-  each post in [...collections.blogPosts].sort((a, b) => a.data.draft === b.data.draft ? 0 : (a.data.draft ? -1 : 1))
-    article
-      h3
-        if post.data.draft
-          span.pr-3(aria-hidden="true" title="Draft") ✏
-        a.link(href=post.url)= post.data.title
-      .text-sm(class="xl:text-base")
-        +postMeta(post.date, post.data.tags)
-      != md.render(post.data.intro)
-      a.link.text-sm.tracking-wider.uppercase(
-        aria-label=`Continue reading "${post.data.title}"`
-        href=`${post.url}#continue-reading`
-      ) Continue reading
-  else
-    p No blog posts yet. 🤷‍♂️
+    h2 Coolest articles, hot off the press
+    each post in [...collections.blogPosts].sort((a, b) => a.data.draft === b.data.draft ? 0 : (a.data.draft ? -1 : 1))
+      article
+        h3
+          if post.data.draft
+            span.pr-3(aria-hidden="true" title="Draft") ✏
+          a.link(href=post.url)= post.data.title
+        .text-sm(class="xl:text-base")
+          +postMeta(post.date, post.data.tags)
+        != md.render(post.data.intro)
+        a.link.text-sm.tracking-wider.uppercase(
+          aria-label=`Continue reading "${post.data.title}"`
+          href=`${post.url}#continue-reading`
+        ) Continue reading
+    else
+      p No blog posts yet. 🤷‍♂️

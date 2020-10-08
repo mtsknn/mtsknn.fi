@@ -72,9 +72,9 @@ html(lang="en")
                 stroke-width="2"
                 d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z"
               )
-      main#main.mb-6.prose.pt-6(class="md:mb-12 md:pt-12 xl:prose-lg")
+      main#main.mb-6.pt-6(class="md:mb-12 md:pt-12")
         block content
-          != content
+          .prose(class="xl:prose-lg")!= content
       footer.border-t.border-gray-300.flex.items-baseline.justify-between.pt-6.text-gray-700.text-sm(
         class="xl:text-base"
       )
