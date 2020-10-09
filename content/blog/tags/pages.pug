@@ -8,7 +8,7 @@ pagination:
 permalink: '| /blog/tags/#{slugify(tag)}/'
 eleventyComputed:
   metaDescription: '| Blog posts tagged with "#{tag}."'
-  metaTitle: '| ##{tag}'
+  metaTitle: '| #{tag} posts'
 ---
 //`hashtag` icon by Heroicons (https://heroicons.com/), MIT Licensed
 h1(aria-label=`Blog posts tagged with ${tag}`)
