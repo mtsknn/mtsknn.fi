@@ -23,3 +23,22 @@ mixin skipLink(text, href, classes = '')
       class=`!text-black focus:px-6 focus:py-4 focus:not-sr-only ${classes}`
       href=href
     )= text
+
+mixin toc(html)
+  mixin list(items)
+    ol
+      each item in items
+        li
+          a.link(href=item.href)!= item.content
+          if item.subItems.length > 0
+            +list(item.subItems)
+
+  - const items = getTocItems(html)
+  if items.length > 0
+    h2.tracking-widest.uppercase(class="!text-base !text-gray-700 xl:!text-lg")
+      | Table of contents
+    +skipLink('Skip table of contents', '#skip-toc')
+    nav(aria-label="Table of contents")
+      +list(items)
+    hr(aria-hidden="true" class="!mb-0")
+    #skip-toc

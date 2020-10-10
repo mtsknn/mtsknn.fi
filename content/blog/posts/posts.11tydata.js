@@ -16,4 +16,5 @@ module.exports = {
           ) + '/',
   },
   layout: 'post.pug',
+  toc: true,
 }

@@ -20,12 +20,8 @@ tags:
   - Clean code
   - Markdown
   - Et cetera
+toc: true # Set to `false` to not include table of contents at the beginning. Default is `true`
 ---
 
-[[toc]]
-
-The `[[toc]]` above prints a table of contents.
-Optional, has to be the first thing in the post body.
-
-The rest of the post body goes here.
+The post body goes here.
 Go wild!

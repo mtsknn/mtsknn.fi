@@ -37,11 +37,6 @@ const md = markdownIt({ html: true })
       },
     },
   ])
-  .use(require('markdown-it-toc-done-right'), {
-    level: 2,
-    linkClass: 'link',
-    slugify,
-  })
 
 // Since Pug filters don't support dynamic data (e.g. `:md= post.data.intro`),
 // let's instead export the whole `markdown-it` parser. This is also used in the
