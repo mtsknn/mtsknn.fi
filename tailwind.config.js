@@ -105,6 +105,12 @@ module.exports = {
           'pre code': {
             whiteSpace: 'pre',
           },
+          'pre code::before': {
+            content: null,
+          },
+          'pre code::after': {
+            content: null,
+          },
           thead: {
             color: theme('colors.gray.900'),
             borderBottomColor: theme('colors.gray.400'),
