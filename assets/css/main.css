@@ -197,9 +197,9 @@
       @apply px-5;
     }
   }
-  .highlight-line::after {
-    /* Without this, empty highlighted lines wouldn't be highlighted */
-    content: '';
+  .highlight-line:empty::before {
+    /* Enable highlighting empty lines */
+    content: ' ';
   }
   .highlight-line-active,
   .highlight-line-add,
