@@ -20,8 +20,8 @@
      * high-contrast themes. See https://stackoverflow.com/a/52616313 */
     outline: transparent dotted 2px;
 
-    box-decoration-break: clone;
     @apply shadow-outline;
+    box-decoration-break: clone;
   }
 
   h2,
@@ -57,17 +57,16 @@
     text-decoration-thickness: 2px;
     transition-property: color, text-decoration-color;
   }
-  h1 .link,
-  h2 .link,
-  h3 .link {
-    text-decoration-thickness: 3px;
-  }
   a.link:hover {
     @apply text-red-600;
   }
   a.link:active {
-    @apply text-red-800;
     text-decoration-color: theme('colors.red.600');
+  }
+  h1 .link,
+  h2 .link,
+  h3 .link {
+    text-decoration-thickness: 3px;
   }
 
   /* O'boy how difficult it was to find a solid technique for adding an external
@@ -99,34 +98,16 @@
   h2 .link-anchor,
   h3 .link-anchor,
   h4 .link-anchor {
-    @apply ml-3 text-gray-400;
+    @apply ml-3 text-gray-400 lg:absolute lg:left-0 lg:top-0;
   }
-  @screen lg {
-    h2 .link-anchor,
-    h3 .link-anchor,
-    h4 .link-anchor {
-      @apply absolute left-0 top-0;
-    }
-    h2 .link-anchor {
-      @apply -ml-6;
-    }
-    h3 .link-anchor {
-      @apply -ml-5;
-    }
-    h4 .link-anchor {
-      @apply -ml-4;
-    }
+  h2 .link-anchor {
+    @apply lg:-ml-6 xl:-ml-8;
   }
-  @screen xl {
-    h2 .link-anchor {
-      @apply -ml-8;
-    }
-    h3 .link-anchor {
-      @apply -ml-6;
-    }
-    h4 .link-anchor {
-      @apply -ml-5;
-    }
+  h3 .link-anchor {
+    @apply lg:-ml-5 xl:-ml-6;
+  }
+  h4 .link-anchor {
+    @apply lg:-ml-4 xl:-ml-5;
   }
 
   .link.link-tag::before {
@@ -185,27 +166,16 @@
     color: #9fa6b2; /* gray */
   }
 
-  .prose pre {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
   .highlight-line {
-    @apply inline-block min-w-full px-4;
-  }
-  @screen xl {
-    .highlight-line {
-      @apply px-5;
-    }
+    @apply inline-block min-w-full px-4 xl:px-5;
+
+    /* `<del>`, `<ins>`, `<mark>` default styles */
+    @apply no-underline;
+    color: inherit;
   }
   .highlight-line:empty::before {
     /* Enable highlighting empty lines */
     content: ' ';
-  }
-  .highlight-line-active,
-  .highlight-line-add,
-  .highlight-line-remove {
-    @apply no-underline;
-    color: inherit;
   }
   .highlight-line-active {
     @apply bg-gray-700;

@@ -1,4 +1,7 @@
 module.exports = {
+  experimental: {
+    applyComplexClasses: true,
+  },
   future: {
     purgeLayersByDefault: true,
     removeDeprecatedGapUtilities: true,
@@ -110,6 +113,11 @@ module.exports = {
           pre: {
             color: theme('colors.gray.100'), // The default is 300 but too dark
             backgroundColor: theme('colors.gray.800'),
+
+            // Remove horizontal padding; it's added for each line
+            // (`span.highligh-line`) in `main.css`
+            paddingLeft: null,
+            paddingRight: null,
           },
           'pre code': {
             whiteSpace: 'pre',
@@ -126,6 +134,38 @@ module.exports = {
           },
           'tbody tr': {
             borderBottomColor: theme('colors.gray.300'),
+          },
+        },
+      },
+      sm: {
+        css: {
+          pre: {
+            paddingLeft: null,
+            paddingRight: null,
+          },
+        },
+      },
+      lg: {
+        css: {
+          pre: {
+            paddingLeft: null,
+            paddingRight: null,
+          },
+        },
+      },
+      xl: {
+        css: {
+          pre: {
+            paddingLeft: null,
+            paddingRight: null,
+          },
+        },
+      },
+      '2xl': {
+        css: {
+          pre: {
+            paddingLeft: null,
+            paddingRight: null,
           },
         },
       },
