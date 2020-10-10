@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@11ty/eleventy": "^0.11.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.2",
+    "@11ty/eleventy-plugin-syntaxhighlight": "git+https://github.com/mtsknn/eleventy-plugin-syntaxhighlight.git#53afb22",
     "@tailwindcss/typography": "^0.2.0",
     "cross-env": "^7.0.2",
     "light-date": "^1.1.3",
