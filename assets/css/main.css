@@ -125,6 +125,9 @@
     }
   }
 
+  pre {
+    @apply -mx-6 sm:mx-0 sm:rounded-md;
+  }
   pre code {
     @apply inline-block min-w-full;
   }

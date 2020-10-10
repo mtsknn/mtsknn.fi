@@ -113,6 +113,7 @@ module.exports = {
           pre: {
             color: theme('colors.gray.100'), // The default is 300 but too dark
             backgroundColor: theme('colors.gray.800'),
+            borderRadius: null,
 
             // Remove horizontal padding; it's added for each line
             // (`span.highligh-line`) in `main.css`
@@ -140,6 +141,7 @@ module.exports = {
       sm: {
         css: {
           pre: {
+            borderRadius: null,
             paddingLeft: null,
             paddingRight: null,
           },
@@ -148,6 +150,7 @@ module.exports = {
       lg: {
         css: {
           pre: {
+            borderRadius: null,
             paddingLeft: null,
             paddingRight: null,
           },
@@ -156,6 +159,7 @@ module.exports = {
       xl: {
         css: {
           pre: {
+            borderRadius: null,
             paddingLeft: null,
             paddingRight: null,
           },
@@ -164,6 +168,7 @@ module.exports = {
       '2xl': {
         css: {
           pre: {
+            borderRadius: null,
             paddingLeft: null,
             paddingRight: null,
           },
