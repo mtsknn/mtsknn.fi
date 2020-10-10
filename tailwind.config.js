@@ -1,8 +1,14 @@
 module.exports = {
   future: {
-    removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
+    removeDeprecatedGapUtilities: true,
   },
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('tailwindcss-important')(),
+    process.env.NODE_ENV === 'development'
+      && require('tailwindcss-debug-screens'),
+  ],
   purge: {
     content: ['./_site/**/*.html'],
     options: {
@@ -11,6 +17,9 @@ module.exports = {
     },
   },
   theme: {
+    debugScreens: {
+      position: ['bottom', 'right'],
+    },
     extend: {
       colors: {
         // `cool-gray` colors borrowed from `@tailwindcss/ui`. These seem to be
@@ -121,9 +130,6 @@ module.exports = {
         },
       },
     }),
-    debugScreens: {
-      position: ['bottom', 'right'],
-    },
   },
   // https://tailwindcss.com/docs/configuring-variants#ordering-variants
   // https://tailwindcss.com/docs/configuring-variants#default-variants-reference
@@ -134,10 +140,4 @@ module.exports = {
     textColor: ({ after }) => after(['active', 'important']),
     width: ({ after }) => after(['important']),
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-    require('tailwindcss-important')(),
-    process.env.NODE_ENV === 'development'
-      && require('tailwindcss-debug-screens'),
-  ],
 }
