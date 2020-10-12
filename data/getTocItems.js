@@ -28,15 +28,16 @@ module.exports = () => (html) => {
   )
 
   function createItem(heading) {
-    // Ignore the anchor link (last child)
+    // Ignore the anchor link (last child node)
     const nodes = [...heading.childNodes].slice(0, -1)
 
-    const html = nodes
-      .map((node) => node.outerHTML || node.textContent)
-      .join('')
+    const html = nodes.reduce(
+      (result, node) => result + (node.outerHTML || node.textContent),
+      ''
+    )
 
-    const text = nodes.map((node) => node.textContent).join('')
-    const slug = getUniqueSlug(slugify(text))
+    const text = nodes.reduce((result, node) => result + node.textContent, '')
+    const slug = getUniqueSlug(text)
 
     return {
       content: html,
@@ -45,7 +46,9 @@ module.exports = () => (html) => {
     }
   }
 
-  function getUniqueSlug(slug) {
+  function getUniqueSlug(text) {
+    const slug = slugify(text)
+
     let uniqueSlug = slug
     let i = 1
 
