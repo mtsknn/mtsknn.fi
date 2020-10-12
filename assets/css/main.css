@@ -182,15 +182,14 @@
   /* Syntax highlighting colors borrowed from https://blog.tailwindcss.com. See:
    * - https://github.com/tailwindlabs/blog.tailwindcss.com/blob/39d37c/next.config.js#L8-L20
    * - https://github.com/tailwindlabs/blog.tailwindcss.com/blob/39d37c/tailwind.config.js#L42-L51
-   *
-   * (I added the `.token.url` selector to make Markdown snippets look better.)
    */
-  .token.tag,
+  .token.boolean,
   .token.deleted,
-  .token.boolean {
+  .token.tag {
     color: #ff8383; /* red */
   }
-  .token.attr-name {
+  .token.attr-name,
+  .token.selector {
     color: #ffe484; /* yellow */
   }
   .token.attr-value,
@@ -202,11 +201,9 @@
   .token.punctuation {
     @apply text-white;
   }
-  .token.keyword {
+  .token.keyword,
+  .token.property {
     color: #d9a9ff; /* purple */
-  }
-  .token.string {
-    color: #b5f4a5; /* green */
   }
   .token.function {
     color: #93ddfd; /* blue */
