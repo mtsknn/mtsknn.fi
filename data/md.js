@@ -1,6 +1,6 @@
 const markdownIt = require('markdown-it')
 
-const slugify = require('./slugify')()
+const { slugify } = require('./slugify')
 
 const md = markdownIt({ html: true })
   .use(require('markdown-it-anchor'), {

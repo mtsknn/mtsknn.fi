@@ -1,6 +1,6 @@
 const { JSDOM } = require('jsdom')
 
-const slugify = require('../data/slugify')()
+const { slugify } = require('./slugify')
 
 // "If you return a `function`, we'll use the return value from that function."
 // Source: https://www.11ty.dev/docs/data-js/
