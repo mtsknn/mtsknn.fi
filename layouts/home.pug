@@ -1,13 +1,18 @@
 extends ./layout
 
 block content
+  -
+    const posts = [...collections.blogPosts].sort((a, b) =>
+      a.data.draft === b.data.draft ? 0 : (a.data.draft ? -1 : 1)
+    )
+
   .prose(class="xl:prose-lg")
     h1= title
 
     .lead!= content
 
     h2 Coolest articles, hot off the press
-    each post in [...collections.blogPosts].sort((a, b) => a.data.draft === b.data.draft ? 0 : (a.data.draft ? -1 : 1))
+    each post, i in posts
       article
         h3
           if post.data.draft
@@ -20,5 +25,7 @@ block content
           aria-label=`Continue reading "${post.data.title}"`
           href=`${post.url}#continue-reading`
         ) Continue reading
+      if i !== posts.length - 1
+        hr
     else
       p No blog posts yet. 🤷‍♂️
