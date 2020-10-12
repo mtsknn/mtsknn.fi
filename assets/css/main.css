@@ -98,16 +98,63 @@
   h2 .link-anchor,
   h3 .link-anchor,
   h4 .link-anchor {
-    @apply ml-3 text-gray-400 lg:absolute lg:left-0 lg:top-0;
+    @apply ml-3 text-gray-400;
   }
-  h2 .link-anchor {
-    @apply lg:-ml-6 xl:-ml-8;
+  .link-anchor svg {
+    @apply inline;
+    vertical-align: calc(-1 * theme('spacing.1'));
   }
-  h3 .link-anchor {
-    @apply lg:-ml-5 xl:-ml-6;
+  h2 .link-anchor svg {
+    width: theme('spacing.6') !important;
   }
-  h4 .link-anchor {
-    @apply lg:-ml-4 xl:-ml-5;
+  h3 .link-anchor svg {
+    width: theme('spacing.5') !important;
+  }
+  h4 .link-anchor svg {
+    width: theme('spacing.4') !important;
+  }
+  @screen lg {
+    h2 .link-anchor,
+    h3 .link-anchor,
+    h4 .link-anchor {
+      @apply absolute top-0;
+      left: calc(-1 * theme('spacing.2'));
+    }
+    h2 .link-anchor {
+      @apply -ml-6 mt-1;
+    }
+    h3 .link-anchor {
+      @apply -ml-5;
+      margin-top: calc(theme('spacing.2') - 0.1rem);
+    }
+    h4 .link-anchor {
+      @apply -ml-4 mt-1;
+    }
+  }
+  @screen xl {
+    h2 .link-anchor,
+    h3 .link-anchor,
+    h4 .link-anchor {
+      left: calc(-1 * theme('spacing.3'));
+    }
+    h2 .link-anchor {
+      @apply -ml-8;
+    }
+    h3 .link-anchor {
+      @apply -ml-6;
+    }
+    h4 .link-anchor {
+      @apply -ml-5;
+    }
+    h2 .link-anchor svg {
+      width: theme('spacing.8') !important;
+    }
+    h3 .link-anchor svg {
+      width: theme('spacing.6') !important;
+    }
+    h4 .link-anchor svg {
+      width: theme('spacing.5') !important;
+    }
   }
 
   .link.link-tag::before {

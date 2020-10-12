@@ -6,17 +6,14 @@ const md = markdownIt({ html: true })
   .use(require('markdown-it-anchor'), {
     level: 2,
     permalink: true,
-    permalinkAttrs: () => ({
-      'aria-hidden': 'true',
-      title: 'Link to this section',
-    }),
+    permalinkSpace: false,
+    slugify,
 
     // `permalinkClass` not set because it would anyway get overridden by the
     // `link-attributes` plugin
 
-    permalinkSpace: false,
-    permalinkSymbol: '#',
-    slugify,
+    // `permalinkSymbol` not set because the link's contents are replaced by the
+    // `heading-anchor-links` transform
   })
   .use(require('markdown-it-link-attributes'), [
     {

@@ -3,6 +3,7 @@ const fs = require('fs')
 
 const md = require('./data/md')
 const { isDraftOrScheduledPost, isProd } = require('./data/utils')
+const transformHeadingAnchorLinks = require('./transforms/heading-anchor-links')
 
 module.exports = (config) => {
   config.addCollection('blogPosts', (collections) =>
@@ -21,6 +22,8 @@ module.exports = (config) => {
   config.addPassthroughCopy({ './assets/favicon/': '/' })
 
   config.addPlugin(pluginSyntaxHighlight, { alwaysWrapLineHighlights: true })
+
+  config.addTransform('heading-anchor-links', transformHeadingAnchorLinks)
 
   config.setBrowserSyncConfig({
     callbacks: {
