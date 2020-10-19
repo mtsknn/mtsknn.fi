@@ -16,7 +16,9 @@ module.exports = (config) => {
     const tags = new Set(
       collections.getAll().flatMap((item) => item.data.tags || [])
     )
-    return [...tags].sort()
+    return [...tags].sort((a, b) =>
+      a.localeCompare(b, 'en', { sensitivity: 'accent' })
+    )
   })
 
   config.addPassthroughCopy({ './assets/favicon/': '/' })
