@@ -50,8 +50,21 @@ html(lang="en")
             //- instead of the `aria-label`. Thus the `aria-hidden` is required
             //- even though it seems redundant.
             span(aria-hidden="true")
-              | 👨‍💻 mtsknn
-              span.opacity-50 .fi
+              if page.url === '/'
+                | 👨‍💻&nbsp;m
+                span.logo-character a
+                | t
+                span.logo-character.logo-character--length-2 ia
+                | s
+                span.logo-character &nbsp;
+                | k
+                span.logo-character i
+                | nn
+                span.logo-character.logo-character--length-4 unen
+                span.logo-domain-extension .fi
+              else
+                | 👨‍💻&nbsp;mtsknn
+                span.opacity-50 .fi
 
           a.duration-150.h-6.text-gray-500.transition-colors.w-6(
             aria-label="RSS feed (opens in a new window)"
