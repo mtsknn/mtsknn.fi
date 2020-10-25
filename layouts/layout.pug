@@ -36,9 +36,9 @@ html(lang="en")
     class={ 'debug-screens': process.env.NODE_ENV === 'development' }
   )
     .max-w-4xl.mx-auto.p-6
-      +skipLink('Skip to content', '#main', 'main-skip-link xl:!mr-6')
-
       header.border-b.border-gray-300.pb-6
+        +skipLink('Skip to content', '#main', 'main-skip-link xl:!mr-6')
+
         nav.flex.justify-between(aria-label="Main navigation")
           a.duration-150.font-bold.font-mono.transition-colors(
             aria-label=`mtsknn dot f i ${entity.ndash} go to the front page.`
