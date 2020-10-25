@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Hell-o! 👋 I'm Matias
+title: Yello! I'm Matias
 metaDescription: Here be dragons, and cats 🐱‍🐉
 metaTitle: Matias Kinnunen
 ---
