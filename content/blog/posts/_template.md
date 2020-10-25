@@ -14,12 +14,12 @@ intro: |
 
 # Optional fields
 draft: false # If `true`, the post will only show locally. Default is `false`
-metaDescription: Plain text, single line. Might be displayed on Google and social media.
-metaTitle: Displayed in the browser tab. If not set, `title` will be used.
-tags:
+metaDescription: Plain text, single line. Might be displayed in Google search results.
+metaTitle: Plain text, single line. Displayed in the browser tab and Google. If not set, `title` will be used
+tags: # Order alphabetically
+  - C#
   - Clean code
   - Markdown
-  - Et cetera
 toc: true # Set to `false` to not include table of contents at the beginning. Default is `true`
 ---
 
