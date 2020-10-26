@@ -54,6 +54,13 @@
     /* From Chrome DevTools: "In Out · Cubic" */
     animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
   }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-character,
+    .logo-domain-extension {
+      animation-delay: 0s !important;
+      animation-duration: 0s !important;
+    }
+  }
 
   .logo-character {
     animation-duration: 1s;
