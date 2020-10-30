@@ -27,7 +27,7 @@ module.exports = {
       colors: {
         // `cool-gray` colors borrowed from `@tailwindcss/ui`. These seem to be
         // better from accessibility perspective (easier to get high enough
-        // contrasts)
+        // contrasts). See e.g. https://tailwindui.com/documentation
         gray: {
           50: '#f8fafc',
           100: '#f1f5f9',
@@ -40,11 +40,24 @@ module.exports = {
           800: '#27303f',
           900: '#1a202e',
         },
+        // `indigo` colors also from `@tailwindcss/ui`. These look yummier
+        indigo: {
+          50: '#f0f5ff',
+          100: '#e5edff',
+          200: '#cddbfe',
+          300: '#b4c6fc',
+          400: '#8da2fb',
+          500: '#6875f5',
+          600: '#5850ec',
+          700: '#5145cd',
+          800: '#42389d',
+          900: '#362f78',
+        },
       },
     },
     typography: (theme) => ({
       default: {
-        // All colors have been overwritten since we have modified the gray
+        // All gray colors have been overwritten since we have modified the gray
         // palette. The order of the object keys is the same as in the source:
         // https://github.com/tailwindlabs/tailwindcss-typography/blob/v0.2.0/src/styles.js
         css: {
@@ -99,10 +112,12 @@ module.exports = {
             color: theme('colors.gray.900'),
             fontWeight: null,
 
-            backgroundColor: theme('colors.gray.200'),
-            borderRadius: theme('borderRadius.default'),
-            padding: `${theme('padding.px')} ${theme('padding.1')}`,
-            whiteSpace: 'break-spaces',
+            backgroundColor: theme('colors.indigo.200'),
+            borderRadius: theme('borderRadius.lg'),
+            display: 'inline-block',
+            lineHeight: theme('lineHeight.relaxed'),
+            paddingLeft: theme('padding.2'),
+            paddingRight: theme('padding.2'),
           },
           'code::before': {
             content: null,
