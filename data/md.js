@@ -15,6 +15,7 @@ const md = markdownIt({ html: true })
     // `permalinkSymbol` not set because the link's contents are replaced by the
     // `heading-anchor-links` transform
   })
+  .use(require('markdown-it-footnote'))
   .use(require('markdown-it-link-attributes'), [
     {
       pattern: /^#/,
@@ -34,6 +35,9 @@ const md = markdownIt({ html: true })
       },
     },
   ])
+
+// Disable the default `<hr>` and CSS classes
+md.renderer.rules.footnote_block_open = () => '<section><ol>'
 
 // Since Pug filters don't support dynamic data (e.g. `:md= post.data.intro`),
 // let's instead export the whole `markdown-it` parser. This is also used in the
