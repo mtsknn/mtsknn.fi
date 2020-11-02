@@ -117,6 +117,15 @@
     content: none;
   }
 
+  .prose li code {
+    @apply inline;
+
+    /* Not nice :-( but needed because of the `.prose > ul > li > *:first-child`
+     * and `.prose > ul > li > *:last-child` styles. TODO: Maybe clean up */
+    padding-bottom: 0.22rem;
+    padding-top: 0.22rem;
+  }
+
   /* Need to use the tag name as well to override the `.prose a` selector */
   a.link {
     @apply duration-150 underline;
