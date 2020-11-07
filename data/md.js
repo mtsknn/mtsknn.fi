@@ -15,6 +15,7 @@ const md = markdownIt({ html: true })
     // `permalinkSymbol` not set because the link's contents are replaced by the
     // `heading-anchor-links` transform
   })
+  .use(require('markdown-it-attrs'))
   .use(require('markdown-it-footnote'))
   .use(require('markdown-it-link-attributes'), [
     {
