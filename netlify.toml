@@ -9,3 +9,7 @@
   from = "/blog/"
   to = "/"
   status = 302
+[[redirects]]
+  from = "/blog/episerver-how-to-change-a-contents-modified-date-programmatically/"
+  to = "/blog/episerver-how-to-change-contents-modified-date-programmatically/"
+  status = 301
