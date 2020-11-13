@@ -117,11 +117,17 @@
     content: none;
   }
 
+  .prose .link-external code,
   .prose li code {
     @apply inline;
 
-    /* Not nice :-( but needed because of the `.prose > ul > li > *:first-child`
-     * and `.prose > ul > li > *:last-child` styles. TODO: Maybe clean up */
+    /* Not nice. :-(
+     * But needed
+     * because otherwise the external link icon could wrap to the next line,
+     * and because of
+     * the `.prose > ul > li > *:first-child`
+     * and `.prose > ul > li > *:last-child` styles.
+     * TODO: Maybe clean up */
     padding-bottom: 0.22rem;
     padding-top: 0.22rem;
   }
@@ -145,7 +151,10 @@
     text-decoration-thickness: 3px;
   }
   .link code {
+    color: inherit;
     text-decoration: inherit;
+    text-decoration-color: inherit; /* For iOS Safari */
+    transition: inherit;
   }
 
   /* O'boy how difficult it was to find a solid technique for adding an external
