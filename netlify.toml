@@ -7,9 +7,19 @@
 
 [[redirects]]
   from = "/blog/"
-  to = "/"
+  to   = "/"
   status = 302
+
 [[redirects]]
   from = "/blog/episerver-how-to-change-a-contents-modified-date-programmatically/"
-  to = "/blog/episerver-how-to-change-contents-modified-date-programmatically/"
+  to   = "/blog/how-to-change-modified-date-programmatically-in-episerver/"
+  status = 301
+[[redirects]]
+  from = "/blog/episerver-how-to-change-contents-modified-date-programmatically/"
+  to   = "/blog/how-to-change-modified-date-programmatically-in-episerver/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-default-case-of-a-switch-statement-doesnt-have-to-be-the-last-one/"
+  to   = "/blog/switch-statements-default-doesnt-have-to-be-the-last-case/"
   status = 301
