@@ -12,12 +12,12 @@ More documentation and features coming soon&trade;.
    - Version 14+ of Node.js is required
      because it's the minimum version that supports
      the [optional chaining operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining).
-2. Add blog posts to `content/blog/posts/`.
-   - You can use the `_template.md` file as a reference;
+2. Add blog posts to `content/blog/`.
+   - You can use `content/_blog-post-template.md` as a reference;
      it tells you what front matter variables to use.
 
 If you are me,
-you can also run `git submodule init`.
+you can also run `git submodule update --init`.
 If you are not me,
 you have to create your own posts. :-)
 
