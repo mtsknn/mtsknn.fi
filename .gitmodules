@@ -1,4 +1,4 @@
-[submodule "private-blog-posts"]
+[submodule "blog-posts"]
 	branch = master
-	path = content/blog/posts/private
+	path = content/blog
 	url = git@github.com:mtsknn/blog-posts.git
