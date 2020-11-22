@@ -1,5 +1,11 @@
 [build]
-  command = "bash ./netlify-setup.sh && GIT_SSH_COMMAND=\"ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no\" git submodule update --init --remote && npm run postinstall && npm run build"
+  command = """
+    bash ./netlify-setup.sh &&
+    GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" \
+      git submodule update --init --remote &&
+    npm run postinstall &&
+    npm run build
+  """
 
 [build.environment]
   NODE_ENV = "production"
