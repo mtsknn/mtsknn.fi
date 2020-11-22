@@ -1,2 +1,6 @@
 _site/
 node_modules/
+
+# Created by the `npm run postinstall` script.
+# Edit `content/_blog-post-data-file.js` instead.
+content/blog/blog.11tydata.js
