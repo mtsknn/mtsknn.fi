@@ -4,7 +4,7 @@
  *
  * ❗ NOTE:
  * The `npm run postinstall` script (automatically run after `npm install`)
- * copies `content/_blog-post-data-file.js` to `content/blog/blog.11tydata.js`,
+ * copies `content/_blog/blog.11tydata.js` to `content/blog/blog.11tydata.js`,
  * so don't edit the latter -- edit the former and rerun the script.
  *
  * This copying is needed because
