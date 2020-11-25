@@ -6,8 +6,7 @@ module.exports = {
   layout: null,
   eleventyExcludeFromCollections: true,
 
-  description:
-    'A collection of my wildest adventures involving computers, cats and dragons. 🐱‍🐉',
+  description: 'A collection of my wildest adventures with computers.',
   title: `Blog ${entity.ndash} Matias Kinnunen`,
 
   getFullContent(post) {
