@@ -9,12 +9,12 @@ const { JSDOM } = require('jsdom')
  *
  * @returns {string} Transformed HTML
  */
-module.exports = function(content, outputPath) {
+module.exports = (content, outputPath) => {
   // `outputPath` is `false` if `permalink` is `false`
   if (!outputPath || !outputPath.endsWith('.html')) return content
 
   const { document } = new JSDOM(content).window
-  let anchorLinks = document.body.querySelectorAll(
+  const anchorLinks = document.body.querySelectorAll(
     'h2 .link.link-anchor, h3 .link.link-anchor, h4 .link.link-anchor'
   )
 
@@ -41,10 +41,12 @@ module.exports = function(content, outputPath) {
 }
 
 function getSvgHtml() {
-  // Ugly string interpolation but spaces between the comment and the `<svg>`
-  // tags would cause styling issues
+  // Ugly string interpolation
+  // but spaces between the comment and `<svg>` tags
+  // would cause styling issues
   return (
-    '<!--\`link\` icon by Heroicons (https://heroicons.com/), MIT Licensed-->' +
+    // eslint-disable-next-line prefer-template
+    '<!--`link` icon by Heroicons (https://heroicons.com/), MIT Licensed-->' +
     `
       <svg
         xmlns="http://www.w3.org/2000/svg"

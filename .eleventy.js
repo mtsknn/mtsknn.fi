@@ -9,7 +9,7 @@ module.exports = (config) => {
   config.addCollection('blogPosts', (collections) =>
     collections
       .getFilteredByGlob('./content/blog/**/*.md')
-      .filter((page) => isProd() ? !isDraftOrScheduledPost(page.data) : true)
+      .filter((page) => (isProd() ? !isDraftOrScheduledPost(page.data) : true))
       .reverse()
   )
   config.addCollection('blogTags', (collections) => {

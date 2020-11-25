@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+
 module.exports = {
   experimental: {
     applyComplexClasses: true,
@@ -9,14 +11,15 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('tailwindcss-important')(),
-    process.env.NODE_ENV === 'development'
-      && require('tailwindcss-debug-screens'),
+    process.env.NODE_ENV === 'development' &&
+      // eslint-disable-next-line import/no-extraneous-dependencies
+      require('tailwindcss-debug-screens'),
   ],
   purge: {
     content: ['./_site/**/*.html'],
     options: {
       // `!` added to the regex because of the `tailwindcss-important` plugin
-      defaultExtractor: (content) => content.match(/[\w-/:!]+(?<!:)/g) || []
+      defaultExtractor: (content) => content.match(/[\w-/:!]+(?<!:)/g) || [],
     },
   },
   theme: {

@@ -7,6 +7,7 @@
     "postinstall": "cp ./content/_blog/blog.11tydata.js ./content/blog/",
     "start": "npm run watch",
     "tailwind": "tailwindcss build ./assets/css/main.css -o ./_site/main.css",
+    "test": "eslint ./**/*.js --ignore-pattern \"!.eleventy.js\"",
     "watch": "npm run clean && concurrently --names 11ty,css npm:watch:11ty npm:watch:css",
     "watch:11ty": "cross-env NODE_ENV=development npx @11ty/eleventy --serve",
     "watch:css": "cross-env NODE_ENV=development watch \"npm run tailwind\" ./assets/css/"
@@ -29,6 +30,12 @@
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "2.2.0",
     "tailwindcss-debug-screens": "^1.1.0",
     "watch": "^1.0.2"
   }

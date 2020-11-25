@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+
 module.exports = class JsonFeed {
   data() {
     return { permalink: '/blog/feed.json' }
@@ -54,7 +56,7 @@ module.exports = class JsonFeed {
     // TODO: Move this elsewhere
     if (
       process.env.NODE_ENV === 'production' &&
-      json.items.find(({ title, content_html }) => !title || !content_html)
+      json.items.find((item) => !item.title || !item.content_html)
     ) {
       throw new Error('got you!')
     }

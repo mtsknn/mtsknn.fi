@@ -1,9 +1,13 @@
 const markdownIt = require('markdown-it')
+const markdownItAnchor = require('markdown-it-anchor')
+const markdownItAttrs = require('markdown-it-attrs')
+const markdownItFootnote = require('markdown-it-footnote')
+const markdownItLinkAttributes = require('markdown-it-link-attributes')
 
 const { slugify } = require('./slugify')
 
 const md = markdownIt({ html: true })
-  .use(require('markdown-it-anchor'), {
+  .use(markdownItAnchor, {
     level: 2,
     permalink: true,
     permalinkSpace: false,
@@ -15,9 +19,9 @@ const md = markdownIt({ html: true })
     // `permalinkSymbol` not set because the link's contents are replaced by the
     // `heading-anchor-links` transform
   })
-  .use(require('markdown-it-attrs'))
-  .use(require('markdown-it-footnote'))
-  .use(require('markdown-it-link-attributes'), [
+  .use(markdownItAttrs)
+  .use(markdownItFootnote)
+  .use(markdownItLinkAttributes, [
     {
       pattern: /^#/,
       attrs: {

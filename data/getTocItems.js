@@ -31,7 +31,7 @@ module.exports = () => (html) => {
     // Ignore the anchor link (last child node)
     const nodes = [...heading.childNodes].slice(0, -1)
 
-    const html = nodes.reduce(
+    const itemHtml = nodes.reduce(
       (result, node) => result + (node.outerHTML || node.textContent),
       ''
     )
@@ -40,7 +40,7 @@ module.exports = () => (html) => {
     const slug = getUniqueSlug(text)
 
     return {
-      content: html,
+      content: itemHtml,
       href: `#${slug}`,
       subItems: [],
     }
@@ -54,7 +54,7 @@ module.exports = () => (html) => {
 
     while (uniqueSlugs.has(uniqueSlug)) {
       uniqueSlug = `${slug}-${i}`
-      i++
+      i += 1
     }
 
     uniqueSlugs.add(uniqueSlug)
