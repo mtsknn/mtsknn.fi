@@ -5,10 +5,10 @@ html(lang="en")
   head
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title #{metaTitle || title} !{'&ndash;'} mts knn .fi
+    title #{(metaTitle || title).trim()} !{'&ndash;'} mts knn .fi
     link(rel="canonical" href=`${site.url}${page.url}`)
-    if (metaDescription || '').trim()
-      meta(name="description" content=metaDescription.trim())
+    if (metaDescription || intro || '').trim()
+      meta(name="description" content=(metaDescription || intro).trim())
 
     //Favicon formats generated with https://realfavicongenerator.net/ 👍
     link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")

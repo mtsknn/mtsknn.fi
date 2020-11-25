@@ -19,8 +19,19 @@ intro: |
 # Optional fields
 #################
 
-metaDescription: Plain text, single line. Might be displayed in Google search results.
-metaTitle: Plain text, single line. Displayed in the browser tab and Google. If not set, `title` will be used
+metaDescription: |
+  Plain text,
+  single line,
+  but can be split on multiple lines like this to ease editing.
+  Might be displayed in Google search results.
+  If not set, `intro` will be used
+  (but any Markdown in it will NOT be parsed).
+metaTitle: |
+  Plain text,
+  single line,
+  but can be split on multiple lines like this to ease editing.
+  Displayed in the browser tab and Google.
+  If not set, `title` will be used.
 
 # Order alphabetically
 tags:
