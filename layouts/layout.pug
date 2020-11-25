@@ -45,9 +45,10 @@ html(lang="en")
             class="hover:text-red-600 active:text-red-700 xl:text-lg"
             href="/"
           )
-            //- Even though the link has an `aria-label`, VoiceOver on iPad
-            //- would sometimes choose one of the two texts below and read it
-            //- instead of the `aria-label`. Thus the `aria-hidden` is required
+            //- Even though the link has an `aria-label`,
+            //- VoiceOver on iPad would sometimes choose one of the elements below
+            //- and read it instead of the `aria-label`.
+            //- Thus the `aria-hidden` is required
             //- even though it seems redundant.
             span(aria-hidden="true")
               if page.url === '/'
