@@ -11,14 +11,10 @@ title: Post title. Plain text, single line
 date: 2020-12-24
 
 intro: |
-  Intro text.
+  Intro text,
+  single paragraph.
   Supports Markdown: _italic_, **bold** etc.
-
-  Single line breaks don't affect the output.
-  Add two line breaks to separate paragraphs.
-  (Nothing special -- this is how Markdown works.)
-
-  Maybe limit the amount of paragraphs to three.
+  But maybe don't use links here.
 
 # Optional fields
 #################

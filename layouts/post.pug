@@ -5,7 +5,7 @@ block content
     h1(class="!mb-6")= title
     .mb-6
       +postMeta(page.date, tags)
-    .lead!= md.render(intro)
+    p.lead!= md.renderInline(intro)
     hr(aria-hidden="true" class="!mb-0")
 
     //- Anchor for home page's "Continue reading" links

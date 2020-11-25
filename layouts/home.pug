@@ -23,7 +23,7 @@ block content
           a.link(href=post.url)= post.data.title
         .text-sm(class="xl:text-base")
           +postMeta(post.date, post.data.tags)
-        != md.render(post.data.intro)
+        p!= md.renderInline(post.data.intro)
         a.link.text-sm.tracking-wider.uppercase(
           aria-label=`Continue reading "${post.data.title}"`
           href=`${post.url}#continue-reading`
