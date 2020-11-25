@@ -2,14 +2,16 @@ const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const fs = require('fs')
 
 const md = require('./data/md')
-const { isDraftOrScheduledPost, isProd } = require('./data/utils')
+const { isDraft, isProductionEnv, isScheduled } = require('./data/utils')
 const transformHeadingAnchorLinks = require('./transforms/heading-anchor-links')
 
 module.exports = (config) => {
   config.addCollection('blogPosts', (collections) =>
     collections
       .getFilteredByGlob('./content/blog/**/*.md')
-      .filter((page) => (isProd() ? !isDraftOrScheduledPost(page.data) : true))
+      .filter((page) =>
+        isProductionEnv ? !(isDraft(page.data) || isScheduled(page.data)) : true
+      )
       .reverse()
   )
   config.addCollection('blogTags', (collections) => {

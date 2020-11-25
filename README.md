@@ -24,6 +24,9 @@ More documentation and features coming soon&trade;.
      Then you can
      [include images as you normally do in Markdown](https://mtsknn.fi/blog/how-to-remember-markdowns-link-syntax/#btw-images),
      e.g. `![alt text](./my-image.png)`.
+   - Blog posts under `content/blog/drafts/` are drafts.
+     They are visible only locally (`npm start`),
+     i.e. they are left out of the production build (`npm run build`).
 
 If you are me,
 you can also run `git submodule update --init` &ndash;

@@ -23,10 +23,6 @@ intro: |
 # Optional fields
 #################
 
-# If `true`, the post will be shown only locally.
-# Default is `false`.
-draft: false
-
 metaDescription: Plain text, single line. Might be displayed in Google search results.
 metaTitle: Plain text, single line. Displayed in the browser tab and Google. If not set, `title` will be used
 

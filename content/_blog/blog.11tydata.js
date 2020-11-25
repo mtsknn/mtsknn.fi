@@ -13,7 +13,7 @@
  * Otherwise anyone else wouldn't have access to it.
  */
 
-const { isDraftOrScheduledPost, isProd } = require('../../data/utils')
+const { isDraft, isProductionEnv, isScheduled } = require('../../data/utils')
 
 module.exports = {
   // Default to an empty string or `md.render()` will break in many places
@@ -21,9 +21,11 @@ module.exports = {
 
   eleventyComputed: {
     eleventyExcludeFromCollections: (data) =>
-      isProd() && isDraftOrScheduledPost(data),
+      isProductionEnv && (isDraft(data) || isScheduled(data)),
     permalink: (data) =>
-      isProd() && isDraftOrScheduledPost(data) ? false : data.permalink,
+      isProductionEnv && (isDraft(data) || isScheduled(data))
+        ? false
+        : data.permalink,
   },
   layout: 'post.pug',
   toc: true,

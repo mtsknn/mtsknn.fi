@@ -2,9 +2,11 @@ extends ./layout
 
 block content
   -
-    const posts = [...collections.blogPosts].sort((a, b) =>
-      a.data.draft === b.data.draft ? 0 : (a.data.draft ? -1 : 1)
-    )
+    // Display drafts first
+    const posts = [...collections.blogPosts].sort((a, b) => {
+      if (utils.isDraft(a.data) === utils.isDraft(b.data)) return 0
+      return utils.isDraft(a.data) ? -1 : 1
+    })
 
   .prose(class="xl:prose-lg")
     h1= title
@@ -16,7 +18,7 @@ block content
     each post, i in posts
       article
         h3
-          if post.data.draft
+          if utils.isDraft(post.data)
             span.pr-3(aria-hidden="true" title="Draft") ✏
           a.link(href=post.url)= post.data.title
         .text-sm(class="xl:text-base")
