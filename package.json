@@ -7,7 +7,7 @@
     "postinstall": "cp ./content/_blog/blog.11tydata.js ./content/blog/",
     "start": "npm run watch",
     "tailwind": "tailwindcss build ./assets/css/main.css -o ./_site/main.css",
-    "test": "eslint ./**/*.js --ignore-pattern \"!.eleventy.js\"",
+    "test": "eslint ./**/*.js",
     "watch": "npm run clean && concurrently --names 11ty,css npm:watch:11ty npm:watch:css",
     "watch:11ty": "cross-env NODE_ENV=development npx @11ty/eleventy --serve",
     "watch:css": "cross-env NODE_ENV=development watch \"npm run tailwind\" ./assets/css/"

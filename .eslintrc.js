@@ -5,6 +5,7 @@ module.exports = {
     node: true,
   },
   extends: ['airbnb-base', 'prettier'],
+  ignorePatterns: ['!.eleventy.js'],
   parserOptions: {
     ecmaVersion: 12,
   },
