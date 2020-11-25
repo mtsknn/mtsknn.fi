@@ -9,7 +9,8 @@ block content
   .prose(class="xl:prose-lg")
     h1= title
 
-    .lead!= content
+    p.lead!= md.renderInline(intro)
+    != md.render(content)
 
     h2 Coolest blog posts, hot off the press
     each post, i in posts
