@@ -9,7 +9,6 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 12,
   },
-  plugins: ['prettier'],
   rules: {
     // Allow modifying parameter properties.
     // This rule is really meant to avoid mutating the `arguments` object
@@ -22,8 +21,6 @@ module.exports = {
       'error',
       { functions: false, classes: true, variables: true },
     ],
-
-    'prettier/prettier': 'error',
 
     // The following Airbnb rules need to be re-defined
     // because the Prettier rules override them
