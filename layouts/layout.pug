@@ -8,7 +8,10 @@ html(lang="en")
     title #{(metaTitle || title).trim()} !{'&ndash;'} mts knn .fi
     link(rel="canonical" href=`${site.url}${page.url}`)
     if (metaDescription || intro || '').trim()
-      meta(name="description" content=(metaDescription || intro).trim())
+      meta(
+        name="description"
+        content=(metaDescription || intro).trim().replace(/\n/g, ' ')
+      )
 
     //Favicon formats generated with https://realfavicongenerator.net/ 👍
     link(rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png")
