@@ -41,6 +41,10 @@ tags:
 
 # Set to `false` to disable table of contents.
 # Default is `true`.
+# If enabled,
+# the body text should begin with a level 2 heading,
+# or the document structure would be incorrect
+# (the beginning of the body text would belong to the TOC section).
 toc: true
 ---
 
