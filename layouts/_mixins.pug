@@ -34,7 +34,7 @@ mixin toc(html)
             +list(item.subItems)
 
   - const items = getTocItems(html)
-  if items.length > 0
+  if items.length >= 2
     h2.tracking-widest.uppercase(class="!text-base !text-gray-700 xl:!text-lg")
       | Table of contents
     +skipLink('Skip table of contents', '#skip-toc')

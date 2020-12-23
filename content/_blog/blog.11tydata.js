@@ -29,5 +29,4 @@ module.exports = {
         : data.permalink,
   },
   layout: 'post.pug',
-  toc: true,
 }

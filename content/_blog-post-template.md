@@ -38,15 +38,33 @@ tags:
   - C#
   - Clean code
   - Markdown
-
-# Set to `false` to disable table of contents.
-# Default is `true`.
-# If enabled,
-# the body text should begin with a level 2 heading,
-# or the document structure would be incorrect
-# (the beginning of the body text would belong to the TOC section).
-toc: true
 ---
+
+## First heading
 
 The post body goes here.
 Go wild!
+
+## Using headings
+
+Using headings is optional.
+If you do use them,
+a Table of Contents (TOC) will be added to the post.
+
+Guidelines:
+
+- You must start the body text[^1] with a level 2 heading (`##`).
+  Otherwise the document structure would be incorrect:
+  the beginning of the body text would belong to the TOC section.
+- You must use at least two level 2 headings (`##`).
+  Otherwise the only heading would look lonely.
+  - Exception:
+    using a single level 2 heading for footnotes is a-okay.
+    The TOC won't be rendered
+    if the post contains only one level 2 heading.
+
+## Footnotes
+
+[^1]:
+    The body text starts right after the front matter.
+    And this is a footnote by the way!
