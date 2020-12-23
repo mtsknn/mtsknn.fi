@@ -25,7 +25,7 @@ If you are me,
 you can also run `git submodule update --init` &ndash;
 the blog posts that I have written
 are in a separate, private Git repo.
-It's private so that I can store draft and scheduled posts there
+It's private so that I can store drafts and scheduled posts there
 (and fix embarrassing typos and mistakes
 without anyone having to know about them afterwards).
 
@@ -46,7 +46,12 @@ since setting up the site on Netlify was so easy.
 I don't even remember what I did
 since Netlify did most of the job.
 (This is not a paid endorsement,
-but I wouldn't mind that.)
+but it could very well be.
+I'm looking at you, Netlify!)
+
+But seriously:
+just follow Netlify's good documentation and instructions.
+Deploying to Netlify is easy.
 
 If you are dealing with Git submodules (hi me!),
 check out
