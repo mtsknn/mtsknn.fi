@@ -63,6 +63,17 @@ Guidelines:
     The TOC won't be rendered
     if the post contains only one level 2 heading.
 
+## Images and other assets
+
+If the post contains images or other embeddable assets,
+create a folder for the post
+and name the Markdown file as `index.md`.
+E.g. `content/blog/my-first-post/index.md`.
+
+Then you can
+[include images as you normally do in Markdown](https://mtsknn.fi/blog/how-to-remember-markdowns-link-syntax/#btw-images).
+E.g. `![alt text](./my-image.png)`.
+
 ## Footnotes
 
 [^1]:

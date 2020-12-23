@@ -15,15 +15,8 @@ More documentation and features coming soon&trade;.
 2. Run `npm start` and open <http://localhost:8080/>.
 3. Create blog posts to `content/blog/`,
    e.g. `content/blog/my-first-post.md`.
-   - You can use `content/_blog-post-template.md` as a reference;
-     it tells you what front matter variables to use.
-   - If your post contains images or other embeddable files,
-     create a folder for the post
-     and name the Markdown file as `index.md`,
-     e.g. `content/blog/my-first-post/index.md`.
-     Then you can
-     [include images as you normally do in Markdown](https://mtsknn.fi/blog/how-to-remember-markdowns-link-syntax/#btw-images),
-     e.g. `![alt text](./my-image.png)`.
+   - You can use `content/_blog-post-template.md`
+     as a reference / starting point.
    - Blog posts under `content/blog/drafts/` are drafts.
      They are visible only locally (`npm start`),
      i.e. they are left out of the production build (`npm run build`).
