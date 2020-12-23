@@ -1,3 +1,5 @@
-module.exports = {
+const entity = {
   ndash: '–',
 }
+
+module.exports = entity
