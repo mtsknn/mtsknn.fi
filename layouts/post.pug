@@ -1,6 +1,8 @@
 extends ./layout
 
 block content
+  +breadcrumb({ Blog: '/blog/' })
+
   article.prose(class="xl:prose-lg")
     h1(class="!mb-6")= title
     .mb-6

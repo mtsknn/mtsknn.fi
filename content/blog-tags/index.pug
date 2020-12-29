@@ -1,20 +1,23 @@
 ---
-layout: layout
-title: All blog tags
+title: Tags
 metaDescription: Listing of all blog tags.
 dynamicPermalink: false # Don't parse `permalink` using Pug
 permalink: /blog/tags/
 ---
-h1= title
+extends /layout
 
-ul
-  each tag in collections.blogTags
-    -
-      const count = collections.all.filter(
-        (item) => (item.data.tags || []).includes(tag)
-      ).length
+block content
+  +breadcrumb({ Blog: '/blog/' })
 
-    li: a.link(href=`/blog/tags/${slugify(tag)}/`)
-      = `${tag} (${count} blog post${count === 1 ? '' : 's'})`
+  .prose(class="xl:prose-lg")
+    h1= title
 
-p: a.link(href="/blog/") Go back to the blog
+    ul
+      each tag in collections.blogTags
+        -
+          const count = collections.all.filter(
+            (item) => (item.data.tags || []).includes(tag)
+          ).length
+
+        li: a.link(href=`/blog/tags/${slugify(tag)}/`)
+          = `${tag} (${count} blog post${count === 1 ? '' : 's'})`

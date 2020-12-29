@@ -1,5 +1,4 @@
 ---
-layout: layout
 pagination:
   data: collections.blogTags
   addAllPagesToCollections: true
@@ -10,38 +9,39 @@ eleventyComputed:
   metaDescription: '| Blog posts tagged with "#{tag}."'
   metaTitle: '| #{tag} posts'
 ---
-//`hashtag` icon by Heroicons (https://heroicons.com/), MIT Licensed
-h1(aria-label=`Blog posts tagged with ${tag}`)
-  .font-bold.mb-2.text-gray-500.text-xl(
-    aria-hidden="true"
-    class="xl:mb-4 xl:text-2xl"
-  ) Blog posts tagged with#{' '}
-  .pl-10.relative(class="xl:pl-12")
-    svg.absolute.inline-block.left-0.mt-1.mr-1.text-gray-500(
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      class="xl:!w-12"
-      fill="none"
-      stroke="currentColor"
-      style={'vertical-align': '-0.3rem', width: '2rem'}
-      viewBox="0 0 24 24"
-    )
-      path(
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
-      )
-    div(class="xl:ml-2")= tag
+extends /layout
 
-ol
-  each post in [...collections[tag]].reverse()
-    li
-      a.link(href=post.url)= post.data.title
-      span.whitespace-no-wrap
-        | #{' '}(#[span.sr-only published on ]#{datetime.human(post.date)})
+block content
+  +breadcrumb({ Blog: '/blog/', Tags: '/blog/tags/' })
 
-p
-  a.link(href="/blog/tags/") See all blog tags
-  = ' or '
-  a.link(href="/blog/") go back to the blog
+  .mt-6.prose(class="xl:prose-lg")
+    //`hashtag` icon by Heroicons (https://heroicons.com/), MIT Licensed
+    h1(aria-label=`Blog posts tagged with ${tag}`)
+      .font-bold.mb-2.text-gray-500.text-xl(
+        aria-hidden="true"
+        class="xl:mb-4 xl:text-2xl"
+      ) Blog posts tagged with#{' '}
+      .pl-10.relative(class="xl:pl-12")
+        svg.absolute.inline-block.left-0.mt-1.mr-1.text-gray-500(
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          class="xl:!w-12"
+          fill="none"
+          stroke="currentColor"
+          style={'vertical-align': '-0.3rem', width: '2rem'}
+          viewBox="0 0 24 24"
+        )
+          path(
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
+          )
+        div(class="xl:ml-2")= tag
+
+    ol
+      each post in [...collections[tag]].reverse()
+        li
+          a.link(href=post.url)= post.data.title
+          span.whitespace-no-wrap
+            | #{' '}(#[span.sr-only published on ]#{datetime.human(post.date)})
