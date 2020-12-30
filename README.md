@@ -12,27 +12,28 @@ More documentation and features coming soon&trade;.
    - Version 14+ of [Node.js](https://nodejs.org/) is required
      because it's the minimum version that supports
      the [optional chaining operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining).
-2. Run `npm start` and open <http://localhost:8080/>.
-3. Create blog posts to `content/blog/`,
-   e.g. `content/blog/my-first-post.md`.
-   - You can use `content/_blog-post-template.md`
-     as a reference / starting point.
-   - Blog posts under `content/blog/drafts/` are drafts.
-     They are visible only locally (`npm start`),
-     i.e. they are left out of the production build (`npm run build`).
+2. Run `git rm .gitmodules` and `git mv _sample-content/ content/`
+   to use the sample content as a starting point.
+3. Run `npm start` and open <http://localhost:8080/>.
 
 If you are me,
-you can also run `git submodule update --init` &ndash;
-the blog posts that I have written
-are in a separate, private Git repo.
+in step 2 you can instead run `git submodule update --init`.
+The content that I have written
+is in a separate, private Git repo.
 It's private so that I can store drafts and scheduled posts there
 (and fix embarrassing typos and mistakes
 without anyone having to know about them afterwards).
 
-If you are not me,
-you have to create your own posts. :-)
-You might then be interested in this Stack Overflow post:
-[How do I remove a [Git] submodule?](https://stackoverflow.com/q/1260748)
+## Creating blog posts
+
+Create blog posts to `content/blog/`,
+e.g. `content/blog/my-first-post.md`.
+
+- You can use `content/blog/_template.md`
+  as a reference / starting point.
+- Blog posts under `content/blog/drafts/` are drafts.
+  They are visible locally (`npm start`),
+  but left out of the production build (`npm run build`).
 
 ## Deploying to production (Netlify)
 

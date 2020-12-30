@@ -4,7 +4,6 @@
     "build:11ty": "cross-env NODE_ENV=production npx @11ty/eleventy",
     "build:css": "cross-env NODE_ENV=production npm run tailwind",
     "clean": "rm -rf ./_site/",
-    "postinstall": "cp ./content/_blog/blog.11tydata.js ./content/blog/",
     "start": "npm run watch",
     "tailwind": "tailwindcss build ./assets/css/main.css -o ./_site/main.css",
     "test": "eslint ./**/*.js && prettier --check ./**/*.js",
