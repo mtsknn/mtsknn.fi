@@ -12,9 +12,10 @@ More documentation and features coming soon&trade;.
    - Version 14+ of [Node.js](https://nodejs.org/) is required
      because it's the minimum version that supports
      the [optional chaining operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining).
-2. Run `git rm .gitmodules` and `git mv _sample-content/ content/`
+2. Run `git rm .gitmodules content/` and `git mv _sample-content/ content/`
    to use the sample content as a starting point.
-3. Run `npm start` and open <http://localhost:8080/>.
+3. Optional: run `git commit -m 'Setup initial content'`.
+4. Run `npm start` and open <http://localhost:8080/>.
 
 If you are me,
 in step 2 you can instead run `git submodule update --init`.
