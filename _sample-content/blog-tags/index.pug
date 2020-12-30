@@ -21,3 +21,5 @@ block content
 
         li: a.link(href=`/blog/tags/${slugify(tag)}/`)
           = `${tag} (${count} blog post${count === 1 ? '' : 's'})`
+      else
+        li No tags yet. 🤷‍♂️
