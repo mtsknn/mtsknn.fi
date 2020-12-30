@@ -25,17 +25,6 @@ It's private so that I can store drafts and scheduled posts there
 (and fix embarrassing typos and mistakes
 without anyone having to know about them afterwards).
 
-## Creating blog posts
-
-Create blog posts to `content/blog/`,
-e.g. `content/blog/my-first-post.md`.
-
-- You can use `content/blog/_template.md`
-  as a reference / starting point.
-- Blog posts under `content/blog/drafts/` are drafts.
-  They are visible locally (`npm start`),
-  but left out of the production build (`npm run build`).
-
 ## Deploying to production (Netlify)
 
 1. Run `npm run build`
