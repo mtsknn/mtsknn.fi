@@ -10,7 +10,8 @@ feed(xmlns="http://www.w3.org/2005/Atom")
   subtitle= description
   link(href=`${site.url}${permalink}` rel="self")/
   link(href=`${site.url}/`)/
-  updated= getPublishedDate(latestPost)
+  if latestPost
+    updated= getPublishedDate(latestPost)
   id= `${site.url}/`
   author
     name Matias Kinnunen
