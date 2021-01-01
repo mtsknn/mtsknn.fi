@@ -25,6 +25,59 @@ It's private so that I can store drafts and scheduled posts there
 (and fix embarrassing typos and mistakes
 without anyone having to know about them afterwards).
 
+## Folder structure
+
+- 📂 `_sample-content/`:
+  Sample content to get you started.
+  See the ["Running locally" section](#running-locally)
+  for how to use these files.
+- 📂 `_site/`:
+  Development/production build
+  created by running `npm start`/`npm run build`.
+- 📂 `.github/workflows/`
+  - 📄 `main.yml`:
+    Configures a GitHub Action
+    which makes a daily Curl request to Netlify's build hook.
+    This enables blog post scheduling.
+- 📂 `assets/`
+  - 📄 `css/main.css`:
+    Processed by Tailwind
+    when running `npm start` or `npm run build`.
+    The result is outputted to the `_site/` folder.
+  - 📄 `favicon/*`:
+    The files are copied as-is to the `_site/` folder.
+- 📂 `content/`:
+  [11ty's input directory.](https://www.11ty.dev/docs/config/#input-directory)
+  The default is the root folder,
+  but having the input files (i.e. the content files) in their own folder
+  makes things clearer.
+- 📂 `data/`:
+  [11ty's directory for global data files](https://www.11ty.dev/docs/config/#directory-for-global-data-files)
+  (the default is `_data`).
+  All files are [JavaScript data files](https://www.11ty.dev/docs/data-js/)
+  and automatically available in layouts.
+- 📂 `layouts/`:
+  [11ty's directory for includes](https://www.11ty.dev/docs/config/#directory-for-includes)
+  (the default is `_includes`).
+- 📂 `transforms/`:
+  [11ty transforms](https://www.11ty.dev/docs/config/#transforms)
+  that modify the output files built from the files in `content/`.
+- 📄 `.eleventy.js`:
+  [11ty's config file.](https://www.11ty.dev/docs/config/)
+- 📄 `.eleventyignore`:
+  [11ty's ignore file.](https://www.11ty.dev/docs/ignores/)
+- 📄 `.gitmodules`:
+  Specifies a Git submodule pointing to my private Git repo
+  which contains all content.
+  You don't need this
+  unless you want to have a similar setup.
+- 📄 `netlify-setup.sh`:
+  A script needed in Netlify
+  because the Git submodule points to a private Git repo.
+  Blog post about this coming soon&trade;.
+- 📄 `netlify.toml`:
+  Build and redirection configurations for Netlify.
+
 ## Deploying to production (Netlify)
 
 1. Run `npm run build`
