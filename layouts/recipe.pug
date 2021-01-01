@@ -1,0 +1,10 @@
+extends ./layout
+
+block content
+  +breadcrumb({ Cookbook: '/cookbook/' })
+
+  article.prose(class="xl:prose-lg")
+    h1(class="!mb-6")!= md.renderInline(title)
+    .mb-6
+      +recipeMeta(page.date, tags)
+    != content

@@ -42,7 +42,10 @@ html(lang="en")
       header.border-b.border-gray-300.pb-6
         +skipLink('Skip to content', '#main', 'main-skip-link xl:!mr-6')
 
-        nav.flex.justify-between(aria-label="Main navigation")
+        nav.flex.flex-col.justify-between.text-center(
+          aria-label="Main navigation"
+          class="sm:flex-row sm:text-left"
+        )
           a.duration-150.font-bold.font-mono.transition-colors(
             aria-label=`mtsknn dot f i ${entity.ndash} go to the front page.`
             class="hover:text-red-600 active:text-red-700 xl:text-lg"
@@ -69,29 +72,16 @@ html(lang="en")
               else
                 | 👨‍💻&nbsp;mtsknn
                 span.opacity-50 .fi
-
-          a.duration-150.h-6.text-gray-500.transition-colors.w-6(
-            aria-label="RSS feed (opens in a new window)"
-            class="hover:text-red-600 active:text-red-800 xl:mt-px"
-            href="/blog/feed.xml"
-            target="_blank"
-          )
-            //`rss` icon by Heroicons (https://heroicons.com/), MIT Licensed
-            svg.align-top.inline-block(
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              style={width: '1.5rem'}
-              viewBox="0 0 24 24"
-            )
-              title RSS feed
-              path(
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z"
-              )
-      main#main.mb-6.pt-6(class="md:mb-12 md:pt-12")
+          .pt-4.space-x-6(class="sm:pt-0 xl:space-x-8")
+            each href, text in { Blog: '/blog/', Cookbook: '/cookbook/' }
+              a.duration-150.transition-colors(
+                class=`
+                  hover:text-red-600 active:text-red-800 xl:text-lg
+                  ${(page.url || '').startsWith(href) ? 'font-bold' : ''}
+                `
+                href=href
+              )= text
+      main#main.mb-6.pt-6(class="sm:mb-12 sm:pt-12")
         block content
           .prose(class="xl:prose-lg")!= content
       footer.border-t.border-gray-300.flex.items-baseline.justify-between.pt-6.text-gray-700.text-sm(

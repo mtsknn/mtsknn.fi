@@ -1,34 +1,8 @@
 extends ./layout
 
 block content
-  -
-    // Display drafts first
-    const posts = [...collections.blogPosts].sort((a, b) => {
-      if (utils.isDraft(a.data) === utils.isDraft(b.data)) return 0
-      return utils.isDraft(a.data) ? -1 : 1
-    })
-
   .prose(class="xl:prose-lg")
     h1= title
 
     p.lead!= md.renderInline(intro)
     != md.render(content)
-
-    h2 Coolest blog posts, hot off the press
-    each post, i in posts
-      article
-        h3
-          if utils.isDraft(post.data)
-            span.pr-3(aria-hidden="true" title="Draft") ✏
-          a.link(href=post.url)= post.data.title
-        .text-sm(class="xl:text-base")
-          +postMeta(post.date, post.data.tags)
-        p!= md.renderInline(post.data.intro)
-        a.link.text-sm.tracking-wider.uppercase(
-          aria-label=`Continue reading "${post.data.title}"`
-          href=`${post.url}#continue-reading`
-        ) Continue reading
-      if i !== posts.length - 1
-        hr(aria-hidden="true")
-    else
-      p No blog posts yet. 🤷‍♂️

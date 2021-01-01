@@ -22,6 +22,14 @@ module.exports = (config) => {
       a.localeCompare(b, 'en', { sensitivity: 'accent' })
     )
   })
+  config.addCollection('cookbookRecipes', (collections) =>
+    collections
+      .getFilteredByGlob('./content/cookbook/**/*.md')
+      .filter((page) =>
+        isProductionEnv ? !(isDraft(page.data) || isScheduled(page.data)) : true
+      )
+      .reverse()
+  )
 
   config.addPassthroughCopy({ './assets/favicon/': '/' })
   config.addPassthroughCopy('./content/blog/**/*.png')
@@ -33,11 +41,6 @@ module.exports = (config) => {
   config.setBrowserSyncConfig({
     callbacks: {
       ready(err, browserSync) {
-        browserSync.addMiddleware('/blog/', (req, res) => {
-          res.writeHead(302, { location: '/' })
-          res.end()
-        })
-
         // Provides the 404 content without redirect. Source:
         // https://github.com/11ty/eleventy-base-blog/blob/v5.0.2/.eleventy.js#L56-L64
         const notFoundContent = fs.readFileSync('./_site/404.html')

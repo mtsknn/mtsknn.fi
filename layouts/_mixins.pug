@@ -62,6 +62,25 @@ mixin postMeta(date, tags = [])
           li.inline-block.list-none.ml-4.whitespace-no-wrap(class="!my-1 !pl-0")
             a.link.link-tag.py-1(href=`/blog/tags/${slugify(tag)}/`)= tag
 
+mixin recipeMeta(date, tags = [])
+  - const isScheduled = date > Date.now()
+
+  .text-gray-600(class="sm:whitespace-no-wrap")
+    //- Disabled for now because all recipes have only one tag
+    //- if tags.length
+    //-   span.sr-only Tags:
+    //-   ul.inline.mr-4.space-x-2
+    //-     each tag in tags
+    //-       li.bg-gray-200.font-bold.inline-block.list-none.rounded-lg.text-gray-800(
+    //-         class="!my-1 !px-2"
+    //-       )= tag
+
+    span.sr-only Published on#{' '}
+    time.tracking-wider.uppercase(datetime=datetime.robot(date))
+      if isScheduled
+        span.pr-2(aria-hidden="true" title="Scheduled") ⌚
+      = datetime.human(date)
+
 mixin skipLink(text, href, classes = '')
   .absolute.z-10
     a.bg-orange-300.font-bold.inline-block.rounded.sr-only.underline(

@@ -11,11 +11,6 @@
   NODE_VERSION = "14"
 
 [[redirects]]
-  from = "/blog/"
-  to   = "/"
-  status = 302
-
-[[redirects]]
   from = "/blog/episerver-how-to-change-a-contents-modified-date-programmatically/"
   to   = "/blog/how-to-change-modified-date-programmatically-in-episerver/"
   status = 301
