@@ -1,0 +1,18 @@
+---
+layout: blog-tag
+pagination:
+  data: collections.blogTags
+  addAllPagesToCollections: true
+  size: 1
+  alias: tag
+permalink: '| /blog/tags/#{slugify(tag)}/'
+eleventyComputed:
+  metaDescription: '| Blog posts tagged with "#{tag}."'
+  metaTitle: '| #{tag} blog posts'
+---
+
+//- Need to use Pug
+//- because `slugify` isn't available in Liquid/Nunjucks flavored Markdown.
+//- I would have used JS (`pages.11ty.js`),
+//- but it doesn't quite work when using pagination:
+//- https://github.com/11ty/eleventy/issues/1555

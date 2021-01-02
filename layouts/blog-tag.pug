@@ -1,14 +1,3 @@
----
-pagination:
-  data: collections.blogTags
-  addAllPagesToCollections: true
-  size: 1
-  alias: tag
-permalink: '| /blog/tags/#{slugify(tag)}/'
-eleventyComputed:
-  metaDescription: '| Blog posts tagged with "#{tag}."'
-  metaTitle: '| #{tag} posts'
----
 extends /layout
 
 block content

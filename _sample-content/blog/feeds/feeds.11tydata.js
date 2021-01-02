@@ -1,6 +1,6 @@
-const datetime = require('../../data/datetime')
-const entity = require('../../data/entity')
-const md = require('../../data/md')
+const datetime = require('../../../data/datetime')
+const entity = require('../../../data/entity')
+const md = require('../../../data/md')
 
 module.exports = {
   layout: null,
