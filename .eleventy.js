@@ -12,7 +12,13 @@ module.exports = (config) => {
       .filter((page) =>
         isProductionEnv ? !(isDraft(page.data) || isScheduled(page.data)) : true
       )
+      // Newest first
       .reverse()
+      // Drafts first
+      .sort((a, b) => {
+        if (isDraft(a.data) === isDraft(b.data)) return 0
+        return isDraft(a.data) ? -1 : 1
+      })
   )
   config.addCollection('blogTags', (collections) => {
     const tags = new Set(

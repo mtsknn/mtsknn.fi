@@ -1,13 +1,6 @@
 extends ./layout
 
 block content
-  -
-    // Display drafts first
-    const posts = [...collections.blogPosts].sort((a, b) => {
-      if (utils.isDraft(a.data) === utils.isDraft(b.data)) return 0
-      return utils.isDraft(a.data) ? -1 : 1
-    })
-
   +breadcrumb
 
   .prose(class="xl:prose-lg")
@@ -17,7 +10,7 @@ block content
     != md.render(content)
 
     h2 Coolest blog posts, hot off the press
-    each post, i in posts
+    each post, i in collections.blogPosts
       article
         h3
           if utils.isDraft(post.data)
@@ -30,7 +23,7 @@ block content
           aria-label=`Continue reading "${post.data.title}"`
           href=`${post.url}#continue-reading`
         ) Continue reading
-      if i !== posts.length - 1
+      if i !== collections.blogPosts.length - 1
         hr(aria-hidden="true")
     else
       p No blog posts yet. 🤷‍♂️
