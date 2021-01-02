@@ -33,7 +33,7 @@ module.exports = (config) => {
       .filter((page) =>
         isProductionEnv ? !(isDraft(page.data) || isScheduled(page.data)) : true
       )
-      .reverse()
+      .sort((a, b) => a.data.title.localeCompare(b.data.title, 'en'))
   )
 
   config.addPassthroughCopy({ './assets/favicon/': '/' })
