@@ -29,7 +29,7 @@ block content
         div(class="xl:ml-2")= tag
 
     ol
-      each post in [...collections[tag]].reverse()
+      each post in collections.blogPosts.filter((post) => (post.data.tags || []).includes(tag))
         li
           a.link(href=post.url)= post.data.title
           span.whitespace-no-wrap

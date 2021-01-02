@@ -9,7 +9,7 @@ block content
     ul
       each tag in collections.blogTags
         -
-          const count = collections.all.filter(
+          const count = collections.blogPosts.filter(
             (item) => (item.data.tags || []).includes(tag)
           ).length
 

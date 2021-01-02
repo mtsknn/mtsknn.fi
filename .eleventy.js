@@ -21,9 +21,8 @@ module.exports = (config) => {
       })
   )
   config.addCollection('blogTags', (collections) => {
-    const tags = new Set(
-      collections.getAll().flatMap((item) => item.data.tags || [])
-    )
+    const blogPosts = config.getCollections().blogPosts(collections)
+    const tags = new Set(blogPosts.flatMap((item) => item.data.tags || []))
     return [...tags].sort((a, b) =>
       a.localeCompare(b, 'en', { sensitivity: 'accent' })
     )
