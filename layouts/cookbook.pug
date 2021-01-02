@@ -15,6 +15,6 @@ block content
         h3(class="sm:!my-0")
           a.link(href=recipe.url)!= md.renderInline(recipe.data.title)
         .text-sm(class="sm:pl-4 xl:text-base")
-          +recipeMeta(recipe.date, recipe.data.tags)
+          +recipeMeta(recipe.date, recipe.data.tags, utils.isDraft(recipe.data))
     else
       p No recipes yet. 🤷‍♂️
