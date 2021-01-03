@@ -27,6 +27,11 @@ module.exports = (config) => {
       a.localeCompare(b, 'en', { sensitivity: 'accent' })
     )
   })
+  config.addCollection('blogPostsWithTag', (collections) => {
+    const blogPosts = config.getCollections().blogPosts(collections)
+    return (tag) => blogPosts.filter((post) => post.data.tags?.includes(tag))
+  })
+
   config.addCollection('cookbookRecipes', (collections) =>
     collections
       .getFilteredByGlob('./content/cookbook/**/*.md')
