@@ -6,8 +6,8 @@ const { isDraft, isProductionEnv, isScheduled } = require('./data/utils')
 const transformHeadingAnchorLinks = require('./transforms/heading-anchor-links')
 
 module.exports = (config) => {
-  config.addCollection('blogPosts', (collections) =>
-    collections
+  config.addCollection('blogPosts', (collectionApi) =>
+    collectionApi
       .getFilteredByGlob('./content/blog/**/*.md')
       .filter((page) =>
         isProductionEnv ? !(isDraft(page.data) || isScheduled(page.data)) : true
@@ -20,20 +20,20 @@ module.exports = (config) => {
         return isDraft(a.data) ? -1 : 1
       })
   )
-  config.addCollection('blogTags', (collections) => {
-    const blogPosts = config.getCollections().blogPosts(collections)
+  config.addCollection('blogTags', (collectionApi) => {
+    const blogPosts = config.getCollections().blogPosts(collectionApi)
     const tags = new Set(blogPosts.flatMap((item) => item.data.tags || []))
     return [...tags].sort((a, b) =>
       a.localeCompare(b, 'en', { sensitivity: 'accent' })
     )
   })
-  config.addCollection('blogPostsWithTag', (collections) => {
-    const blogPosts = config.getCollections().blogPosts(collections)
+  config.addCollection('blogPostsWithTag', (collectionApi) => {
+    const blogPosts = config.getCollections().blogPosts(collectionApi)
     return (tag) => blogPosts.filter((post) => post.data.tags?.includes(tag))
   })
 
-  config.addCollection('cookbookRecipes', (collections) =>
-    collections
+  config.addCollection('cookbookRecipes', (collectionApi) =>
+    collectionApi
       .getFilteredByGlob('./content/cookbook/**/*.md')
       .filter((page) =>
         isProductionEnv ? !(isDraft(page.data) || isScheduled(page.data)) : true
