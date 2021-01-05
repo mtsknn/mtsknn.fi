@@ -113,6 +113,10 @@
     @apply max-w-none;
   }
 
+  .prose h1 code {
+    @apply leading-tight;
+  }
+
   .prose .list-none::before {
     content: none;
   }
