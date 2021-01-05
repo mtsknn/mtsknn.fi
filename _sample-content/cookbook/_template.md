@@ -7,11 +7,12 @@ title: 'Main tag: Recipe title. Plain text, single line'
 # If future date, the recipe will be shown only locally until the date.
 date: 2020-12-24
 
+# Shown on the recipe page (comparable with the intro of a blog post).
+# Might be displayed in Google search results.
 metaDescription: |
   Plain text,
   single line,
   but can be split on multiple lines like this to ease editing.
-  Might be displayed in Google search results.
 
 # Order alphabetically,
 # or maybe the most important first.
@@ -31,14 +32,26 @@ metaTitle: |
 
 ## First heading
 
-The recipe[^1] goes here.
+The recipe body goes here.
 Go wild!
 
 ## Using headings
 
 Using headings is optional.
-A recipe should be short,
-so it'll never have a Table of Contents (TOC).
+If you do use them,
+a Table of Contents (TOC) will be added to the recipe.
+
+Guidelines:
+
+- You must start the body text[^1] with a level 2 heading (`##`).
+  Otherwise the document structure would be incorrect:
+  the beginning of the body text would belong to the TOC section.
+- You must use at least two level 2 headings (`##`).
+  Otherwise the only heading would look lonely.
+  - Exception:
+    using a single level 2 heading for footnotes is a-okay.
+    The TOC won't be rendered
+    if the post contains only one level 2 heading.
 
 ## Images and other assets
 
@@ -54,5 +67,5 @@ E.g. `![alt text](./my-image.png)`.
 ## Footnotes
 
 [^1]:
-    The recipe starts right after the front matter.
+    The body text starts right after the front matter.
     And this is a footnote by the way!
