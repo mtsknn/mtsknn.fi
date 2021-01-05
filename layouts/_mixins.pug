@@ -28,20 +28,21 @@ mixin breadcrumb
         stroke-width="2"
       )
 
-  nav.mb-4(aria-label="Breadcrumb")
-    ul
-      li.inline.list-none
-        //`home` and `chevron-right` icons by Heroicons (https://heroicons.com/), MIT Licensed
-        a.duration-150.text-gray-500.transition-color(
-          aria-label="Home"
-          class="hover:text-red-600 active:text-red-800"
-          href="/"
-        ): +homeIcon
-        +chevron
-      each item in utils.getBreadcrumbItems(page.url)
+  if page.url
+    nav.mb-4(aria-label="Breadcrumb")
+      ul
         li.inline.list-none
-          a.link(href=item.href)= item.text
+          //`home` and `chevron-right` icons by Heroicons (https://heroicons.com/), MIT Licensed
+          a.duration-150.text-gray-500.transition-color(
+            aria-label="Home"
+            class="hover:text-red-600 active:text-red-800"
+            href="/"
+          ): +homeIcon
           +chevron
+        each item in utils.getBreadcrumbItems(page.url)
+          li.inline.list-none
+            a.link(href=item.href)= item.text
+            +chevron
 
 mixin postMeta(date, tags = [])
   - const isScheduled = date > Date.now()
