@@ -1,7 +1,7 @@
 extends ./layout
 
 block content
-  +breadcrumb({ Cookbook: '/cookbook/' })
+  +breadcrumb
 
   article.prose(class="xl:prose-lg")
     h1(class="!mb-6")!= md.renderInline(title)

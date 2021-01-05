@@ -73,14 +73,14 @@ html(lang="en")
                 | 👨‍💻&nbsp;mtsknn
                 span.opacity-50 .fi
           .pt-4.space-x-6(class="sm:pt-0 xl:space-x-8")
-            each href, text in { Blog: '/blog/', Cookbook: '/cookbook/' }
+            each item in navItems.topNav
               a.duration-150.transition-colors(
                 class=`
                   hover:text-red-600 active:text-red-800 xl:text-lg
-                  ${(page.url || '').startsWith(href) ? 'font-bold' : ''}
+                  ${(page.url || '').startsWith(item.href) ? 'font-bold' : ''}
                 `
-                href=href
-              )= text
+                href=item.href
+              )= item.text
       main#main.mb-6.pt-6(class="sm:mb-12 sm:pt-12")
         block content
           .prose(class="xl:prose-lg")!= content

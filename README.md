@@ -32,7 +32,7 @@ without anyone having to know about them afterwards).
 - Cookbook recipes: `content/cookbook/`
 - Cookbook recipe drafts: `content/cookbook/drafts/`
 - Top-level pages: `content/`
-  \+ you probably want to update the top navigation in `layouts/layout.pug`
+  \+ you probably want to update `data/navItems.js`
 
 ### `npm run new`
 

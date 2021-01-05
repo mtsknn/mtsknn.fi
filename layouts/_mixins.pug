@@ -1,4 +1,4 @@
-mixin breadcrumb(items = {})
+mixin breadcrumb
   mixin chevron
     svg.inline.mx-2.text-gray-500(
       aria-hidden="true"
@@ -38,9 +38,9 @@ mixin breadcrumb(items = {})
           href="/"
         ): +homeIcon
         +chevron
-      each href, text in items
+      each item in utils.getBreadcrumbItems(page.url)
         li.inline.list-none
-          a.link(href=href)= text
+          a.link(href=item.href)= item.text
           +chevron
 
 mixin postMeta(date, tags = [])
