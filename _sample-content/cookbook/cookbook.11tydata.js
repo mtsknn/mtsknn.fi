@@ -9,5 +9,5 @@ module.exports = {
         ? false
         : data.permalink,
   },
-  layout: 'recipe.pug',
+  layout: 'cookbook-recipe.pug',
 }
