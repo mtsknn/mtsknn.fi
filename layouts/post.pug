@@ -4,7 +4,7 @@ block content
   +breadcrumb
 
   article.prose(class="xl:prose-lg")
-    h1(class="!mb-6")= title
+    h1(class="!mb-6")!= md.renderInline(title)
     .mb-6
       +postMeta(page.date, tags)
     p.lead!= md.renderInline(intro)

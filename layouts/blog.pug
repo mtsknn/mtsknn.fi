@@ -15,7 +15,7 @@ block content
         h3
           if utils.isDraft(post.data)
             span.pr-3(aria-hidden="true" title="Draft") ✏
-          a.link(href=post.url)= post.data.title
+          a.link(href=post.url)!= md.renderInline(post.data.title)
         .text-sm(class="xl:text-base")
           +postMeta(post.date, post.data.tags)
         p!= md.renderInline(post.data.intro)
