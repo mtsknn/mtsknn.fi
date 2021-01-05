@@ -9,7 +9,7 @@ block content
     p.lead!= md.renderInline(intro)
     != md.render(content)
 
-    h2 Latest recipes
+    h2 The recipes
     each recipe in collections.cookbookRecipes
       article.max-w-none(class="sm:!mb-4 sm:flex sm:justify-between")
         h3(class="sm:!my-0")
