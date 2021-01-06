@@ -7,7 +7,7 @@ block content
     h1= title
 
     p.lead!= md.renderInline(intro)
-    != md.render(content)
+    != content
 
     h2 The recipes
     each recipe in collections.cookbookRecipes
