@@ -13,7 +13,8 @@ module.exports = (content, outputPath) => {
   // `outputPath` is `false` if `permalink` is `false`
   if (!outputPath || !outputPath.endsWith('.html')) return content
 
-  const { document } = new JSDOM(content).window
+  const dom = new JSDOM(content)
+  const { document } = dom.window
   const anchorLinks = document.body.querySelectorAll(
     'h2 .link.link-anchor, h3 .link.link-anchor, h4 .link.link-anchor'
   )
@@ -37,7 +38,7 @@ module.exports = (content, outputPath) => {
     heading.appendChild(linkWrapper)
   })
 
-  return document.documentElement.outerHTML
+  return dom.serialize()
 }
 
 function getSvgHtml() {
