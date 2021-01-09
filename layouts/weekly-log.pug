@@ -1,0 +1,12 @@
+extends /_layout
+
+block content
+  +breadcrumb
+
+  .prose(class="xl:prose-lg")
+    h1= title
+
+    p.lead!= md.renderInline(intro)
+    hr(aria-hidden="true")
+
+    != content
