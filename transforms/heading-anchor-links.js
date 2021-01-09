@@ -16,7 +16,7 @@ module.exports = (content, outputPath) => {
   const dom = new JSDOM(content)
   const { document } = dom.window
   const anchorLinks = document.body.querySelectorAll(
-    'h2 .link.link-anchor, h3 .link.link-anchor, h4 .link.link-anchor'
+    'h2 .link.link-anchor, h3 .link.link-anchor'
   )
 
   if (anchorLinks.length === 0) return content

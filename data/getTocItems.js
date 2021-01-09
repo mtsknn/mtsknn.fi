@@ -9,18 +9,15 @@ module.exports = () =>
     const uniqueSlugs = new Set()
     const dom = new JSDOM(html)
 
-    return [...dom.window.document.body.querySelectorAll('h2, h3, h4')].reduce(
+    return [...dom.window.document.body.querySelectorAll('h2, h3')].reduce(
       (result, heading) => {
         const item = createItem(heading)
         const prevH3 = result[result.length - 1]
-        const prevH4 = prevH3?.subItems[prevH3.subItems.length - 1]
 
         if (heading.tagName === 'H2') {
           result.push(item)
         } else if (heading.tagName === 'H3') {
           prevH3.subItems.push(item)
-        } else if (heading.tagName === 'H4') {
-          prevH4.subItems.push(item)
         }
 
         return result

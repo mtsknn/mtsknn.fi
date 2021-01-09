@@ -8,7 +8,7 @@ const { slugify } = require('./slugify')
 
 const md = markdownIt({ html: true })
   .use(markdownItAnchor, {
-    level: 2,
+    level: [2, 3],
     permalink: true,
     permalinkSpace: false,
     slugify,
