@@ -14,7 +14,7 @@ const getCumulativeUrlSegments = (urlPath) =>
       .replace('/drafts/', '/')
       // Looks scary but is not!
       // Blog post coming soon™
-      .matchAll(new RegExp('(?<=((/[^/]+)+/))', 'g')),
+      .matchAll(/(?<=(.+\/))/g),
     (match) => match[1]
   )
 
