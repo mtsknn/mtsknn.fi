@@ -208,11 +208,10 @@
       left: calc(-1 * theme('spacing.2'));
     }
     h2 .link-anchor {
-      @apply -ml-6 mt-1;
+      @apply -ml-6;
     }
     h3 .link-anchor {
       @apply -ml-5;
-      margin-top: calc(theme('spacing.2') - 0.1rem);
     }
   }
   @screen xl {
