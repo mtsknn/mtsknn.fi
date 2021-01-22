@@ -35,6 +35,13 @@ html(lang="en")
       href="/blog/feed.json"
       title=`Blog ${entity.ndash} Matias Kinnunen`
     )
+
+    script(
+      async
+      data-domain="mtsknn.fi"
+      defer
+      src="https://plausible.io/js/plausible.js"
+    )
   body#top.bg-gray-50.break-words.font-sans(
     class={ 'debug-screens': process.env.NODE_ENV === 'development' }
   )
