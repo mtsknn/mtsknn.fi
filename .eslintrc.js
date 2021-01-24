@@ -12,7 +12,7 @@ module.exports = {
   rules: {
     // Allow modifying parameter properties.
     // This rule is really meant to avoid mutating the `arguments` object
-    // as mentioned in https://stackoverflow.com/a/42399879
+    // as mentioned in https://stackoverflow.com/a/4239987/10798699
     'no-param-reassign': ['error', { props: false }],
 
     // Allow function hoisting
