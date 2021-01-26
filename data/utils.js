@@ -13,7 +13,9 @@ const getCumulativeUrlSegments = (urlPath) =>
     urlPath
       .replace('/drafts/', '/')
       // Looks scary but is not!
-      // Blog post coming soon™
+      // To understand it,
+      // you only need to read this one long blog post. ;-)
+      // https://mtsknn.fi/blog/converting-a-path-into-cumulative-segments-in-javascript/
       .matchAll(/(?<=(.+\/))/g),
     (match) => match[1]
   )
