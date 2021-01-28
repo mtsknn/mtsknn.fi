@@ -115,12 +115,14 @@ module.exports = {
             color: theme('colors.gray.900'),
             fontWeight: null,
 
-            backgroundColor: theme('colors.indigo.200'),
+            backgroundColor: theme('colors.gray.100'),
             borderRadius: theme('borderRadius.lg'),
             display: 'inline-block',
             lineHeight: theme('lineHeight.relaxed'),
-            paddingLeft: theme('padding.2'),
-            paddingRight: theme('padding.2'),
+            paddingLeft: theme('padding.1'),
+            paddingRight: theme('padding.1'),
+            borderWidth: theme('borderWidth.default'),
+            borderColor: theme('colors.gray.400'),
           },
           'code::before': {
             content: null,
