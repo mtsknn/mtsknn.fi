@@ -6,3 +6,58 @@ block content
 
     p.lead!= md.renderInline(intro)
     != content
+
+    ul(class="sm:space-x-8")
+      li.list-none(class="!pl-0 sm:inline")
+        a.link(
+          aria-label="My GitHub account"
+          href="https://github.com/mtsknn/"
+        )
+          +icon('fa-github-alt')(
+            class="align-text-bottom inline mr-3 text-gray-500"
+            style={ width: '1.25rem' }
+          )
+          | GitHub
+      li.list-none(class="!pl-0 sm:inline")
+        a.link(
+          aria-label="My Stack Overflow account"
+          href="https://stackoverflow.com/users/1079869/mts-knn"
+        )
+          +icon('fa-stack-overflow')(
+            class="align-text-bottom inline mr-3 text-gray-500"
+            style={ width: '1.25rem' }
+          )
+          | Stack Overflow
+
+    hr(aria-hidden="true")
+
+    h2 Latest blog post
+
+    //- TODO: Should create a mixin from this
+    //- because this is duplicated here and in `blog.pug`
+    - post = collections.blogPosts.filter((post) => !utils.isDraft(post.data))[0]
+    article
+      h3: a.link(href=post.url)!= md.renderInline(post.data.title)
+      .text-sm(class="xl:text-base")
+        +postMeta(post.date, post.data.tags)
+      p!= md.renderInline(post.data.intro)
+      a.link.text-sm.tracking-wider.uppercase(
+        aria-label=`Continue reading "${post.data.title}"`
+        href=`${post.url}#continue-reading`
+      ) Continue reading
+
+    h2 More content
+
+    ul
+      li: a.link(href="/blog/")
+        strong Blog:
+        = ' '
+        | my wildest adventures with computers
+      li: a.link(href="/cookbook/")
+        strong Cookbook:
+        = ' '
+        | my best tips, tricks & snippets
+      li: a.link(href="/weekly-log/")
+        strong Weekly log:
+        = ' '
+        | learnings and cool stuff

@@ -197,7 +197,8 @@
   h3 .link {
     text-decoration-thickness: 3px;
   }
-  .link code {
+  .link code,
+  .link strong {
     color: inherit;
     text-decoration: inherit;
   }
