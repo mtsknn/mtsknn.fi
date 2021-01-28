@@ -1,5 +1,7 @@
 /* eslint-disable global-require */
 
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   experimental: {
     applyComplexClasses: true,
@@ -56,6 +58,10 @@ module.exports = {
           800: '#42389d',
           900: '#362f78',
         },
+      },
+      fontFamily: {
+        mono: ['"JetBrains Mono"', ...defaultTheme.fontFamily.mono],
+        sans: ['"Inter var experimental"', ...defaultTheme.fontFamily.sans],
       },
     },
     typography: (theme) => ({
