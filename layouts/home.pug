@@ -8,26 +8,35 @@ block content
     != content
 
     ul(class="sm:space-x-8")
-      li.list-none(class="!pl-0 sm:inline")
-        a.link(
-          aria-label="My GitHub account"
-          href="https://github.com/mtsknn/"
-        )
-          +icon('fa-github-alt')(
-            class="align-text-bottom inline mr-3 text-gray-500"
-            style={ width: '1.25rem' }
-          )
-          | GitHub
-      li.list-none(class="!pl-0 sm:inline")
-        a.link(
-          aria-label="My Stack Overflow account"
-          href="https://stackoverflow.com/users/1079869/mts-knn"
-        )
-          +icon('fa-stack-overflow')(
-            class="align-text-bottom inline mr-3 text-gray-500"
-            style={ width: '1.25rem' }
-          )
-          | Stack Overflow
+      -
+        const items = [
+          {
+            ariaLabel: 'My email address: hello@mtsknn.fi',
+            href: 'mailto:hello@mtsknn.fi',
+            icon: 'fa-envelope',
+            text: 'hello@mtsknn.fi',
+          },
+          {
+            ariaLabel: 'My GitHub account',
+            href: 'https://github.com/mtsknn/',
+            icon: 'fa-github-alt',
+            text: 'GitHub',
+          },
+          {
+            ariaLabel: 'My Stack Overflow account',
+            href: 'https://stackoverflow.com/users/1079869/mts-knn',
+            icon: 'fa-stack-overflow',
+            text: 'Stack Overflow',
+          },
+        ]
+      each item in items
+        li.list-none(class="!pl-0 sm:inline")
+          a.link(aria-label=item.ariaLabel href=item.href)
+            +icon(item.icon)(
+              class="align-text-bottom inline mr-3 text-gray-500"
+              style={ width: '1.25rem' }
+            )
+            = item.text
 
     hr(aria-hidden="true")
 
