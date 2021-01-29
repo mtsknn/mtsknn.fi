@@ -201,6 +201,8 @@
   .link strong {
     color: inherit;
     text-decoration: inherit;
+    text-decoration-color: inherit; /* iOS Safari */
+    transition: inherit;
   }
 
   /* O'boy how difficult it was to find a solid technique for adding an external
