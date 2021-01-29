@@ -200,10 +200,9 @@
 
   /* Need to use the tag name as well to override the `.prose a` selector */
   a.link {
-    @apply duration-150 underline;
+    @apply underline;
     text-decoration-color: theme('colors.red.500');
     text-decoration-thickness: 2px;
-    transition-property: color, text-decoration-color;
   }
   a.link:hover {
     @apply text-red-600;
@@ -221,7 +220,6 @@
     color: inherit;
     text-decoration: inherit;
     text-decoration-color: inherit; /* iOS Safari */
-    transition: inherit;
   }
 
   /* O'boy how difficult it was to find a solid technique for adding an external

@@ -59,7 +59,7 @@ html(lang="en")
           aria-label="Main navigation"
           class="sm:flex-row sm:text-left"
         )
-          a.duration-150.font-bold.font-mono.transition-colors(
+          a.font-bold.font-mono(
             aria-label=`mtsknn dot f i ${entity.ndash} go to the front page.`
             class="hover:text-red-600 active:text-red-700 xl:text-lg"
             href="/"
@@ -87,7 +87,7 @@ html(lang="en")
                 span.opacity-50 .fi
           .pt-4.space-x-6(class="sm:pt-0 xl:space-x-8")
             each item in navItems.topNav
-              a.duration-150.transition-colors(
+              a(
                 class=`
                   hover:text-red-600 active:text-red-800 xl:text-lg
                   ${(page.url || '').startsWith(item.href) ? 'font-bold' : ''}
@@ -106,7 +106,7 @@ html(lang="en")
             aria-label="my email address: hello@mtsknn.fi"
             href="mailto:hello@mtsknn.fi"
           ) hello@mtsknn.fi
-        a.duration-150.ml-4.transition-opacity(
+        a.ml-4(
           aria-label="Scroll to top"
           class="hover:opacity-75"
           href="#top"
