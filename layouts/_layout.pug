@@ -5,7 +5,11 @@ html(lang="en")
   head
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title #{(metaTitle || title).trim()} !{'&ndash;'} mts knn .fi
+    title
+      if page.url === '/'
+        | Matias Kinnunen
+      else
+        | #{(metaTitle || title).trim()} !{'&ndash;'} Matias Kinnunen
     link(rel="canonical" href=`${site.url}${page.url}`)
     if (metaDescription || intro || '').trim()
       meta(
