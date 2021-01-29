@@ -88,10 +88,10 @@ html(lang="en")
           .pt-4.space-x-6(class="sm:pt-0 xl:space-x-8")
             each item in navItems.topNav
               a(
-                class=`
-                  hover:text-red-600 active:text-red-800 xl:text-lg
-                  ${(page.url || '').startsWith(item.href) ? 'font-bold' : ''}
-                `
+                class=[
+                  'hover:text-red-600 active:text-red-800 xl:text-lg',
+                  { 'font-bold': (page.url || '').startsWith(item.href) },
+                ]
                 href=item.href
               )= item.text
       main#main.mb-6.pt-6(class="sm:mb-12 sm:pt-12")
