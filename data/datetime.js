@@ -1,8 +1,6 @@
-const { format, localeFormat } = require('light-date')
-
 const datetime = {
-  human: (date) => format(date, `${localeFormat(date, '{MMM}')} {dd}, {yyyy}`),
-  robot: (date) => format(date, '{yyyy}-{MM}-{dd}'),
+  human: (date) => date.toLocaleString('en', { dateStyle: 'medium' }),
+  robot: (date) => date.toISOString().split('T')[0],
 }
 
 module.exports = datetime
