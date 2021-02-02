@@ -216,7 +216,9 @@
   h3 .link {
     text-decoration-thickness: 3px;
   }
-  .link code {
+  .link code,
+  .link em,
+  .link strong {
     color: inherit;
     text-decoration: inherit;
     text-decoration-color: inherit; /* iOS Safari */
