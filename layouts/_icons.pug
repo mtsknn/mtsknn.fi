@@ -41,6 +41,19 @@ mixin icon(name, title)
     //- Heroicons
     //- `name` = icon name on heroicons.com + `-sm`/`-md` (small/medium)
     //- TODO: Should these names have prefixes like Font Awesome icons have?
+    when 'arrow-circle-up-md'
+      //`arrow-circle-up-md` icon by Heroicons (https://heroicons.com/), MIT Licensed
+      +svg(title)(
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      )&attributes(attributes)
+        path(
+          d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        )
     when 'chevron-right-sm'
       //`chevron-right` icon by Heroicons (https://heroicons.com/), MIT Licensed
       +svg(title)(
