@@ -252,7 +252,12 @@
 
   h2 .link-anchor,
   h3 .link-anchor {
-    @apply ml-3 text-gray-400;
+    @apply ml-3 opacity-0 text-gray-400;
+  }
+  h2:hover .link-anchor,
+  h3:hover .link-anchor,
+  .link-anchor:focus {
+    @apply opacity-100;
   }
   .link-anchor svg {
     @apply inline;
