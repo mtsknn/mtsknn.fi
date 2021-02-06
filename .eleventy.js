@@ -61,6 +61,11 @@ module.exports = (config) => {
   config.setBrowserSyncConfig({
     callbacks: {
       ready(err, browserSync) {
+        browserSync.addMiddleware('/weekly-log/2021/', (req, res) => {
+          res.writeHead(302, { location: '/weekly-log/#2021' })
+          res.end()
+        })
+
         // Provides the 404 content without redirect. Source:
         // https://github.com/11ty/eleventy-base-blog/blob/v5.0.2/.eleventy.js#L56-L64
         const notFoundContent = fs.readFileSync('./_site/404.html')
