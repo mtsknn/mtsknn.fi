@@ -6,7 +6,25 @@ block content
   .prose(class="xl:prose-lg")
     h1= title
 
-    p.lead!= md.renderInline(intro)
+    .lead
+      != md.render(intro)
+
+      - const latest = collections.weeklyLogEntries[0]
+      p
+        a.link(href=latest.url)
+          | Read the latest entry:
+          = ' '
+          strong #{latest.data.title}
+
+    hr(aria-hidden="true")
+
+    //- TODO: Replace the hardcoded year with dynamic years
+    h2#2021 2021
+
+    ul
+      each entry in collections.weeklyLogEntries
+        li: a.link(href=entry.url)= entry.data.title
+
     hr(aria-hidden="true")
 
     != content

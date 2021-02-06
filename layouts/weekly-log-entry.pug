@@ -1,0 +1,31 @@
+extends /_layout
+
+block content
+  +breadcrumb
+
+  .prose(class="xl:prose-lg")
+    h1= title
+    p.lead Highlights of the week.
+
+    hr(aria-hidden="true")
+
+    +toc(content)
+    != content
+
+    hr(aria-hidden="true")
+
+    h2 💁‍♂️ More Weekly log entries
+
+    - const index = collections.weeklyLogEntries.findIndex((entry) => entry.url === page.url)
+    - const next = collections.weeklyLogEntries[index - 1]
+    - const previous = collections.weeklyLogEntries[index + 1]
+    if next
+      p: a.link(href=next.url)
+        em Next week:
+        = ' '
+        = next.data.title
+    if previous
+      p: a.link(href=previous.url)
+        em Previous week:
+        = ' '
+        = previous.data.title

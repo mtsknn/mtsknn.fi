@@ -41,6 +41,15 @@ module.exports = (config) => {
       .sort((a, b) => a.data.title.localeCompare(b.data.title, 'en'))
   )
 
+  config.addCollection(
+    'weeklyLogEntries',
+    (collectionApi) =>
+      collectionApi
+        .getFilteredByGlob('./content/weekly-log/**/*.md')
+        .filter((page) => (isProductionEnv ? !isScheduled(page.data) : true))
+        .reverse() // Newest first
+  )
+
   config.addPassthroughCopy({ './assets/favicon/': '/' })
   config.addPassthroughCopy({ './assets/fonts/': '/fonts/' })
   config.addPassthroughCopy('./content/blog/**/*.png')
