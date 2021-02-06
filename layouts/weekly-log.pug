@@ -27,4 +27,25 @@ block content
 
     hr(aria-hidden="true")
 
-    != content
+    //- TODO: Move this section to the content file?
+    //- Though the problem there is that
+    //- we can't access the `datetime` helper.
+    h2 What's the current week number?
+
+    p.
+      Today (this page is automatically rebuilt once per day) is
+      #{' '}
+      #[strong #{new Date().toLocaleString('en', { dateStyle: 'full' })}],
+      and it's
+      #{' '}
+      #[strong the #{datetime.nthWeek(new Date())} week]
+      #{' '}
+      here in Finland.
+    p.
+      Did you know that
+      #[a.link(href="/weekly-log/2021/02/#calculating-week-numbers-is-complex") calculating week numbers is complex]?
+      In your area
+      the current week number
+      might be something else
+      than here.
+      #[a.link(href="/weekly-log/2021/02/#calculating-week-numbers-is-complex") I learned that on the 2nd week of 2021.]
