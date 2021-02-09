@@ -16,6 +16,11 @@
   status = 302
 
 [[redirects]]
+  from = "/blog/contenteditable-first-letter-is-a-buggy-combination-in-chrome/"
+  to   = "/blog/contenteditable-first-letter-chrome-buggy-combo/"
+  status = 301
+
+[[redirects]]
   from = "/blog/episerver-how-to-change-a-contents-modified-date-programmatically/"
   to   = "/blog/how-to-change-modified-date-programmatically-in-episerver/"
   status = 301
