@@ -5,32 +5,29 @@ block content
 
   .prose(class="xl:prose-lg")
     h1= title
-
-    .lead
-      != md.render(intro)
-
-      - const latest = collections.weeklyLogEntries[0]
-      p
-        a.link(href=latest.url)
-          | Read the latest entry:
-          = ' '
-          strong #{latest.data.title}
+    p.lead!= md.renderInline(intro)
+    p RSS and JSON feeds coming soon&trade;.
 
     hr(aria-hidden="true")
 
     //- TODO: Replace the hardcoded year with dynamic years
     h2#2021 2021
 
-    ul
-      each entry in collections.weeklyLogEntries
-        li: a.link(href=entry.url)= entry.data.title
+    each entry in collections.weeklyLogEntries
+      article
+        h3(class="sm:inline-block sm:!mb-0 sm:mr-4")
+          a.link(href=entry.url)= entry.data.title
+        p.text-gray-600(class="!-mb-2 sm:inline-block sm:!mb-0 xl:text-lg")
+          span.sr-only Published on#{' '}
+          time(datetime=datetime.robot(entry.date))= datetime.human(entry.date)
+        p(class="sm:!mb-0 !mt-4")!= md.renderInline(entry.data.intro)
 
     hr(aria-hidden="true")
 
     //- TODO: Move this section to the content file?
     //- Though the problem there is that
     //- we can't access the `datetime` helper.
-    h2 What's the current week number?
+    h2#whats-the-current-week-number What's the current week number?
 
     p.
       Today (this page is automatically rebuilt once per day) is

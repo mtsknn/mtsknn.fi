@@ -5,7 +5,10 @@ block content
 
   .prose(class="xl:prose-lg")
     h1= title
-    p.lead Highlights of the week.
+    p
+      span.sr-only Published on#{' '}
+      time(datetime=datetime.robot(page.date))= datetime.human(page.date)
+    p.lead!= md.renderInline(intro)
 
     hr(aria-hidden="true")
 
