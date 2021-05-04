@@ -1,11 +1,10 @@
 const slugify = require('slugify')
 
 const mySlugify = (text = '') => {
-  // This works for the "C#" tag but not when a longer text contains "C#". Might
-  // want to do something about this someday
-  if (text.toLowerCase() === 'c#') return 'csharp'
-
-  return slugify(text, { lower: true, strict: true })
+  return [text]
+    .map((x) => x.replace(/c#/gi, 'csharp'))
+    .map((x) => x.replace(/\.NET/g, 'dotnet'))
+    .map((x) => slugify(x, { lower: true, strict: true }))[0]
 }
 
 // For templates (automatically available)
