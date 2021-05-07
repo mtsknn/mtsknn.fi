@@ -6,9 +6,8 @@ block content
   .prose(class="xl:prose-lg")
     h1= title
     p.lead!= md.renderInline(intro)
-    p RSS and JSON feeds coming soon&trade;.
 
-    hr(aria-hidden="true")
+    != content
 
     //- TODO: Replace the hardcoded year with dynamic years
     h2#2021 2021
@@ -21,8 +20,6 @@ block content
           span.sr-only Published on#{' '}
           time(datetime=datetime.robot(entry.date))= datetime.human(entry.date)
         p(class="sm:!mb-0 !mt-4")!= md.renderInline(entry.data.intro)
-
-    hr(aria-hidden="true")
 
     //- TODO: Move this section to the content file?
     //- Though the problem there is that
