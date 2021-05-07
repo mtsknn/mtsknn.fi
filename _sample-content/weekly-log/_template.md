@@ -7,7 +7,7 @@ date: 2021-01-01
 
 ## 👨‍💼 Work
 
-## 👨‍🚀 Personal projects
+## 👨‍🚀 Personal
 
 ## 👨‍🎓 Learnings
 
