@@ -2,7 +2,7 @@ const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const fs = require('fs')
 
 const md = require('./data/md')
-const { alphabetically } = require('./data/sort')
+const { alphabetically, byDate } = require('./data/sort')
 const { isDraft, isProductionEnv, isScheduled } = require('./data/utils')
 const transformHeadingAnchorLinks = require('./transforms/heading-anchor-links')
 
@@ -48,6 +48,16 @@ module.exports = (config) => {
       // Newest first
       .reverse()
   )
+
+  config.addCollection('allContentPages', (collectionApi) => {
+    const collections = config.getCollections()
+
+    const blogPosts = collections.blogPosts(collectionApi)
+    const cookbookRecipes = collections.cookbookRecipes(collectionApi)
+    const weeklyLogEntries = collections.weeklyLogEntries(collectionApi)
+
+    return blogPosts.concat(cookbookRecipes, weeklyLogEntries).sort(byDate)
+  })
 
   config.addPassthroughCopy({ './assets/favicon/': '/' })
   config.addPassthroughCopy({ './assets/fonts/': '/fonts/' })
