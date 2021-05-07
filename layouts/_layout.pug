@@ -6,10 +6,9 @@ html(lang="en")
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title
-      if page.url === '/'
-        | Matias Kinnunen
-      else
-        | #{(metaTitle || title).trim()} !{'&ndash;'} Matias Kinnunen
+      = (metaTitle || title).trim()
+      if page.url !== '/'
+        | !{' &ndash; '} #{site.title}
     link(rel="canonical" href=`${site.url}${page.url}`)
     if (metaDescription || intro || '').trim()
       meta(
@@ -107,7 +106,7 @@ html(lang="en")
         class="xl:text-base"
       )
         .text-gray-500.text-left
-          | &copy; Matias Kinnunen 2020&ndash;2021.
+          | &copy; #{site.title} 2020&ndash;2021.
         a.ml-4(
           aria-label="Scroll to top"
           class="hover:opacity-75"
