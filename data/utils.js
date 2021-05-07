@@ -26,7 +26,15 @@ const utils = {
   getBreadcrumbItems: (urlPath) =>
     getCumulativeUrlSegments(urlPath)
       .slice(0, -1) // Drop the last page, it's not shown in the breadcrumb
-      .map((href) => navItems.all.find((item) => item.href === href)),
+      .map((href) => {
+        const found = navItems.all.find((item) => item.href === href)
+
+        if (!found) {
+          throw new Error(`❗ No breadcrumb item found for the href "${href}"`)
+        }
+
+        return found
+      }),
   isDraft: (data) => data.page.filePathStem.includes('/drafts/'),
   isProductionEnv: process.env.NODE_ENV === 'production',
   isScheduled: (data) => data.date >= now,
