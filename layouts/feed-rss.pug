@@ -1,0 +1,26 @@
+---
+dynamicPermalink: false # Don't parse `permalink` using Pug
+---
+- const items = collections[collectionsKey]
+- const latestItem = items[items.length - 1]
+
+doctype xml
+feed(xmlns="http://www.w3.org/2005/Atom")
+  title= title
+  subtitle= description
+  link(href=`${site.url}${permalink}` rel="self")/
+  link(href=`${site.url}/`)/
+  if latestItem
+    updated= getPublishedDate(latestItem)
+  id= `${site.url}/`
+  author
+    name= site.author.name
+    email= site.author.email
+  each item in items
+    - const fullUrl = `${site.url}${item.url}`
+    entry
+      title= item.data.title
+      link(href=fullUrl)/
+      updated= getPublishedDate(item)
+      id= fullUrl
+      content(type="html")= getFullContent(item)

@@ -10,10 +10,24 @@
   NODE_ENV = "production"
   NODE_VERSION = "14"
 
+# Temporary redirects
+
 [[redirects]]
   from = "/weekly-log/2021/"
   to   = "/weekly-log/#2021"
   status = 302
+
+# Permanent redirects
+
+[[redirects]]
+  from = "/blog/feed.json"
+  to   = "/feeds/blog.json"
+  status = 301
+
+[[redirects]]
+  from = "/blog/feed.xml"
+  to   = "/feeds/blog.xml"
+  status = 301
 
 [[redirects]]
   from = "/blog/contenteditable-first-letter-is-a-buggy-combination-in-chrome/"

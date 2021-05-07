@@ -1,13 +1,8 @@
 const datetime = require('../../data/datetime')
-const entity = require('../../data/entity')
 const md = require('../../data/md')
 
 module.exports = {
-  layout: null,
   eleventyExcludeFromCollections: true,
-
-  description: 'A collection of my wildest adventures with computers.',
-  title: `Blog ${entity.ndash} Matias Kinnunen`,
 
   getFullContent(post) {
     return (

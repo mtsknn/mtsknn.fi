@@ -1,5 +1,6 @@
 module.exports = ({
   collections,
+  collectionsKey,
   description,
   getFullContent,
   getPublishedDate,
@@ -25,22 +26,23 @@ module.exports = ({
 
     authors: [
       {
-        name: 'Matias Kinnunen',
+        name: site.author.name,
         url: `${site.url}/`,
         // Maybe add `avatar` later
       },
     ],
     language: 'en-US',
-    items: collections.blogPosts.map((post) => {
-      const fullUrl = `${site.url}${post.url}`
+    items: collections[collectionsKey].map((item) => {
+      const fullUrl = `${site.url}${item.url}`
       return {
         id: fullUrl,
         url: fullUrl,
-        title: post.data.title,
-        content_html: getFullContent(post),
-        summary: post.data.metaDescription?.trim() || undefined,
-        date_published: getPublishedDate(post),
-        tags: post.data.tags,
+        title: item.data.title,
+        content_html: getFullContent(item),
+        summary:
+          (item.data.metaDescription || item.data.intro)?.trim() || undefined,
+        date_published: getPublishedDate(item),
+        tags: item.data.tags,
       }
     }),
   }
