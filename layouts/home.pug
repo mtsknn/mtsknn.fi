@@ -2,9 +2,15 @@ extends /_layout
 
 block content
   .prose(class="xl:prose-lg")
-    h1= title
+    h1(aria-label=title)
+      .font-bold.mb-2.text-gray-500.text-2xl(class="xl:mb-4 xl:text-3xl")
+        | Yello! I'm#{' '}
+      = site.author.name
+      span.text-gray-500 ,
+      .font-bold.mt-2.text-gray-500.text-2xl(class="xl:mt-4 xl:text-3xl")
+        | #{' '}a full-stack web developer
 
-    p.lead!= md.renderInline(intro)
+    .lead!= md.render(intro)
     != content
 
     ul(class="sm:space-x-8")
@@ -30,7 +36,7 @@ block content
           },
         ]
       each item in items
-        li.list-none(class="!pl-0 sm:inline")
+        li.list-none(class="!my-4 !pl-0 sm:inline")
           a.link(aria-label=item.ariaLabel href=item.href)
             +icon(item.icon)(
               class="align-text-bottom inline mr-3 text-gray-500"
