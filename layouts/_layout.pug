@@ -150,6 +150,9 @@ html(lang="en")
                 style={ width: '1.25rem' }
               )
       main#main.mb-6.pt-6(class="sm:mb-12 sm:pt-12")
+        if page.url !== '/'
+          +breadcrumb
+
         block content
           .prose(class="xl:prose-lg")!= content
       footer.border-t.border-gray-300.flex.items-baseline.justify-between.pt-6.text-gray-700.text-sm(
