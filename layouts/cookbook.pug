@@ -10,7 +10,7 @@ block content
     != content
 
     h2 The recipes
-    each recipe in collections.cookbookRecipes
+    each recipe in [...collections.cookbookRecipes].sort(sort.byTitle)
       article.max-w-none(class="sm:!mb-4 sm:flex sm:justify-between")
         h3(class="sm:!my-0")
           a.link(href=recipe.url)!= md.renderInline(recipe.data.title)

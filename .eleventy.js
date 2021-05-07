@@ -2,6 +2,7 @@ const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const fs = require('fs')
 
 const md = require('./data/md')
+const { alphabetically } = require('./data/sort')
 const { isDraft, isProductionEnv, isScheduled } = require('./data/utils')
 const transformHeadingAnchorLinks = require('./transforms/heading-anchor-links')
 
@@ -23,9 +24,7 @@ module.exports = (config) => {
   config.addCollection('blogTags', (collectionApi) => {
     const blogPosts = config.getCollections().blogPosts(collectionApi)
     const tags = new Set(blogPosts.flatMap((item) => item.data.tags || []))
-    return [...tags].sort((a, b) =>
-      a.localeCompare(b, 'en', { sensitivity: 'accent' })
-    )
+    return [...tags].sort(alphabetically)
   })
   config.addCollection('blogPostsWithTag', (collectionApi) => {
     const blogPosts = config.getCollections().blogPosts(collectionApi)
@@ -38,16 +37,16 @@ module.exports = (config) => {
       .filter((page) =>
         isProductionEnv ? !(isDraft(page.data) || isScheduled(page.data)) : true
       )
-      .sort((a, b) => a.data.title.localeCompare(b.data.title, 'en'))
+      // Newest first
+      .reverse()
   )
 
-  config.addCollection(
-    'weeklyLogEntries',
-    (collectionApi) =>
-      collectionApi
-        .getFilteredByGlob('./content/weekly-log/**/*.md')
-        .filter((page) => (isProductionEnv ? !isScheduled(page.data) : true))
-        .reverse() // Newest first
+  config.addCollection('weeklyLogEntries', (collectionApi) =>
+    collectionApi
+      .getFilteredByGlob('./content/weekly-log/**/*.md')
+      .filter((page) => (isProductionEnv ? !isScheduled(page.data) : true))
+      // Newest first
+      .reverse()
   )
 
   config.addPassthroughCopy({ './assets/favicon/': '/' })
