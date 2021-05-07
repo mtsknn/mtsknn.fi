@@ -127,15 +127,28 @@ html(lang="en")
               else
                 | mtsknn
                 span.opacity-50 .fi
-          .pt-4.space-x-6(class="sm:pt-0 xl:space-x-8")
-            each item in navItems.topNav
-              a(
+          .-ml-6.space-x-6.space-y-4(class="sm:space-y-0 xl:space-x-8")
+            each item, i in navItems.topNav
+              a.inline-block.whitespace-no-wrap(
                 class=[
-                  'hover:text-red-600 active:text-red-800 xl:text-lg',
                   { 'font-bold': (page.url || '').startsWith(item.href) },
+                  { 'mt-4 ml-6 sm:mt-0 sm:ml-0': i === 0 },
+                  'hover:text-red-600 active:text-red-800 xl:text-lg',
                 ]
                 href=item.href
               )= item.text
+            a.inline-block.text-gray-500(
+              aria-label="RSS/Atom and JSON feeds"
+              class=[
+                { 'text-gray-800': (page.url || '').startsWith('/feeds/') },
+                'hover:text-red-600 active:text-red-800',
+              ]
+              href="/feeds/"
+            )
+              +icon('rss-md', 'RSS/Atom and JSON feeds')(
+                class="align-text-top inline-block xl:align-top xl:mt-px xl:pt-px xl:!w-6"
+                style={ width: '1.25rem' }
+              )
       main#main.mb-6.pt-6(class="sm:mb-12 sm:pt-12")
         block content
           .prose(class="xl:prose-lg")!= content
