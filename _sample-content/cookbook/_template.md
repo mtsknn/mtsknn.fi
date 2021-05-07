@@ -1,4 +1,7 @@
 ---
+# Required fields
+#################
+
 # Aim for max 60 characters:
 #       ←----------------------------------------------------------→
 title: 'Main tag: Recipe title. Plain text, single line'
@@ -7,12 +10,11 @@ title: 'Main tag: Recipe title. Plain text, single line'
 # If future date, the recipe will be shown only locally until the date.
 date: 2020-12-24
 
-# Shown on the recipe page (comparable with the intro of a blog post).
-# Might be displayed in Google search results.
-metaDescription: |
-  Plain text,
-  single line,
-  but can be split on multiple lines like this to ease editing.
+intro: |
+  Intro text,
+  single paragraph.
+  Supports Markdown: _italic_, **bold** etc.
+  But maybe don't use links here.
 
 # Order alphabetically,
 # or maybe the most important first.
@@ -21,7 +23,16 @@ tags:
   - Clean code
   - JavaScript
 
-# Optional
+# Optional fields
+#################
+
+metaDescription: |
+  Plain text,
+  single line,
+  but can be split on multiple lines like this to ease editing.
+  Might be displayed in Google search results.
+  If not set, `intro` will be used
+  (but any Markdown in it will NOT be parsed).
 metaTitle: |
   Plain text,
   single line,

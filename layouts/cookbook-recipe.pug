@@ -6,7 +6,7 @@ block content
   article.prose(class="xl:prose-lg")
     h1(class="!mb-6")!= md.renderInline(title)
     .mb-12: +recipeMeta(page.date, tags)
-    p.lead!= md.renderInline(metaDescription)
+    p.lead!= md.renderInline(intro)
     hr(aria-hidden="true")
     +toc(content)
     != content
