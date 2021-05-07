@@ -40,20 +40,20 @@ block content
 
     hr(aria-hidden="true")
 
-    h2 Latest blog post
+    h2 Latest content
 
-    //- TODO: Should create a mixin from this
-    //- because this is duplicated here and in `blog.pug`
-    - post = collections.blogPosts.filter((post) => !utils.isDraft(post.data))[0]
-    article
-      h3: a.link(href=post.url)!= md.renderInline(post.data.title)
-      .text-sm(class="xl:text-base")
-        +postMeta(post.date, post.data.tags)
-      p!= md.renderInline(post.data.intro)
-      a.link.text-sm.tracking-wider.uppercase(
-        aria-label=`Continue reading "${post.data.title}"`
-        href=`${post.url}#continue-reading`
-      ) Continue reading
+    -
+      const latestContent = [
+        { type: 'Blog post', data: collections.blogPosts[0] },
+        { type: 'Cookbook recipe', data: collections.cookbookRecipes[0] },
+        { type: 'Weekly log entry', data: collections.weeklyLogEntries[0] },
+      ]
+    ul
+      each content in latestContent
+        li
+          = `${content.type}: `
+          a.link(href=content.data.url)= content.data.data.title
+          = ` (${datetime.human(content.data.date)})`
 
     h2 More content
 
