@@ -11,10 +11,10 @@ block content
       -
         const items = [
           {
-            ariaLabel: 'My email address: hello@mtsknn.fi',
-            href: 'mailto:hello@mtsknn.fi',
+            ariaLabel: `My email address: ${site.author.email}`,
+            href: `mailto:${site.author.email}`,
             icon: 'fa-envelope',
-            text: 'hello@mtsknn.fi',
+            text: site.author.email,
           },
           {
             ariaLabel: 'My GitHub account',
