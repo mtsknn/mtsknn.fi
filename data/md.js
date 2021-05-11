@@ -1,6 +1,7 @@
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
 const markdownItAttrs = require('markdown-it-attrs')
+const markdownItDeflist = require('markdown-it-deflist')
 const markdownItFootnote = require('markdown-it-footnote')
 const markdownItLinkAttributes = require('markdown-it-link-attributes')
 
@@ -20,6 +21,7 @@ const md = markdownIt({ html: true })
     // `heading-anchor-links` transform
   })
   .use(markdownItAttrs)
+  .use(markdownItDeflist)
   .use(markdownItFootnote)
   .use(markdownItLinkAttributes, [
     {

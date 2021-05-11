@@ -199,6 +199,19 @@
     @apply inline py-px;
   }
 
+  .prose dl {
+    @apply ml-5;
+  }
+  .prose dt {
+    @apply font-bold;
+  }
+  .prose dd {
+    @apply mb-5 ml-5;
+  }
+  .xl\:prose-lg dd {
+    margin-bottom: 1.3333333rem;
+  }
+
   /* Need to use the tag name as well to override the `.prose a` selector */
   a.link {
     @apply underline;
