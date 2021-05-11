@@ -47,3 +47,8 @@
   from = "/blog/the-default-case-of-a-switch-statement-doesnt-have-to-be-the-last-one/"
   to   = "/blog/switch-statements-default-doesnt-have-to-be-the-last-case/"
   status = 301
+
+[[redirects]]
+  from = "/blog/summary-of-rfc-2119/"
+  to   = "/blog/rfc-2119-in-a-nutshell/"
+  status = 301
