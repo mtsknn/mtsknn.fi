@@ -9,6 +9,7 @@
 [build.environment]
   NODE_ENV = "production"
   NODE_VERSION = "14"
+  NPM_VERSION = "7"
 
 # Temporary redirects
 
