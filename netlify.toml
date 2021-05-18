@@ -11,6 +11,11 @@
   NODE_VERSION = "14"
   NPM_VERSION = "7"
 
+[[headers]]
+  for = "/fonts/*"
+    [headers.values]
+      Cache-Control = "public, max-age=31536000"
+
 # Temporary redirects
 
 [[redirects]]
