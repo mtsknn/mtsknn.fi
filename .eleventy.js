@@ -61,7 +61,7 @@ module.exports = (config) => {
 
   config.addPassthroughCopy({ './assets/favicon/': '/' })
   config.addPassthroughCopy({ './assets/fonts/': '/fonts/' })
-  config.addPassthroughCopy('./content/**/*.png')
+  config.addPassthroughCopy('./content/**/*.{jpg,jpeg,png}')
 
   config.addPlugin(pluginSyntaxHighlight, { alwaysWrapLineHighlights: true })
 
