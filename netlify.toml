@@ -58,3 +58,8 @@
   from = "/blog/summary-of-rfc-2119/"
   to   = "/blog/rfc-2119-in-a-nutshell/"
   status = 301
+
+[[redirects]]
+  from = "/cookbook/english-learned-vs-learnt/"
+  to   = "/blog/my-favorite-mnemonics-for-american-vs-british-english/#learned-vs-learnt"
+  status = 301
