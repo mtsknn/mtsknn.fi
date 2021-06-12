@@ -57,7 +57,8 @@ block content
       each content in latestContent
         li
           = `${content.type}: `
-          a.link(href=content.data.url)= content.data.data.title
+          a.link(href=content.data.url)
+            != md.renderInline(content.data.data.title)
           = ` (${datetime.human(content.data.date)})`
 
     h2 More content

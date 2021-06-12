@@ -17,6 +17,6 @@ block content
     ol
       each post in collections.blogPostsWithTag(tag)
         li
-          a.link(href=post.url)= post.data.title
+          a.link(href=post.url)!= md.renderInline(post.data.title)
           span.whitespace-no-wrap
             | #{' '}(#[span.sr-only published on ]#{datetime.human(post.date)})
