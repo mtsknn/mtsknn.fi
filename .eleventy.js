@@ -31,16 +31,6 @@ module.exports = (config) => {
     return (tag) => blogPosts.filter((post) => post.data.tags?.includes(tag))
   })
 
-  config.addCollection('cookbookRecipes', (collectionApi) =>
-    collectionApi
-      .getFilteredByGlob('./content/cookbook/**/*.md')
-      .filter((page) =>
-        isProductionEnv ? !(isDraft(page.data) || isScheduled(page.data)) : true
-      )
-      // Newest first
-      .reverse()
-  )
-
   config.addCollection('weeklyLogEntries', (collectionApi) =>
     collectionApi
       .getFilteredByGlob('./content/weekly-log/**/*.md')
@@ -53,10 +43,9 @@ module.exports = (config) => {
     const collections = config.getCollections()
 
     const blogPosts = collections.blogPosts(collectionApi)
-    const cookbookRecipes = collections.cookbookRecipes(collectionApi)
     const weeklyLogEntries = collections.weeklyLogEntries(collectionApi)
 
-    return blogPosts.concat(cookbookRecipes, weeklyLogEntries).sort(byDate)
+    return blogPosts.concat(weeklyLogEntries).sort(byDate)
   })
 
   config.addPassthroughCopy({ './assets/favicon/': '/' })

@@ -11,7 +11,7 @@ const [title] = args
 if (args.length !== 1 || title.trim().length === 0) {
   console.log(endent`
     Usage:
-      npm run slugify "Title of the blog post / cookbook recipe"
+      npm run slugify "Title of the blog post"
     Note:
       Leave backticks out (or escape them)
   `)

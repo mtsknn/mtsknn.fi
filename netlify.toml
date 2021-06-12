@@ -16,14 +16,14 @@
     [headers.values]
       Cache-Control = "public, max-age=31536000"
 
-# Temporary redirects
+# Temporary redirects (302)
 
 [[redirects]]
   from = "/weekly-log/2021/"
   to   = "/weekly-log/#2021"
   status = 302
 
-# Permanent redirects
+# Permanent redirects (301)
 
 [[redirects]]
   from = "/blog/feed.json"
@@ -60,6 +60,101 @@
   status = 301
 
 [[redirects]]
+  from = "/cookbook/"
+  to   = "/blog/goodbye-cookbook-hello-more-blog-posts/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/csharp-action-vs-func-vs-predicate/"
+  to   = "/blog/delegate-types-in-csharp-action-vs-func-vs-predicate/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/csharp-cast-expression-vs-as-operator-vs-is-operator/"
+  to   = "/blog/casting-in-csharp-cast-expression-vs-as-and-is-operators/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/english-assume-vs-presume/"
+  to   = "/blog/assume-vs-presume-in-english/"
+  status = 301
+
+[[redirects]]
   from = "/cookbook/english-learned-vs-learnt/"
   to   = "/blog/my-favorite-mnemonics-for-american-vs-british-english/#learned-vs-learnt"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/git-force-pushing/"
+  to   = "/blog/how-to-force-push-in-git-with-style-and-some-safety/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/git-undo-the-last-commit/"
+  to   = "/blog/how-to-undo-the-last-previous-most-recent-commit-in-git/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/imageprocessor-disable-upscaling-by-default-or-completely/"
+  to   = "/blog/how-to-disable-imageprocessors-upscaling-feature/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/javascript-array-shift-vs-array-unshift/"
+  to   = "/blog/mnemonic-for-array-shift-vs-array-unshift-in-javascript/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/javascript-chunk-an-array/"
+  to   = "/blog/how-to-chunk-an-array-in-javascript/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/javascript-fnapply-vs-fncall-better-alternative/"
+  to   = "/blog/fn-apply-vs-fn-call-in-javascript-better-alternative/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/javascript-pretty-print-json/"
+  to   = "/blog/how-to-pretty-print-json-in-javascript/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/mithriljs-debounce-events/"
+  to   = "/blog/how-to-debounce-events-in-mithriljs"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/mithriljs-get-components-html-without-mounting/"
+  to   = "/blog/how-to-get-components-html-without-mounting-in-mithriljs/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/mithriljs-nested-selectors/"
+  to   = "/blog/how-to-nest-selectors-in-mithriljs-for-extra-brevity/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/nodejs-format-dates-and-numbers-with-tolocalestring/"
+  to   = "/blog/using-non-default-locales-with-tolocalestring-in-nodejs/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/npm-count-lines-of-code/"
+  to   = "/blog/how-to-quickly-count-source-lines-of-code-using-npx-cloc/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/npm-list-globally-installed-packages/"
+  to   = "/blog/how-to-list-globally-installed-npm-packages/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/npm-sort-package-json/"
+  to   = "/blog/how-to-sort-package-json-automatically/"
+  status = 301
+
+[[redirects]]
+  from = "/cookbook/svg-when-to-use-xmlns-and-version-attributes/"
+  to   = "/blog/when-to-use-the-xmlns-and-version-svg-attributes/"
   status = 301

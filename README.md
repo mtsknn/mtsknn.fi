@@ -29,8 +29,6 @@ without anyone having to know about them afterwards).
 
 - Blog posts: `content/blog/`
 - Blog post drafts: `content/blog/drafts/`
-- Cookbook recipes: `content/cookbook/`
-- Cookbook recipe drafts: `content/cookbook/drafts/`
 - Top-level pages: `content/`
   \+ you probably want to update `data/navItems.js`
 
@@ -44,13 +42,9 @@ Usage:
 ```bash
 # Leave backticks out (or escape them)
 npm run new post "Title of the blog post"
-npm run new recipe "Title of the cookbook recipe"
 
 # Created draft:
 # C:\...\mtsknn.fi\content\blog\drafts\title-of-the-blog-post.md
-
-# Created draft:
-# C:\...\mtsknn.fi\content\cookbook\drafts\title-of-the-cookbook-recipe.md
 ```
 
 ### `npm run slugify`
@@ -62,10 +56,10 @@ Usage:
 
 ```bash
 # Leave backticks out (or escape them)
-npm run slugify "Title of the blog post / cookbook recipe"
+npm run slugify "Title of the blog post"
 
 # Slugified title (copied to the clipboard):
-# title-of-the-blog-post-cookbook-recipe
+# title-of-the-blog-post
 ```
 
 ## Folder structure
