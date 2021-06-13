@@ -3,9 +3,7 @@ extends /_layout
 block content
   .prose(class="xl:prose-lg")
     h1= title
-    p
-      span.sr-only Published on#{' '}
-      time(datetime=datetime.robot(page.date))= datetime.human(page.date)
+    +postMeta(page.date, updated)
     p.lead!= md.renderInline(intro)
 
     hr(aria-hidden="true")

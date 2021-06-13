@@ -15,7 +15,7 @@ block content
             span.pr-3(aria-hidden="true" title="Draft") ✏
           a.link(href=post.url)!= md.renderInline(post.data.title)
         .text-sm(class="xl:text-base")
-          +postMeta(post.date, post.data.tags)
+          +postMeta(post.date, post.data.updated, post.data.tags)
         p!= md.renderInline(post.data.intro)
         a.link.text-sm.tracking-wider.uppercase(
           aria-label=`Continue reading "${post.data.title}"`

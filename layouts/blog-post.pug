@@ -4,7 +4,7 @@ block content
   article.prose(class="xl:prose-lg")
     h1(class="!mb-6")!= md.renderInline(title)
     .mb-6
-      +postMeta(page.date, tags)
+      +postMeta(page.date, updated, tags)
     p.lead!= md.renderInline(intro)
     hr(aria-hidden="true" class="!mb-0")
 

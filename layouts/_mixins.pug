@@ -26,24 +26,32 @@ mixin breadcrumb
               style={ width: '1.25rem' }
             )
 
-mixin postMeta(date, tags = [])
+mixin postMeta(date, updated, tags = [])
   - const isScheduled = date > Date.now()
 
-  .text-gray-600
-    span.sr-only Published on#{' '}
-    time.border-gray-300.border-r-2.pr-4.tracking-wider.uppercase(
-      datetime=datetime.robot(date)
-    )
-      if isScheduled
-        span.pr-2(aria-hidden="true" title="Scheduled") ⌚
+  p(class="!mb-0")
+    = 'Published on '
+    time.font-medium.whitespace-no-wrap(datetime=datetime.robot(date))
       = datetime.human(date)
+    if isScheduled
+      span.pr-2(aria-hidden="true" title="Scheduled")= ' ⌚'
 
     if tags.length
-      span.sr-only &ndash; Tags:
-      ul.inline
-        each tag in tags
-          li.inline-block.list-none.ml-4.whitespace-no-wrap(class="!my-1 !pl-0")
-            a.link.link-tag.py-1(href=`/blog/tags/${slugify(tag)}/`)= tag
+      span= ' '
+      span.inline-block
+        = 'in '
+        each tag, i in tags
+          a.link.whitespace-no-wrap(href=`/blog/tags/${slugify(tag)}/`)= tag
+          if i < tags.length - 2
+            = ', '
+          if i === tags.length - 2
+            = ' and '
+
+  if updated
+    p(class="!mt-0")
+      = 'Last updated on '
+      time.font-medium.whitespace-no-wrap(datetime=datetime.robot(updated))
+        = datetime.human(updated)
 
 mixin skipLink(text, href, classes = '')
   .absolute.z-10
