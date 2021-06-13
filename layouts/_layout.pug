@@ -153,7 +153,7 @@ html(lang="en")
                 style={ width: '1.25rem' }
               )
       main#main.mb-12.pt-12
-        if page.url !== '/'
+        if page.url !== '/' && page.url !== '/404.html'
           +breadcrumb
 
         block content
