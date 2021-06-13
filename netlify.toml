@@ -158,3 +158,13 @@
   from = "/cookbook/svg-when-to-use-xmlns-and-version-attributes/"
   to   = "/blog/when-to-use-the-xmlns-and-version-svg-attributes/"
   status = 301
+
+[[redirects]]
+  from = "/feeds/cookbook.json"
+  to   = "/blog/goodbye-cookbook-hello-more-blog-posts/"
+  status = 301
+
+[[redirects]]
+  from = "/feeds/cookbook.xml"
+  to   = "/blog/goodbye-cookbook-hello-more-blog-posts/"
+  status = 301
