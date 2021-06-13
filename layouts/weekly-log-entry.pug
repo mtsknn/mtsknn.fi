@@ -2,8 +2,10 @@ extends /_layout
 
 block content
   .prose(class="xl:prose-lg")
-    h1= title
-    +postMeta(page.date, updated)
+    .max-w-none.text-center
+      h1(class="!mb-6")= title
+      +postMeta(page.date, updated)
+
     p.lead!= md.renderInline(intro)
 
     hr(aria-hidden="true")

@@ -65,19 +65,6 @@ mixin icon(name, title)
           d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
           fill-rule="evenodd"
         )
-    when 'hashtag-md'
-      //`hashtag` icon by Heroicons (https://heroicons.com/), MIT Licensed
-      +svg(title)(
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      )&attributes(attributes)
-        path(
-          d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-        )
     when 'home-md'
       //`home` icon by Heroicons (https://heroicons.com/), MIT Licensed
       +svg(title)(
