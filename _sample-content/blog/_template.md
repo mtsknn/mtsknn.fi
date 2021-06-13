@@ -25,6 +25,11 @@ tags:
 # Optional fields
 #################
 
+# Only date, no time.
+# Update when you modify the post significantly.
+# Don't update when doing minor updates like fixing typos.
+updated: 2021-01-01
+
 metaDescription: |
   Plain text,
   single line,
@@ -32,6 +37,8 @@ metaDescription: |
   Might be displayed in Google search results.
   If not set, `intro` will be used
   (but any Markdown in it will NOT be parsed).
+
+# Aim for max 60 characters
 metaTitle: |
   Plain text,
   single line,
