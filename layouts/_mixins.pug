@@ -31,7 +31,7 @@ mixin postMeta(date, updated, tags = [])
 
   p(class="!mb-0")
     = 'Published on '
-    time.font-medium.whitespace-no-wrap(datetime=datetime.robot(date))
+    time.whitespace-no-wrap(datetime=datetime.robot(date))
       = datetime.human(date)
     if isScheduled
       span.pr-2(aria-hidden="true" title="Scheduled")= ' ⌚'
@@ -50,7 +50,7 @@ mixin postMeta(date, updated, tags = [])
   if updated
     p(class="!mt-0")
       = 'Last updated on '
-      time.font-medium.whitespace-no-wrap(datetime=datetime.robot(updated))
+      time.whitespace-no-wrap(datetime=datetime.robot(updated))
         = datetime.human(updated)
 
 mixin skipLink(text, href, classes = '')
