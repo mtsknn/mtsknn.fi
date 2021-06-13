@@ -2,17 +2,19 @@ module.exports = ({
   collections,
   collectionsKey,
   description,
+  feedUrl,
   getFullContent,
   getPublishedDate,
-  permalink,
+  getUpdatedDate,
+  homeUrl,
   site,
   title,
 }) => {
   const json = {
     version: 'https://jsonfeed.org/version/1.1',
     title,
-    home_page_url: `${site.url}/`,
-    feed_url: `${site.url}${permalink}`,
+    home_page_url: homeUrl,
+    feed_url: feedUrl,
     description,
 
     // Maybe add `icon` later. (A picture of me? From the spec: "an image for
@@ -34,7 +36,7 @@ module.exports = ({
     language: 'en-US',
     items: collections[collectionsKey].map((item) => {
       const fullUrl = `${site.url}${item.url}`
-      return {
+      const data = {
         id: fullUrl,
         url: fullUrl,
         title: item.data.title,
@@ -42,8 +44,11 @@ module.exports = ({
         summary:
           (item.data.metaDescription || item.data.intro)?.trim() || undefined,
         date_published: getPublishedDate(item),
+        date_modified: item.data.updated && getUpdatedDate(item),
         tags: item.data.tags,
       }
+      if (!item.data.updated) delete data.date_modified
+      return data
     }),
   }
 

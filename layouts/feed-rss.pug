@@ -2,25 +2,27 @@
 dynamicPermalink: false # Don't parse `permalink` using Pug
 ---
 - const items = collections[collectionsKey]
-- const latestItem = items[items.length - 1]
 
 doctype xml
 feed(xmlns="http://www.w3.org/2005/Atom")
+  id= homeUrl
   title= title
   subtitle= description
-  link(href=`${site.url}${permalink}` rel="self")/
-  link(href=`${site.url}/`)/
-  if latestItem
-    updated= getPublishedDate(latestItem)
-  id= `${site.url}/`
+  link(href=homeUrl)/
+  link(href=feedUrl rel="self")/
+  updated= getFeedUpdatedDate(items)
   author
     name= site.author.name
     email= site.author.email
   each item in items
     - const fullUrl = `${site.url}${item.url}`
     entry
+      id= fullUrl
       title= item.data.title
       link(href=fullUrl)/
-      updated= getPublishedDate(item)
-      id= fullUrl
+      published= getPublishedDate(item)
+      if item.data.updated
+        updated= getUpdatedDate(item)
+      each tag in (item.data.tags || [])
+        category(term=tag)/
       content(type="html")= getFullContent(item)
