@@ -50,13 +50,18 @@
   status = 301
 
 [[redirects]]
-  from = "/blog/the-default-case-of-a-switch-statement-doesnt-have-to-be-the-last-one/"
-  to   = "/blog/switch-statements-default-doesnt-have-to-be-the-last-case/"
+  from = "/blog/plausible-analytics-exclude-your-own-visits-from-mobile-devices/"
+  to   = "/blog/how-to-exclude-your-own-mobile-browser-visits-from-plausible-analytics/"
   status = 301
 
 [[redirects]]
   from = "/blog/summary-of-rfc-2119/"
   to   = "/blog/rfc-2119-in-a-nutshell/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/the-default-case-of-a-switch-statement-doesnt-have-to-be-the-last-one/"
+  to   = "/blog/switch-statements-default-doesnt-have-to-be-the-last-case/"
   status = 301
 
 [[redirects]]
