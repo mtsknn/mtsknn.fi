@@ -8,7 +8,7 @@ block content
       = site.author.name
       span.text-gray-500 ,
       .font-bold.mt-2.text-gray-500.text-2xl(class="xl:mt-4 xl:text-3xl")
-        | #{' '}a full-stack web developer
+        | #{' '}not a web developer
 
     .lead!= md.render(intro)
     != content
@@ -39,14 +39,14 @@ block content
         li.list-none(class="!my-4 !pl-0 sm:inline")
           a.link(aria-label=item.ariaLabel href=item.href)
             +icon(item.icon)(
-              class="align-text-bottom inline mr-3 text-gray-500"
+              class="inline mr-3 text-gray-500 align-text-bottom"
               style={ width: '1.25rem' }
             )
             = item.text
 
     hr(aria-hidden="true")
 
-    h2 Latest content
+    h2 READ ME
 
     -
       const latestContent = [
@@ -61,7 +61,7 @@ block content
             != md.renderInline(content.data.data.title)
           = ` (${datetime.human(content.data.date)})`
 
-    h2 More content
+    h2 LOL U LATE
 
     ul
       li: a.link(href="/blog/") Blog &ndash; my wildest adventures with computers
