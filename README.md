@@ -32,36 +32,6 @@ without anyone having to know about them afterwards).
 - Top-level pages: `content/`
   \+ you probably want to update `data/navItems.js`
 
-### `npm run new`
-
-Creates a new draft with the given title.
-Uses `_template.md` as the starting point.
-
-Usage:
-
-```bash
-# Leave backticks out (or escape them)
-npm run new post "Title of the blog post"
-
-# Created draft:
-# C:\...\mtsknn.fi\content\blog\drafts\title-of-the-blog-post.md
-```
-
-### `npm run slugify`
-
-Slugifies the given title
-and copies it to the clipboard (:warning:).
-
-Usage:
-
-```bash
-# Leave backticks out (or escape them)
-npm run slugify "Title of the blog post"
-
-# Slugified title (copied to the clipboard):
-# title-of-the-blog-post
-```
-
 ## Folder structure
 
 - 📂 `_sample-content/`:
@@ -96,8 +66,6 @@ npm run slugify "Title of the blog post"
 - 📂 `layouts/`:
   [11ty's directory for includes](https://www.11ty.dev/docs/config/#directory-for-includes)
   (the default is `_includes`).
-- 📂 `scripts/`:
-  Node scripts for [creating new content](#creating-new-content).
 - 📂 `transforms/`:
   [11ty transforms](https://www.11ty.dev/docs/config/#transforms)
   that modify the output files built from the files in `content/`.

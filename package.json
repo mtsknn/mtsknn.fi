@@ -4,8 +4,6 @@
     "build:11ty": "cross-env NODE_ENV=production npx @11ty/eleventy",
     "build:css": "cross-env NODE_ENV=production npm run tailwind",
     "clean": "rm -rf ./_site/",
-    "new": "node ./scripts/new.js",
-    "slugify": "node ./scripts/slugify.js",
     "start": "npm run watch",
     "tailwind": "tailwindcss build ./assets/css/main.css -o ./_site/main.css",
     "test": "eslint ./**/*.js && prettier --check ./**/*.js",
@@ -19,7 +17,6 @@
     "@tailwindcss/typography": "^0.2.0",
     "cross-env": "^7.0.2",
     "date-fns": "^2.16.1",
-    "endent": "^2.0.1",
     "jsdom": "^16.4.0",
     "markdown-it": "^12.0.2",
     "markdown-it-anchor": "^6.0.0",
@@ -32,7 +29,6 @@
     "tailwindcss-important": "^1.0.0"
   },
   "devDependencies": {
-    "clipboardy": "^2.3.0",
     "eslint": "^7.14.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^6.15.0",
