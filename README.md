@@ -63,6 +63,9 @@ without anyone having to know about them afterwards).
   (the default is `_data`).
   All files are [JavaScript data files](https://www.11ty.dev/docs/data-js/)
   and automatically available in layouts.
+- 📂 `eleventy/`:
+  11ty's config files,
+  required by the top-level config file (`.eleventy.js`).
 - 📂 `layouts/`:
   [11ty's directory for includes](https://www.11ty.dev/docs/config/#directory-for-includes)
   (the default is `_includes`).
