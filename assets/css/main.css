@@ -76,7 +76,10 @@
   }
 
   ::selection {
-    @apply bg-red-200;
+    /* Chrome and Edge (on Windows at least)
+       hide text underlines if the opacity is 100% (i.e. fully opaque),
+       so anything less than 100% is better. */
+    @apply bg-blue-400 bg-opacity-25;
     text-decoration-color: inherit; /* Chrome */
   }
   pre code::selection,
