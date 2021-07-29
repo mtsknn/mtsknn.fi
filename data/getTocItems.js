@@ -26,8 +26,7 @@ module.exports = () =>
     )
 
     function createItem(heading) {
-      // Ignore the anchor link (last child node)
-      const nodes = [...heading.childNodes].slice(0, -1)
+      const nodes = [...heading.childNodes[0].childNodes]
 
       const itemHtml = nodes.reduce(
         (result, node) => result + (node.outerHTML || node.textContent),
