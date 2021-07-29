@@ -266,55 +266,20 @@
     content: '' / '(external link)'; /* Supported by most but not FF or Safari */
   }
 
-  h2 .link-anchor,
-  h3 .link-anchor {
-    @apply ml-3 opacity-0 text-gray-400;
+  h2:focus,
+  h3:focus {
+    @apply shadow-none;
   }
-  h2:hover .link-anchor,
-  h3:hover .link-anchor,
-  .link-anchor:focus {
-    @apply opacity-100;
+  h2 .link,
+  h3 .link {
+    @apply no-underline;
   }
-  .link-anchor svg {
-    @apply inline;
-    vertical-align: calc(-1 * theme('spacing.1'));
-  }
-  h2 .link-anchor svg {
-    width: theme('spacing.6') !important;
-  }
-  h3 .link-anchor svg {
-    width: theme('spacing.5') !important;
-  }
-  @screen lg {
-    h2 .link-anchor,
-    h3 .link-anchor {
-      @apply absolute top-0;
-      left: calc(-1 * theme('spacing.2'));
-    }
-    h2 .link-anchor {
-      @apply -ml-6;
-    }
-    h3 .link-anchor {
-      @apply -ml-5;
-    }
-  }
-  @screen xl {
-    h2 .link-anchor,
-    h3 .link-anchor {
-      left: calc(-1 * theme('spacing.3'));
-    }
-    h2 .link-anchor {
-      @apply -ml-8;
-    }
-    h3 .link-anchor {
-      @apply -ml-6;
-    }
-    h2 .link-anchor svg {
-      width: theme('spacing.8') !important;
-    }
-    h3 .link-anchor svg {
-      width: theme('spacing.6') !important;
-    }
+  h2 .link:hover,
+  h2 .link:focus,
+  h3 .link:hover,
+  h3 .link:focus {
+    @apply underline;
+    text-decoration-color: theme('colors.red.600');
   }
 
   pre {

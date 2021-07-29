@@ -10,26 +10,20 @@ const { slugify } = require('./slugify')
 const md = markdownIt({ html: true })
   .use(markdownItAnchor, {
     level: [2, 3],
-    permalink: true,
-    permalinkSpace: false,
     slugify,
 
-    // `permalinkClass` not set because it would anyway get overridden by the
-    // `link-attributes` plugin
-
-    // `permalinkSymbol` not set because the link's contents are replaced by the
-    // `heading-anchor-links` transform
+    // The "Link after header" style might be nicer,
+    // but styling would probably be difficult before this is implemented:
+    // https://github.com/valeriangalliat/markdown-it-anchor/issues/100
+    permalink: markdownItAnchor.permalink.headerLink({
+      // `class` not set because
+      // it would anyway get overridden by the `link-attributes` plugin
+    }),
   })
   .use(markdownItAttrs)
   .use(markdownItDeflist)
   .use(markdownItFootnote)
   .use(markdownItLinkAttributes, [
-    {
-      pattern: /^#/,
-      attrs: {
-        class: 'link link-anchor',
-      },
-    },
     {
       pattern: /^https?:\/\/(?!mtsknn\.fi)/,
       attrs: {
