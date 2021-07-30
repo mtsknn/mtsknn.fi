@@ -137,14 +137,15 @@ module.exports = {
             content: null,
           },
           pre: {
-            color: theme('colors.gray.100'), // The default is 300 but too dark
-            backgroundColor: theme('colors.gray.800'),
+            color: null,
+            backgroundColor: null,
             borderRadius: null,
-
-            // Remove horizontal padding; it's added for each line
-            // (`span.highligh-line`) in `main.css`
-            paddingLeft: null,
+            marginTop: null,
+            marginBottom: null,
+            paddingTop: null,
             paddingRight: null,
+            paddingBottom: null,
+            paddingLeft: null,
           },
           'pre code': {
             whiteSpace: 'pre',
@@ -168,8 +169,12 @@ module.exports = {
         css: {
           pre: {
             borderRadius: null,
-            paddingLeft: null,
+            marginTop: null,
+            marginBottom: null,
+            paddingTop: null,
             paddingRight: null,
+            paddingBottom: null,
+            paddingLeft: null,
           },
         },
       },
@@ -177,8 +182,12 @@ module.exports = {
         css: {
           pre: {
             borderRadius: null,
-            paddingLeft: null,
+            marginTop: null,
+            marginBottom: null,
+            paddingTop: null,
             paddingRight: null,
+            paddingBottom: null,
+            paddingLeft: null,
           },
         },
       },
@@ -186,8 +195,12 @@ module.exports = {
         css: {
           pre: {
             borderRadius: null,
-            paddingLeft: null,
+            marginTop: null,
+            marginBottom: null,
+            paddingTop: null,
             paddingRight: null,
+            paddingBottom: null,
+            paddingLeft: null,
           },
         },
       },
@@ -195,8 +208,12 @@ module.exports = {
         css: {
           pre: {
             borderRadius: null,
-            paddingLeft: null,
+            marginTop: null,
+            marginBottom: null,
+            paddingTop: null,
             paddingRight: null,
+            paddingBottom: null,
+            paddingLeft: null,
           },
         },
       },
