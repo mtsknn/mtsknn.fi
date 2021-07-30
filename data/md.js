@@ -10,15 +10,15 @@ const { slugify } = require('./slugify')
 const md = markdownIt({ html: true })
   .use(markdownItAnchor, {
     level: [2, 3],
-    permalink: true,
-    permalinkSpace: false,
     slugify,
 
-    // `permalinkClass` not set because it would anyway get overridden by the
-    // `link-attributes` plugin
-
-    // `permalinkSymbol` not set because the link's contents are replaced by the
-    // `heading-anchor-links` transform
+    // The "Link after header" style might be nicer,
+    // but styling would probably be difficult before this is implemented:
+    // https://github.com/valeriangalliat/markdown-it-anchor/issues/100
+    permalink: markdownItAnchor.permalink.headerLink({
+      // `class` not set because
+      // it would anyway get overridden by the `link-attributes` plugin
+    }),
   })
   .use(markdownItAttrs)
   .use(markdownItDeflist)
@@ -47,6 +47,6 @@ const md = markdownIt({ html: true })
 md.renderer.rules.footnote_block_open = () => '<section><ol>'
 
 // Since Pug filters don't support dynamic data (e.g. `:md= post.data.intro`),
-// let's instead export the whole `markdown-it` parser. This is also used in the
-// 11ty config
+// let's instead export the whole `markdown-it` parser.
+// This is also used in the 11ty config
 module.exports = md

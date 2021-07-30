@@ -3,7 +3,6 @@ const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const md = require('./data/md')
 const setupBrowserSync = require('./eleventy/browserSync')
 const setupCollections = require('./eleventy/collections')
-const transformHeadingAnchorLinks = require('./transforms/heading-anchor-links')
 
 module.exports = (config) => {
   setupBrowserSync(config)
@@ -14,8 +13,6 @@ module.exports = (config) => {
   config.addPassthroughCopy('./content/**/*.{jpg,jpeg,png}')
 
   config.addPlugin(pluginSyntaxHighlight, { alwaysWrapLineHighlights: true })
-
-  config.addTransform('heading-anchor-links', transformHeadingAnchorLinks)
 
   // Defaults to true in Eleventy 1.0.
   // https://www.11ty.dev/docs/data-deep-merge/
