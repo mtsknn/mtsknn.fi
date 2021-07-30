@@ -25,6 +25,12 @@ const md = markdownIt({ html: true })
   .use(markdownItFootnote)
   .use(markdownItLinkAttributes, [
     {
+      pattern: /^#/,
+      attrs: {
+        class: 'link link-anchor',
+      },
+    },
+    {
       pattern: /^https?:\/\/(?!mtsknn\.fi)/,
       attrs: {
         class: 'link link-external',

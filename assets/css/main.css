@@ -270,14 +270,14 @@
   h3:focus {
     @apply shadow-none;
   }
-  h2 .link,
-  h3 .link {
+  h2 .link-anchor,
+  h3 .link-anchor {
     @apply no-underline;
   }
-  h2 .link:hover,
-  h2 .link:focus,
-  h3 .link:hover,
-  h3 .link:focus {
+  h2 .link-anchor:hover,
+  h2 .link-anchor:focus,
+  h3 .link-anchor:hover,
+  h3 .link-anchor:focus {
     @apply underline;
     text-decoration-color: theme('colors.red.600');
   }
