@@ -29,7 +29,7 @@ module.exports = ({ attrs, code, lang }) => {
     >
       <${LineHighlights} lines=${getLineHighlights(attrs)} />
 
-      <!-- Hack: Prettier would misbehave with a regular '<pre' -->
+      <!-- Prettier would mess up the indentation with a regular '<pre' -->
       <${'pre'} class="hljs px-6 py-4 relative sm:px-5">
         <code
           class="inline-block min-w-full"
@@ -51,7 +51,10 @@ function LineHighlights({ lines }) {
   }
 
   return html`
-    <!-- TODO: Replace the style attr with something better -->
+    <!--
+      TODO: Replace the style attr with something better.
+      The values are from the '@tailwindcss/typography' plugin.
+    -->
     <div
       aria-hidden="true"
       class="absolute pt-4 select-none w-full"
