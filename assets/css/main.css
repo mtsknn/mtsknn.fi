@@ -82,14 +82,6 @@
     @apply bg-blue-400 bg-opacity-25;
     text-decoration-color: inherit; /* Chrome */
   }
-  pre code::selection,
-  pre code br::selection,
-  pre code del::selection,
-  pre code ins::selection,
-  pre code mark::selection,
-  pre code span::selection {
-    @apply bg-gray-700;
-  }
 
   *:focus {
     /* `outline: 0;` would make the focus ring invisible in Windows's
@@ -185,9 +177,6 @@
   .prose > * {
     max-width: 65ch;
   }
-  .prose > pre {
-    @apply max-w-none;
-  }
 
   .prose h1 code {
     @apply leading-tight;
@@ -282,65 +271,90 @@
     text-decoration-color: theme('colors.red.600');
   }
 
-  pre {
-    @apply -mx-6 sm:mx-0 sm:rounded-md;
-  }
-  pre code {
-    @apply inline-block min-w-full;
+  /*!
+    highlight.js theme: GitHub
+    Author: github.com
+    Maintainer: @Hirse
+
+    Slightly modified by me
+  */
+  .hljs {
+    color: #24292e;
   }
 
-  /* Syntax highlighting colors borrowed from https://blog.tailwindcss.com. See:
-   * - https://github.com/tailwindlabs/blog.tailwindcss.com/blob/39d37c/next.config.js#L8-L20
-   * - https://github.com/tailwindlabs/blog.tailwindcss.com/blob/39d37c/tailwind.config.js#L42-L51
-   */
-  .token.boolean,
-  .token.deleted,
-  .token.tag {
-    color: #ff8383; /* red */
+  .hljs-doctag,
+  .hljs-keyword,
+  .hljs-meta .hljs-keyword,
+  .hljs-template-tag,
+  .hljs-template-variable,
+  .hljs-type,
+  .hljs-variable.language_ {
+    color: #d73a49;
   }
-  .token.attr-name,
-  .token.selector {
-    color: #ffe484; /* yellow */
+
+  .hljs-title,
+  .hljs-title.class_,
+  .hljs-title.class_.inherited__,
+  .hljs-title.function_ {
+    color: #6f42c1;
   }
-  .token.attr-value,
-  .token.inserted,
-  .token.string,
-  .token.url {
-    color: #b5f4a5; /* green */
+
+  .hljs-attr,
+  .hljs-attribute,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-operator,
+  .hljs-variable,
+  .hljs-selector-attr,
+  .hljs-selector-class,
+  .hljs-selector-id {
+    color: #005cc5;
   }
-  .token.punctuation {
-    @apply text-white;
+
+  .hljs-regexp,
+  .hljs-string,
+  .hljs-meta .hljs-string {
+    color: #032f62;
   }
-  .token.keyword,
-  .token.property {
-    color: #d9a9ff; /* purple */
+
+  .hljs-built_in,
+  .hljs-symbol {
+    color: #e36209;
   }
-  .token.function {
-    color: #93ddfd; /* blue */
+
+  .hljs-comment,
+  .hljs-code,
+  .hljs-formula {
+    color: #6a737d;
   }
-  .token.comment {
+
+  .hljs-name,
+  .hljs-quote,
+  .hljs-selector-tag,
+  .hljs-selector-pseudo {
+    color: #22863a;
+  }
+
+  .hljs-subst {
+    color: #24292e;
+  }
+
+  .hljs-section {
+    @apply font-bold;
+    color: #005cc5;
+  }
+
+  .hljs-bullet {
+    color: #735c0f;
+  }
+
+  .hljs-emphasis,
+  .hljs-comment {
     @apply italic;
-    color: #9fa6b2; /* gray */
   }
 
-  .highlight-line {
-    @apply inline-block min-w-full px-4 xl:px-5;
-
-    /* `<del>`, `<ins>`, `<mark>` default styles */
-    @apply no-underline;
-    color: inherit;
-  }
-  .highlight-line:empty::before {
-    /* Enable highlighting empty lines */
-    content: ' ';
-  }
-  .highlight-line-active {
-    @apply bg-gray-700;
-  }
-  .highlight-line-add {
-    @apply bg-green-900;
-  }
-  .highlight-line-remove {
-    @apply bg-red-900;
+  .hljs-strong {
+    @apply font-bold;
   }
 }

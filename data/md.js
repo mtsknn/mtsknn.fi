@@ -1,13 +1,20 @@
+const { html } = require('htm/preact')
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
 const markdownItAttrs = require('markdown-it-attrs')
 const markdownItDeflist = require('markdown-it-deflist')
 const markdownItFootnote = require('markdown-it-footnote')
 const markdownItLinkAttributes = require('markdown-it-link-attributes')
+const { render } = require('preact-render-to-string')
 
 const { slugify } = require('./slugify')
+const CodeBlock = require('../components/CodeBlock')
 
-const md = markdownIt({ html: true })
+const md = markdownIt({
+  highlight: (code, lang, attrs) =>
+    render(html`<${CodeBlock} attrs=${attrs} code=${code} lang=${lang} />`),
+  html: true,
+})
   .use(markdownItAnchor, {
     level: [2, 3],
     slugify,
