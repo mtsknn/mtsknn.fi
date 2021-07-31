@@ -15,7 +15,7 @@ module.exports = (config) => {
 
   // Disable automatic conversion of Markdown to HTML;
   // we'll call `md.render(content)` manually in layouts.
-  // This way we can also access pages' raw Markdown (via `content`)
+  // This way we can access pages' raw Markdown (via `content`)
   // which wouldn't otherwise be possible (https://github.com/11ty/eleventy/issues/1206).
   config.setLibrary('md', { render: (markdown) => markdown })
 
