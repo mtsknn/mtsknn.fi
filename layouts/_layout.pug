@@ -157,7 +157,7 @@ html(lang="en")
           +breadcrumb
 
         block content
-          .prose(class="xl:prose-lg")!= content
+          .prose(class="xl:prose-lg")!= md.render(content)
       footer.border-t.border-gray-300.flex.items-baseline.justify-between.pt-6.text-gray-700.text-sm(
         class="xl:text-base"
       )

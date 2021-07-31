@@ -5,7 +5,7 @@ block content
     h1.text-center= title
 
     p.lead!= md.renderInline(intro)
-    != content
+    != md.render(content)
 
     h2 Coolest blog posts, hot off the press
     each post, i in collections.blogPosts

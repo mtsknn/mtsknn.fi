@@ -1,4 +1,3 @@
-const md = require('./data/md')
 const setupBrowserSync = require('./eleventy/browserSync')
 const setupCollections = require('./eleventy/collections')
 
@@ -14,7 +13,11 @@ module.exports = (config) => {
   // https://www.11ty.dev/docs/data-deep-merge/
   config.setDataDeepMerge(true)
 
-  config.setLibrary('md', md)
+  // Disable automatic conversion of Markdown to HTML;
+  // we'll call `md.render(content)` manually in layouts.
+  // This way we can access pages' raw Markdown (via `content`)
+  // which wouldn't otherwise be possible (https://github.com/11ty/eleventy/issues/1206).
+  config.setLibrary('md', { render: (markdown) => markdown })
 
   return {
     dir: {

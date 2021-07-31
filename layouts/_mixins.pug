@@ -60,7 +60,7 @@ mixin skipLink(text, href, classes = '')
       href=href
     )= text
 
-mixin toc(html)
+mixin toc(markdown)
   mixin list(items)
     ol
       each item in items
@@ -69,7 +69,7 @@ mixin toc(html)
           if item.subItems.length > 0
             +list(item.subItems)
 
-  - const items = getTocItems(html)
+  - const items = getTocItems(markdown)
   if items.length >= 2
     h2.tracking-widest.uppercase(class="!text-base !text-gray-700 xl:!text-lg")
       | Table of contents
