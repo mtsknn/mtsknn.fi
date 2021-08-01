@@ -55,5 +55,5 @@ md.renderer.rules.footnote_block_open = () => '<section><ol>'
 
 // Since Pug filters don't support dynamic data (e.g. `:md= post.data.intro`),
 // let's instead export the whole `markdown-it` parser.
-// This is also used in the 11ty config
+// This is also used in the Eleventy config
 module.exports = md
