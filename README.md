@@ -1,7 +1,7 @@
 # [mtsknn.fi](https://mtsknn.fi/)
 
 My blog,
-powered by [11ty](https://www.11ty.dev/)
+powered by [Eleventy](https://www.11ty.dev/)
 and running on [Netlify](https://www.netlify.com/).
 
 More documentation and features coming soon&trade;.
@@ -54,28 +54,28 @@ without anyone having to know about them afterwards).
   - 📄 `favicon/*`:
     The files are copied as-is to the `_site/` folder.
 - 📂 `content/`:
-  [11ty's input directory.](https://www.11ty.dev/docs/config/#input-directory)
+  [Eleventy's input directory.](https://www.11ty.dev/docs/config/#input-directory)
   The default is the root folder,
   but having the input files (i.e. the content files) in their own folder
   makes things clearer.
 - 📂 `data/`:
-  [11ty's directory for global data files](https://www.11ty.dev/docs/config/#directory-for-global-data-files)
+  [Eleventy's directory for global data files](https://www.11ty.dev/docs/config/#directory-for-global-data-files)
   (the default is `_data`).
   All files are [JavaScript data files](https://www.11ty.dev/docs/data-js/)
   and automatically available in layouts.
 - 📂 `eleventy/`:
-  11ty's config files,
+  Eleventy's config files,
   required by the top-level config file (`.eleventy.js`).
 - 📂 `layouts/`:
-  [11ty's directory for includes](https://www.11ty.dev/docs/config/#directory-for-includes)
+  [Eleventy's directory for includes](https://www.11ty.dev/docs/config/#directory-for-includes)
   (the default is `_includes`).
 - 📂 `transforms/`:
-  [11ty transforms](https://www.11ty.dev/docs/config/#transforms)
+  [Eleventy transforms](https://www.11ty.dev/docs/config/#transforms)
   that modify the output files built from the files in `content/`.
 - 📄 `.eleventy.js`:
-  [11ty's config file.](https://www.11ty.dev/docs/config/)
+  [Eleventy's config file.](https://www.11ty.dev/docs/config/)
 - 📄 `.eleventyignore`:
-  [11ty's ignore file.](https://www.11ty.dev/docs/ignores/)
+  [Eleventy's ignore file.](https://www.11ty.dev/docs/ignores/)
 - 📄 `.gitmodules`:
   Specifies a Git submodule pointing to my private Git repo
   which contains all content.
