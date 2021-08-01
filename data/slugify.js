@@ -2,6 +2,7 @@ const slugify = require('slugify')
 
 const mySlugify = (text = '') => {
   return [text]
+    .map((x) => x.replace(/\//g, '-'))
     .map((x) => x.replace(/c#/gi, 'csharp'))
     .map((x) => x.replace(/\.NET/g, 'dotnet'))
     .map((x) => slugify(x, { lower: true, strict: true }))[0]
