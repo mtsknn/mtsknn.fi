@@ -271,7 +271,7 @@
     text-decoration-color: theme('colors.red.600');
   }
 
-  /*!
+  /*
     highlight.js theme: GitHub
     Author: github.com
     Maintainer: @Hirse
@@ -356,5 +356,25 @@
 
   .hljs-strong {
     @apply font-bold;
+  }
+  /* End of the GitHub highlight.js theme */
+
+  .hljs-addition,
+  .hljs-deletion {
+    @apply inline-block -ml-6 pl-6 sm:-ml-5 sm:pl-5;
+    width: calc(100% + 2 * theme('margin.6'));
+  }
+  .hljs-addition {
+    @apply bg-green-200 text-green-800;
+  }
+  .hljs-deletion {
+    @apply bg-red-200 text-red-800;
+  }
+
+  @screen sm {
+    .hljs-addition,
+    .hljs-deletion {
+      width: calc(100% + 2 * theme('margin.5'));
+    }
   }
 }
