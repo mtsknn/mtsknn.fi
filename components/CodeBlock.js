@@ -1,46 +1,25 @@
-const hljs = require('highlight.js')
 const { html } = require('htm/preact')
+const Prism = require('prismjs')
+const PrismLanguageLoader = require('prismjs/components/index.js')
 
 const entity = require('../data/entity')
 
+setupPrism()
+
 module.exports = ({ attrs, code, lang }) => {
-  let highlightedCode
-
-  if (lang && hljs.getLanguage(lang)) {
-    try {
-      highlightedCode = hljs.highlight(code, { language: lang }).value
-    } catch {
-      console.error(`⚠ Error highlighting ${lang} code:\n${code}`)
-    }
-  } else {
-    console.error(`⚠ Unsupported code highlighting language: ${lang}`)
-  }
-
   return html`
-    <!--
-      Needed by markdown-it;
-      if this doesn't start with '<pre',
-      markdown-it will wrap the return value in its own <pre> tag 🙄
-    -->
-    <pre class="hidden"></pre>
-
-    <div
-      class="bg-gray-100 border-t border-b max-w-none -mx-6 my-4 relative sm:border sm:mx-0 sm:rounded-md"
+    <!-- Prettier would mess up the indentation with a regular '<pre' -->
+    <${'pre'}
+      class="language-${lang} bg-white border-t border-b max-w-none -mx-6 my-4 relative sm:border sm:mx-0 sm:rounded-md"
     >
-      <${LineHighlights} lines=${getLineHighlights(attrs)} />
-
-      <!-- Prettier would mess up the indentation with a regular '<pre' -->
-      <${'pre'} class="hljs px-6 py-4 relative sm:px-5">
-        <code
-          class="inline-block min-w-full"
-          dangerouslySetInnerHTML=${highlightedCode && {
-            __html: highlightedCode,
-          }}
-        >
-          ${!highlightedCode && code}
-        </code>
-      <//>
-    </div>
+      <code class="min-w-full !px-6 py-4 relative sm:!px-5">
+        <${LineHighlights} lines=${getLineHighlights(attrs)} />
+        <${Code}
+          highlightedCode=${highlightCode(code, lang)}
+          plainCode=${code}
+        />
+      </code>
+    <//>
   `
 }
 
@@ -50,23 +29,104 @@ function LineHighlights({ lines }) {
     return null
   }
 
+  // Using `<span>`s instead of `<div>`s
+  // because `<div>`s are not allowed inside `<code>`
   return html`
-    <!--
-      TODO: Replace the style attr with something better.
-      The values are from the '@tailwindcss/typography' plugin.
-    -->
-    <div
-      aria-hidden="true"
-      class="absolute pt-4 select-none w-full"
-      style="font-size: 0.8888889em; line-height: 1.75"
-    >
+    <span aria-hidden="true" class="absolute -ml-6 select-none w-full sm:-ml-5">
       ${lines.map((isHighlighted) =>
         isHighlighted
-          ? html`<div class="bg-gray-200 w-full">${entity.nbsp}</div>`
-          : html`<br />`
+          ? html`
+              <span
+                class="bg-gray-100 block border-gray-300 border-l-6 sm:border-l-4"
+              >
+                ${entity.nbsp}
+              </span>
+            `
+          : html`
+              <br />
+            `
       )}
-    </div>
+    </span>
   `
+}
+
+function Code({ highlightedCode, plainCode }) {
+  // Same here:
+  // using `<span>`s instead of `<div>`s
+  // because `<div>`s are not allowed inside `<code>`
+  return html`
+    <!--
+      The negative margin and padding make it easier to select text with the mouse
+      when the code block contains line highlights
+    -->
+    <span
+      class="actual-code inline-block -ml-6 pl-6 relative sm:-ml-5 sm:pl-5"
+      dangerouslySetInnerHTML=${highlightedCode && {
+        __html: highlightedCode,
+      }}
+    >
+      ${!highlightedCode && plainCode}
+    </span>
+  `
+}
+
+function setupPrism() {
+  // Must be loaded before loading the Diff Highlight plugin
+  loadPrismLanguage('diff')
+
+  // Disable console logging when attempting to load an invalid language
+  // because we'll log ourselves in `loadPrismLanguage()`
+  PrismLanguageLoader.silent = true
+
+  // eslint-disable-next-line global-require
+  require('prismjs/plugins/diff-highlight/prism-diff-highlight')
+}
+
+/**
+ * @param {string} lang
+ */
+function loadPrismLanguage(lang) {
+  // Needed for `diff-*` code blocks to work.
+  // Without this the first one wouldn't be highlighted but the rest would.
+  // Not sure why; maybe I'm using the Diff Highlight plugin incorrectly?
+  if (lang.startsWith('diff-')) {
+    return Prism.languages.diff
+  }
+
+  if (!Prism.languages[lang]) {
+    PrismLanguageLoader(lang)
+  }
+
+  if (!Prism.languages[lang]) {
+    console.error(
+      `❗ Unsupported code highlighting language: ${lang}, ${Prism.languages[lang]}`
+    )
+  }
+
+  return Prism.languages[lang]
+}
+
+/**
+ * @param {string} code
+ * @param {string} lang
+ * @returns {string | null}
+ */
+function highlightCode(code, lang) {
+  if (!lang) {
+    console.error('❗ Missing language in code block')
+    return null
+  }
+
+  if (lang === 'text') {
+    return null
+  }
+
+  try {
+    return Prism.highlight(code, loadPrismLanguage(lang), lang)
+  } catch (e) {
+    console.error(`❗ Error highlighting ${lang} code: ${e}`)
+    return null
+  }
 }
 
 /**
