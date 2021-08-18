@@ -9,8 +9,20 @@ setupPrism()
 module.exports = ({ attrs, code, lang }) => {
   return html`
     <!-- Prettier would mess up the indentation with a regular '<pre' -->
+    <!--
+      'aria-label', 'role' and 'tabindex'
+      for keyboard accessibility. 👍
+      See https://marcus.io/blog/accessible-overflow
+
+      Not sure if it's a good idea
+      to duplicate the 'aria-label'
+      across all code blocks on a page...
+    -->
     <${'pre'}
+      aria-label="Code block"
       class="language-${lang} bg-white border-t border-b max-w-none -mx-6 my-4 relative sm:border sm:mx-0 sm:rounded-md"
+      role="region"
+      tabindex="0"
     >
       <code class="min-w-full !px-6 py-4 relative sm:!px-5">
         <${LineHighlights} lines=${getLineHighlights(attrs)} />
