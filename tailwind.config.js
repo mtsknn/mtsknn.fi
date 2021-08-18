@@ -29,6 +29,9 @@ module.exports = {
       position: ['bottom', 'right'],
     },
     extend: {
+      borderWidth: {
+        6: '6px',
+      },
       colors: {
         // `cool-gray` colors borrowed from `@tailwindcss/ui`. These seem to be
         // better from accessibility perspective (easier to get high enough
@@ -121,14 +124,13 @@ module.exports = {
             color: theme('colors.gray.900'),
             fontWeight: null,
 
-            backgroundColor: theme('colors.gray.100'),
+            backgroundColor: theme('colors.white'),
             borderRadius: theme('borderRadius.lg'),
             display: 'inline-block',
             lineHeight: theme('lineHeight.relaxed'),
             paddingLeft: theme('padding.1'),
             paddingRight: theme('padding.1'),
             borderWidth: theme('borderWidth.default'),
-            borderColor: theme('colors.gray.400'),
           },
           'code::before': {
             content: null,
@@ -148,6 +150,7 @@ module.exports = {
             paddingLeft: null,
           },
           'pre code': {
+            padding: null,
             whiteSpace: 'pre',
           },
           'pre code::before': {

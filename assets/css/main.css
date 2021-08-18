@@ -182,13 +182,18 @@
     @apply leading-tight;
   }
 
-  .prose .list-none::before {
-    content: none;
+  .prose .link-external code,
+  .prose li > code {
+    @apply inline py-px;
   }
 
-  .prose .link-external code,
-  .prose li code {
-    @apply inline py-px;
+  .prose blockquote pre,
+  .prose li pre {
+    @apply border mx-0 rounded-md;
+  }
+
+  .prose .list-none::before {
+    content: none;
   }
 
   .prose dl {
@@ -271,110 +276,147 @@
     text-decoration-color: theme('colors.red.600');
   }
 
-  /*
-    highlight.js theme: GitHub
-    Author: github.com
-    Maintainer: @Hirse
-
-    Slightly modified by me
-  */
-  .hljs {
-    color: #24292e;
+  /**
+   * GHColors theme for Prism by Avi Aryan (https://aviaryan.in/)
+   * Inspired by GitHub syntax coloring
+   *
+   * Slightly modified by me (Matias)
+   */
+  pre[class*='language-'] {
+    color: #393a34;
   }
 
-  .hljs-doctag,
-  .hljs-keyword,
-  .hljs-meta .hljs-keyword,
-  .hljs-template-tag,
-  .hljs-template-variable,
-  .hljs-type,
-  .hljs-variable.language_ {
-    color: #d73a49;
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: #999988;
+    font-style: italic;
   }
 
-  .hljs-title,
-  .hljs-title.class_,
-  .hljs-title.class_.inherited__,
-  .hljs-title.function_ {
-    color: #6f42c1;
+  .token.namespace {
+    opacity: 0.75;
   }
 
-  .hljs-attr,
-  .hljs-attribute,
-  .hljs-literal,
-  .hljs-meta,
-  .hljs-number,
-  .hljs-operator,
-  .hljs-variable,
-  .hljs-selector-attr,
-  .hljs-selector-class,
-  .hljs-selector-id {
-    color: #005cc5;
+  .token.string,
+  .token.attr-value {
+    color: #e3116c;
   }
 
-  .hljs-regexp,
-  .hljs-string,
-  .hljs-meta .hljs-string {
-    color: #032f62;
+  .token.punctuation,
+  .token.operator {
+    color: #393a34;
   }
 
-  .hljs-built_in,
-  .hljs-symbol {
-    color: #e36209;
+  .token.entity,
+  .token.url,
+  .token.symbol,
+  .token.number,
+  .token.boolean,
+  .token.variable,
+  .token.constant,
+  .token.property,
+  .token.regex,
+  .token.inserted {
+    color: #36acaa;
   }
 
-  .hljs-comment,
-  .hljs-code,
-  .hljs-formula {
-    color: #6a737d;
+  .token.atrule,
+  .token.keyword,
+  .token.attr-name {
+    color: #00a4db;
   }
 
-  .hljs-name,
-  .hljs-quote,
-  .hljs-selector-tag,
-  .hljs-selector-pseudo {
-    color: #22863a;
+  .token.function,
+  .token.deleted {
+    color: #9a050f;
   }
 
-  .hljs-subst {
-    color: #24292e;
+  .token.tag,
+  .token.selector {
+    color: #00009f;
   }
 
-  .hljs-section {
-    @apply font-bold;
-    color: #005cc5;
+  .token.important,
+  .token.bold {
+    font-weight: bold;
   }
 
-  .hljs-bullet {
-    color: #735c0f;
+  .token.italic {
+    font-style: italic;
+  }
+  /* End of theme */
+
+  pre[class*='language-'] {
+    /* Needed by iOS Safari or some lines might wrap */
+    word-wrap: normal;
   }
 
-  .hljs-emphasis,
-  .hljs-comment {
-    @apply italic;
-  }
-
-  .hljs-strong {
-    @apply font-bold;
-  }
-  /* End of the GitHub highlight.js theme */
-
-  .hljs-addition,
-  .hljs-deletion {
-    @apply inline-block -ml-6 pl-6 sm:-ml-5 sm:pl-5;
+  .actual-code {
     width: calc(100% + 2 * theme('margin.6'));
   }
-  .hljs-addition {
-    @apply bg-green-200 text-green-800;
-  }
-  .hljs-deletion {
-    @apply bg-red-200 text-red-800;
+  @screen sm {
+    .actual-code {
+      width: calc(100% + 2 * theme('margin.5'));
+    }
   }
 
+  pre[class*='language-'] .token {
+    /* Without this, line highlights would be over the actual code */
+    @apply relative;
+  }
+
+  .token.prefix.inserted {
+    color: #008000;
+  }
+  .token.prefix.deleted {
+    color: #d91e18;
+  }
+
+  .token.inserted-sign,
+  .token.deleted-sign {
+    @apply flow-root -ml-6 pl-6 sm:-ml-5 sm:pl-5;
+    width: calc(100% + theme('margin.6'));
+  }
   @screen sm {
-    .hljs-addition,
-    .hljs-deletion {
-      width: calc(100% + 2 * theme('margin.5'));
+    .token.inserted-sign,
+    .token.deleted-sign {
+      width: calc(100% + theme('margin.5'));
+    }
+  }
+
+  .token.inserted-sign {
+    background: linear-gradient(
+      to right,
+      theme('colors.green.300'),
+      theme('colors.green.300') theme('borderWidth.6'),
+      theme('colors.green.100') theme('borderWidth.6')
+    );
+  }
+  .token.deleted-sign {
+    background: linear-gradient(
+      to right,
+      theme('colors.red.300'),
+      theme('colors.red.300') theme('borderWidth.6'),
+      theme('colors.red.100') theme('borderWidth.6')
+    );
+  }
+  @screen sm {
+    .token.inserted-sign {
+      background: linear-gradient(
+        to right,
+        theme('colors.green.300'),
+        theme('colors.green.300') theme('borderWidth.4'),
+        theme('colors.green.100') theme('borderWidth.4')
+      );
+    }
+    .token.deleted-sign {
+      background: linear-gradient(
+        to right,
+        theme('colors.red.300'),
+        theme('colors.red.300') theme('borderWidth.4'),
+        theme('colors.red.100') theme('borderWidth.4')
+      );
     }
   }
 }

@@ -16,7 +16,6 @@
     "@tailwindcss/typography": "^0.2.0",
     "cross-env": "^7.0.2",
     "date-fns": "^2.16.1",
-    "highlight.js": "^11.1.0",
     "htm": "^3.1.0",
     "markdown-it": "^12.0.2",
     "markdown-it-anchor": "^8.1.2",
@@ -26,6 +25,7 @@
     "markdown-it-link-attributes": "^3.0.0",
     "preact": "^10.5.14",
     "preact-render-to-string": "^5.1.19",
+    "prismjs": "^1.24.1",
     "slugify": "^1.4.6",
     "tailwindcss": "^1.9.6",
     "tailwindcss-important": "^1.0.0"
