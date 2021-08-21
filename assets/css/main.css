@@ -365,11 +365,6 @@
     }
   }
 
-  pre[class*='language-'] .token {
-    /* Without this, line highlights would be over the actual code */
-    @apply relative;
-  }
-
   .token.prefix.inserted {
     color: #008000;
   }
