@@ -92,6 +92,10 @@
     box-decoration-break: clone;
   }
 
+  pre:not(:focus-visible) {
+    @apply shadow-none;
+  }
+
   h2,
   h3,
   h4 {
@@ -359,11 +363,6 @@
     .actual-code {
       width: calc(100% + 2 * theme('margin.5'));
     }
-  }
-
-  pre[class*='language-'] .token {
-    /* Without this, line highlights would be over the actual code */
-    @apply relative;
   }
 
   .token.prefix.inserted {
