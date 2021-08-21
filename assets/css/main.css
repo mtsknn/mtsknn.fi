@@ -92,6 +92,10 @@
     box-decoration-break: clone;
   }
 
+  pre:not(:focus-visible) {
+    @apply shadow-none;
+  }
+
   h2,
   h3,
   h4 {
