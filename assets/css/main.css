@@ -76,16 +76,11 @@
   }
 
   ::selection {
-    @apply bg-red-200;
+    /* Chrome and Edge (on Windows at least)
+       hide text underlines if the opacity is 100% (i.e. fully opaque),
+       so anything less than 100% is better. */
+    @apply bg-blue-400 bg-opacity-25;
     text-decoration-color: inherit; /* Chrome */
-  }
-  pre code::selection,
-  pre code br::selection,
-  pre code del::selection,
-  pre code ins::selection,
-  pre code mark::selection,
-  pre code span::selection {
-    @apply bg-gray-700;
   }
 
   *:focus {
@@ -95,6 +90,10 @@
 
     @apply shadow-outline;
     box-decoration-break: clone;
+  }
+
+  pre:not(:focus-visible) {
+    @apply shadow-none;
   }
 
   h2,
@@ -182,21 +181,23 @@
   .prose > * {
     max-width: 65ch;
   }
-  .prose > pre {
-    @apply max-w-none;
-  }
 
   .prose h1 code {
     @apply leading-tight;
   }
 
-  .prose .list-none::before {
-    content: none;
+  .prose .link-external code,
+  .prose li > code {
+    @apply inline py-px;
   }
 
-  .prose .link-external code,
-  .prose li code {
-    @apply inline py-px;
+  .prose blockquote pre,
+  .prose li pre {
+    @apply border mx-0 rounded-md;
+  }
+
+  .prose .list-none::before {
+    content: none;
   }
 
   .prose dl {
@@ -263,116 +264,158 @@
     content: '' / '(external link)'; /* Supported by most but not FF or Safari */
   }
 
+  h2:focus,
+  h3:focus {
+    @apply shadow-none;
+  }
   h2 .link-anchor,
   h3 .link-anchor {
-    @apply ml-3 opacity-0 text-gray-400;
-  }
-  h2:hover .link-anchor,
-  h3:hover .link-anchor,
-  .link-anchor:focus {
-    @apply opacity-100;
-  }
-  .link-anchor svg {
-    @apply inline;
-    vertical-align: calc(-1 * theme('spacing.1'));
-  }
-  h2 .link-anchor svg {
-    width: theme('spacing.6') !important;
-  }
-  h3 .link-anchor svg {
-    width: theme('spacing.5') !important;
-  }
-  @screen lg {
-    h2 .link-anchor,
-    h3 .link-anchor {
-      @apply absolute top-0;
-      left: calc(-1 * theme('spacing.2'));
-    }
-    h2 .link-anchor {
-      @apply -ml-6;
-    }
-    h3 .link-anchor {
-      @apply -ml-5;
-    }
-  }
-  @screen xl {
-    h2 .link-anchor,
-    h3 .link-anchor {
-      left: calc(-1 * theme('spacing.3'));
-    }
-    h2 .link-anchor {
-      @apply -ml-8;
-    }
-    h3 .link-anchor {
-      @apply -ml-6;
-    }
-    h2 .link-anchor svg {
-      width: theme('spacing.8') !important;
-    }
-    h3 .link-anchor svg {
-      width: theme('spacing.6') !important;
-    }
-  }
-
-  pre {
-    @apply -mx-6 sm:mx-0 sm:rounded-md;
-  }
-  pre code {
-    @apply inline-block min-w-full;
-  }
-
-  /* Syntax highlighting colors borrowed from https://blog.tailwindcss.com. See:
-   * - https://github.com/tailwindlabs/blog.tailwindcss.com/blob/39d37c/next.config.js#L8-L20
-   * - https://github.com/tailwindlabs/blog.tailwindcss.com/blob/39d37c/tailwind.config.js#L42-L51
-   */
-  .token.boolean,
-  .token.deleted,
-  .token.tag {
-    color: #ff8383; /* red */
-  }
-  .token.attr-name,
-  .token.selector {
-    color: #ffe484; /* yellow */
-  }
-  .token.attr-value,
-  .token.inserted,
-  .token.string,
-  .token.url {
-    color: #b5f4a5; /* green */
-  }
-  .token.punctuation {
-    @apply text-white;
-  }
-  .token.keyword,
-  .token.property {
-    color: #d9a9ff; /* purple */
-  }
-  .token.function {
-    color: #93ddfd; /* blue */
-  }
-  .token.comment {
-    @apply italic;
-    color: #9fa6b2; /* gray */
-  }
-
-  .highlight-line {
-    @apply inline-block min-w-full px-4 xl:px-5;
-
-    /* `<del>`, `<ins>`, `<mark>` default styles */
     @apply no-underline;
-    color: inherit;
   }
-  .highlight-line:empty::before {
-    /* Enable highlighting empty lines */
-    content: ' ';
+  h2 .link-anchor:hover,
+  h2 .link-anchor:focus,
+  h3 .link-anchor:hover,
+  h3 .link-anchor:focus {
+    @apply underline;
+    text-decoration-color: theme('colors.red.600');
   }
-  .highlight-line-active {
-    @apply bg-gray-700;
+
+  /**
+   * GHColors theme for Prism by Avi Aryan (https://aviaryan.in/)
+   * Inspired by GitHub syntax coloring
+   *
+   * Slightly modified by me (Matias)
+   */
+  pre[class*='language-'] {
+    color: #393a34;
   }
-  .highlight-line-add {
-    @apply bg-green-900;
+
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: #999988;
+    font-style: italic;
   }
-  .highlight-line-remove {
-    @apply bg-red-900;
+
+  .token.namespace {
+    opacity: 0.75;
+  }
+
+  .token.string,
+  .token.attr-value {
+    color: #e3116c;
+  }
+
+  .token.punctuation,
+  .token.operator {
+    color: #393a34;
+  }
+
+  .token.entity,
+  .token.url,
+  .token.symbol,
+  .token.number,
+  .token.boolean,
+  .token.variable,
+  .token.constant,
+  .token.property,
+  .token.regex,
+  .token.inserted {
+    color: #36acaa;
+  }
+
+  .token.atrule,
+  .token.keyword,
+  .token.attr-name {
+    color: #00a4db;
+  }
+
+  .token.function,
+  .token.deleted {
+    color: #9a050f;
+  }
+
+  .token.tag,
+  .token.selector {
+    color: #00009f;
+  }
+
+  .token.important,
+  .token.bold {
+    font-weight: bold;
+  }
+
+  .token.italic {
+    font-style: italic;
+  }
+  /* End of theme */
+
+  pre[class*='language-'] {
+    /* Needed by iOS Safari or some lines might wrap */
+    word-wrap: normal;
+  }
+
+  .actual-code {
+    width: calc(100% + 2 * theme('margin.6'));
+  }
+  @screen sm {
+    .actual-code {
+      width: calc(100% + 2 * theme('margin.5'));
+    }
+  }
+
+  .token.prefix.inserted {
+    color: #008000;
+  }
+  .token.prefix.deleted {
+    color: #d91e18;
+  }
+
+  .token.inserted-sign,
+  .token.deleted-sign {
+    @apply flow-root -ml-6 pl-6 sm:-ml-5 sm:pl-5;
+    width: calc(100% + theme('margin.6'));
+  }
+  @screen sm {
+    .token.inserted-sign,
+    .token.deleted-sign {
+      width: calc(100% + theme('margin.5'));
+    }
+  }
+
+  .token.inserted-sign {
+    background: linear-gradient(
+      to right,
+      theme('colors.green.300'),
+      theme('colors.green.300') theme('borderWidth.6'),
+      theme('colors.green.100') theme('borderWidth.6')
+    );
+  }
+  .token.deleted-sign {
+    background: linear-gradient(
+      to right,
+      theme('colors.red.300'),
+      theme('colors.red.300') theme('borderWidth.6'),
+      theme('colors.red.100') theme('borderWidth.6')
+    );
+  }
+  @screen sm {
+    .token.inserted-sign {
+      background: linear-gradient(
+        to right,
+        theme('colors.green.300'),
+        theme('colors.green.300') theme('borderWidth.4'),
+        theme('colors.green.100') theme('borderWidth.4')
+      );
+    }
+    .token.deleted-sign {
+      background: linear-gradient(
+        to right,
+        theme('colors.red.300'),
+        theme('colors.red.300') theme('borderWidth.4'),
+        theme('colors.red.100') theme('borderWidth.4')
+      );
+    }
   }
 }

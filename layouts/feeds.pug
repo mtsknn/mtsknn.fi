@@ -4,4 +4,4 @@ block content
   .prose(class="xl:prose-lg")
     h1.text-center= title
     p.lead!= md.renderInline(intro)
-    != content
+    != md.render(content)

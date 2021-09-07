@@ -11,7 +11,7 @@ block content
     hr(aria-hidden="true")
 
     +toc(content)
-    != content
+    != md.render(content)
 
     hr(aria-hidden="true")
 

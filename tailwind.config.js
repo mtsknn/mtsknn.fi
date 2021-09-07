@@ -29,6 +29,9 @@ module.exports = {
       position: ['bottom', 'right'],
     },
     extend: {
+      borderWidth: {
+        6: '6px',
+      },
       colors: {
         // `cool-gray` colors borrowed from `@tailwindcss/ui`. These seem to be
         // better from accessibility perspective (easier to get high enough
@@ -121,14 +124,13 @@ module.exports = {
             color: theme('colors.gray.900'),
             fontWeight: null,
 
-            backgroundColor: theme('colors.gray.100'),
+            backgroundColor: theme('colors.white'),
             borderRadius: theme('borderRadius.lg'),
             display: 'inline-block',
             lineHeight: theme('lineHeight.relaxed'),
             paddingLeft: theme('padding.1'),
             paddingRight: theme('padding.1'),
             borderWidth: theme('borderWidth.default'),
-            borderColor: theme('colors.gray.400'),
           },
           'code::before': {
             content: null,
@@ -137,16 +139,18 @@ module.exports = {
             content: null,
           },
           pre: {
-            color: theme('colors.gray.100'), // The default is 300 but too dark
-            backgroundColor: theme('colors.gray.800'),
+            color: null,
+            backgroundColor: null,
             borderRadius: null,
-
-            // Remove horizontal padding; it's added for each line
-            // (`span.highligh-line`) in `main.css`
-            paddingLeft: null,
+            marginTop: null,
+            marginBottom: null,
+            paddingTop: null,
             paddingRight: null,
+            paddingBottom: null,
+            paddingLeft: null,
           },
           'pre code': {
+            padding: null,
             whiteSpace: 'pre',
           },
           'pre code::before': {
@@ -168,8 +172,12 @@ module.exports = {
         css: {
           pre: {
             borderRadius: null,
-            paddingLeft: null,
+            marginTop: null,
+            marginBottom: null,
+            paddingTop: null,
             paddingRight: null,
+            paddingBottom: null,
+            paddingLeft: null,
           },
         },
       },
@@ -177,8 +185,12 @@ module.exports = {
         css: {
           pre: {
             borderRadius: null,
-            paddingLeft: null,
+            marginTop: null,
+            marginBottom: null,
+            paddingTop: null,
             paddingRight: null,
+            paddingBottom: null,
+            paddingLeft: null,
           },
         },
       },
@@ -186,8 +198,12 @@ module.exports = {
         css: {
           pre: {
             borderRadius: null,
-            paddingLeft: null,
+            marginTop: null,
+            marginBottom: null,
+            paddingTop: null,
             paddingRight: null,
+            paddingBottom: null,
+            paddingLeft: null,
           },
         },
       },
@@ -195,8 +211,12 @@ module.exports = {
         css: {
           pre: {
             borderRadius: null,
-            paddingLeft: null,
+            marginTop: null,
+            marginBottom: null,
+            paddingTop: null,
             paddingRight: null,
+            paddingBottom: null,
+            paddingLeft: null,
           },
         },
       },

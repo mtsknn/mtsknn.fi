@@ -17,7 +17,9 @@ module.exports = {
   getFullContent(item) {
     return (
       md.render(item.data.intro) +
-      item.templateContent.replace(/<a class="link link-permalink".+<\/a>/g, '')
+      md
+        .render(item.templateContent)
+        .replace(/<a class="link link-permalink".+<\/a>/g, '')
     )
   },
   getFeedUpdatedDate(items) {

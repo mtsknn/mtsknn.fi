@@ -150,11 +150,6 @@
   status = 301
 
 [[redirects]]
-  from = "/cookbook/npm-list-globally-installed-packages/"
-  to   = "/blog/how-to-list-globally-installed-npm-packages/"
-  status = 301
-
-[[redirects]]
   from = "/cookbook/npm-sort-package-json/"
   to   = "/blog/how-to-sort-package-json-automatically/"
   status = 301

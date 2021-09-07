@@ -11,7 +11,7 @@ block content
         | #{' '}not a web developer
 
     .lead!= md.render(intro)
-    != content
+    != md.render(content)
 
     ul(class="sm:space-x-8")
       -
