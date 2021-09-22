@@ -79,12 +79,13 @@ html(lang="en")
       title=`${site.title} ${entity.ndash} Weekly log (JSON)`
     )
 
-    script(
-      data-api="/elbisualp/api/event"
-      data-domain="mtsknn.fi"
-      defer
-      src="/elbisualp/js/script.js"
-    )
+    if utils.isNetlifyProductionContext()
+      script(
+        data-api="/elbisualp/api/event"
+        data-domain="mtsknn.fi"
+        defer
+        src="/elbisualp/js/script.js"
+      )
   body#top.bg-gray-50.break-words.font-sans(
     class={ 'debug-screens': process.env.NODE_ENV === 'development' }
   )
