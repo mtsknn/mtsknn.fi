@@ -79,20 +79,13 @@ html(lang="en")
       title=`${site.title} ${entity.ndash} Weekly log (JSON)`
     )
 
-    script(
-      async
-      data-domain="mtsknn.fi"
-      defer
-      src="https://stats.mtsknn.fi/js/plausible.outbound-links.js"
-    )
-
-    //- Needed for tracking custom events like 404 pages
-    script.
-      window.plausible =
-        window.plausible ||
-        function () {
-          ;(window.plausible.q = window.plausible.q || []).push(arguments)
-        }
+    if utils.isNetlifyProductionContext()
+      script(
+        data-api="/elbisualp/api/event"
+        data-domain="mtsknn.fi"
+        defer
+        src="/elbisualp/js/script.js"
+      )
   body#top.bg-gray-50.break-words.font-sans(
     class={ 'debug-screens': process.env.NODE_ENV === 'development' }
   )

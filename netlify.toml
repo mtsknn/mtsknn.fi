@@ -16,6 +16,18 @@
     [headers.values]
       Cache-Control = "public, max-age=31536000"
 
+# Proxy for Plausible Analytics: https://plausible.io/docs/proxy/guides/netlify
+
+[[redirects]]
+  from   = "/elbisualp/js/script.js"
+  to     = "https://plausible.io/js/plausible.outbound-links.js"
+  status = 200
+
+[[redirects]]
+  from   = "/elbisualp/api/event"
+  to     = "https://plausible.io/api/event"
+  status = 202
+
 # Temporary redirects (302)
 
 [[redirects]]
