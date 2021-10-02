@@ -1,5 +1,5 @@
 ---
 layout: sitemap
 eleventyExcludeFromCollections: true
-permalink: sitemap.txt
+permalink: '{{ site.sitemapUrl }}'
 ---
