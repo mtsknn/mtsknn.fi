@@ -3,5 +3,5 @@ module.exports = {
   // Besides, a heads-up text like this is more helpful.
   intro: '⚠ *Missing intro text*',
 
-  layout: 'weekly-log-entry',
+  layout: 'WeeklyLogEntry',
 }
