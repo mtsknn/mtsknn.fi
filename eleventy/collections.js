@@ -1,5 +1,5 @@
-const { alphabetically, byDate } = require('../data/sort')
-const { isDraft, isProductionEnv, isScheduled } = require('../data/utils')
+const { alphabetically, byDate } = require('../utils/sort')
+const { isDraft, isProductionEnv, isScheduled } = require('../utils/utils')
 
 module.exports = (config) => {
   config.addCollection('blogPosts', (collectionApi) =>

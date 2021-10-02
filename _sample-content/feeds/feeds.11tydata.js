@@ -1,6 +1,6 @@
-const datetime = require('../../data/datetime')
-const md = require('../../data/md')
 const site = require('../../data/site')
+const datetime = require('../../utils/datetime')
+const md = require('../../utils/md')
 
 function getDateTime(date) {
   // Posts don't have publication times (only dates),

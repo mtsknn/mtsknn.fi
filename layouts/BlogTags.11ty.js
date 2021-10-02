@@ -1,7 +1,7 @@
 const { html } = require('htm/preact')
 
 const Base = require('../components/Base')
-const { slugify } = require('../data/slugify')
+const { slugify } = require('../utils/slugify')
 
 module.exports = (data) => {
   const { collections, title } = data

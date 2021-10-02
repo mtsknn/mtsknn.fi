@@ -11,5 +11,5 @@ const mySlugify = (text = '') => {
 // For templates (automatically available)
 module.exports = () => mySlugify
 
-// For JS files: `const { slugify } = require('./data/slugify')`
+// For JS files: `const { slugify } = require('./utils/slugify')`
 module.exports.slugify = mySlugify

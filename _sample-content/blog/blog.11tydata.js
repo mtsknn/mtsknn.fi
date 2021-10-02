@@ -1,4 +1,4 @@
-const { isDraft, isProductionEnv, isScheduled } = require('../../data/utils')
+const { isDraft, isProductionEnv, isScheduled } = require('../../utils/utils')
 
 module.exports = {
   // Without a default value, `md.render(intro)` would throw an error.

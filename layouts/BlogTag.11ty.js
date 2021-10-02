@@ -2,7 +2,7 @@ const { html } = require('htm/preact')
 
 const Base = require('../components/Base')
 const Markdown = require('../components/Markdown')
-const datetime = require('../data/datetime')
+const datetime = require('../utils/datetime')
 
 module.exports = (data) => {
   const { collections, tag } = data

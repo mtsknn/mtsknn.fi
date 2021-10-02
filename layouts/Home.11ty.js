@@ -2,9 +2,9 @@ const { html } = require('htm/preact')
 
 const Base = require('../components/Base')
 const Markdown = require('../components/Markdown')
-const datetime = require('../data/datetime')
-const entity = require('../data/entity')
 const site = require('../data/site')
+const datetime = require('../utils/datetime')
+const entity = require('../utils/entity')
 
 module.exports = (data) => {
   const { collections, content, intro, title } = data

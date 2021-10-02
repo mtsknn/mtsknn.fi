@@ -4,10 +4,10 @@ const { html } = require('htm/preact')
 
 const Breadcrumb = require('./Breadcrumb')
 const SkipLink = require('./SkipLink')
-const entity = require('../data/entity')
-const navItems = require('../data/navItems')
 const site = require('../data/site')
-const { isNetlifyProductionContext } = require('../data/utils')
+const entity = require('../utils/entity')
+const navItems = require('../utils/navItems')
+const { isNetlifyProductionContext } = require('../utils/utils')
 
 module.exports = ({
   children,

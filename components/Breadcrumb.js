@@ -2,7 +2,7 @@ const { HomeIcon } = require('@heroicons/react/outline')
 const { ChevronRightIcon } = require('@heroicons/react/solid')
 const { html } = require('htm/preact')
 
-const utils = require('../data/utils')
+const utils = require('../utils/utils')
 
 module.exports = ({ url }) => {
   if (!url) return null

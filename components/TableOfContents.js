@@ -1,7 +1,7 @@
 const { html } = require('htm/preact')
 
 const SkipLink = require('./SkipLink')
-const md = require('../data/md')
+const md = require('../utils/md')
 
 module.exports = ({ markdown }) => {
   const items = getItems(markdown)

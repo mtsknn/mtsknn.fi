@@ -1,5 +1,5 @@
 const site = require('../data/site')
-const { byUrl } = require('../data/sort')
+const { byUrl } = require('../utils/sort')
 
 module.exports = ({ collections }) =>
   [...collections.all]

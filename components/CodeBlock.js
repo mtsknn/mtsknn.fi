@@ -2,7 +2,7 @@ const { html } = require('htm/preact')
 const Prism = require('prismjs')
 const PrismLanguageLoader = require('prismjs/components/index.js')
 
-const entity = require('../data/entity')
+const entity = require('../utils/entity')
 
 setupPrism()
 
@@ -54,9 +54,7 @@ function LineHighlights({ lines }) {
                 ${entity.nbsp}
               </span>
             `
-          : html`
-              <br />
-            `
+          : html` <br /> `
       )}
     </span>
   `

@@ -1,6 +1,6 @@
 const { html } = require('htm/preact')
 
-const md = require('../data/md')
+const md = require('../utils/md')
 
 module.exports = ({ children, inline = false }) => html`
   <!--

@@ -1,4 +1,4 @@
-const { slugify } = require('../../data/slugify')
+const { slugify } = require('../../utils/slugify')
 
 module.exports.data = {
   layout: 'BlogTag',
