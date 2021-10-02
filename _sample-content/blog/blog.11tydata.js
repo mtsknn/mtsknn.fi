@@ -13,5 +13,5 @@ module.exports = {
         ? false
         : data.permalink,
   },
-  layout: 'blog-post.pug',
+  layout: 'BlogPost',
 }
