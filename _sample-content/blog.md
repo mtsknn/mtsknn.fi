@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: Blog
 title: Blog
 # metaTitle: ...
 # metaDescription: ...
