@@ -1,9 +1,11 @@
 const setupBrowserSync = require('./eleventy/browserSync')
 const setupCollections = require('./eleventy/collections')
+const setupPreact = require('./eleventy/preact')
 
 module.exports = (config) => {
   setupBrowserSync(config)
   setupCollections(config)
+  setupPreact(config)
 
   config.addPassthroughCopy({ './assets/favicon/': '/' })
   config.addPassthroughCopy({ './assets/fonts/': '/fonts/' })
