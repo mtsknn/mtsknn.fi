@@ -1,4 +1,4 @@
 ---
-layout: feed-rss
+layout: FeedAtom
 permalink: /feeds/all.xml
 ---
