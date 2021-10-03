@@ -1,10 +1,26 @@
-# [mtsknn.fi](https://mtsknn.fi/)
+# mtsknn.fi
 
-My blog,
-powered by [Eleventy](https://www.11ty.dev/)
-and running on [Netlify](https://www.netlify.com/).
+My little personal website / blog.
+[**Visit it 👉**](https://mtsknn.fi/)
 
-More documentation and features coming soon&trade;.
+- 🎈 A static site, built on [Eleventy](https://www.11ty.dev/).
+- ⚛ Layouts written with [Preact](https://preactjs.com/)
+  and rendered to static HTML when the site is built
+  (&rarr; zero runtime JavaScript from the layouts).
+  - 🐶 Layouts were previously written with [Pug](https://pugjs.org/api/getting-started.html).
+    See [PR #21: _Replace Pug with Preact_](https://github.com/mtsknn/mtsknn.fi/pull/21).
+- 🌬 Styles written with [Tailwind CSS](https://v1.tailwindcss.com/).
+  (Yelp, I'm still stuck on v1!)
+- 💠 Running on [Netlify](https://www.netlify.com/) (for free!).
+- 👐 Open source: MIT License.
+  - ⚠ Content files (blog posts etc.) are not openly licensed.
+    They are &copy; me and reside in a separate, private Git repo.
+  - This project doesn't aim to be a generic template for Eleventy sites,
+    but it's open so anyone can learn from it.
+  - I'm not looking for pull requests,
+    but please do
+    [open an issue](https://github.com/mtsknn/mtsknn.fi/issues)
+    if you found a bug or have questions or comments!
 
 ## Running locally
 
@@ -14,23 +30,24 @@ More documentation and features coming soon&trade;.
      the [optional chaining operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining).
 2. Run `git rm .gitmodules content/` and `git mv _sample-content/ content/`
    to use the sample content as a starting point.
-3. Optional: run `git commit -m 'Setup initial content'`.
+3. Optional: run `git commit -m 'Setup initial content'`
+   to commit the previous step's changes.
 4. Run `npm start` and open <http://localhost:8080/>.
 
 If you are me,
 in step 2 you can instead run `git submodule update --init`.
-The content that I have written
-is in a separate, private Git repo.
+The content that I have written is in a separate, private Git repo.
 It's private so that I can store drafts and scheduled posts there
 (and fix embarrassing typos and mistakes
-without anyone having to know about them afterwards).
+without anyone having to know about them afterwards!).
+Plus the content files are not openly licensed (they are &copy; me).
 
 ## Creating new content
 
 - Blog posts: `content/blog/`
 - Blog post drafts: `content/blog/drafts/`
 - Top-level pages: `content/`
-  \+ you probably want to update `data/navItems.js`
+  \+ you probably want to update `utils/navItems.js`
 
 ## Folder structure
 
@@ -44,8 +61,10 @@ without anyone having to know about them afterwards).
 - 📂 `.github/workflows/`
   - 📄 `main.yml`:
     Configures a GitHub Action
-    which makes a daily Curl request to Netlify's build hook.
+    that makes a daily Curl request to Netlify's build hook.
     This enables blog post scheduling.
+    See my blog post
+    [_How to trigger daily Netlify builds using GitHub Actions_](https://mtsknn.fi/blog/how-to-trigger-daily-netlify-builds-using-github-actions/).
 - 📂 `assets/`
   - 📄 `css/main.css`:
     Processed by Tailwind
@@ -53,6 +72,9 @@ without anyone having to know about them afterwards).
     The result is outputted to the `_site/` folder.
   - 📄 `favicon/*`:
     The files are copied as-is to the `_site/` folder.
+- 📂 `components/`:
+  Preact components,
+  used by layout files (which are also Preact components).
 - 📂 `content/`:
   [Eleventy's input directory.](https://www.11ty.dev/docs/config/#input-directory)
   The default is the root folder,
@@ -62,16 +84,19 @@ without anyone having to know about them afterwards).
   [Eleventy's directory for global data files](https://www.11ty.dev/docs/config/#directory-for-global-data-files)
   (the default is `_data`).
   All files are [JavaScript data files](https://www.11ty.dev/docs/data-js/)
-  and automatically available in layouts.
+  and automatically available in content files (Markdown).
+  Place stuff here instead of in `utils/`
+  if you need the stuff in content files (Markdown).
 - 📂 `eleventy/`:
   Eleventy's config files,
   required by the top-level config file (`.eleventy.js`).
 - 📂 `layouts/`:
   [Eleventy's directory for includes](https://www.11ty.dev/docs/config/#directory-for-includes)
   (the default is `_includes`).
-- 📂 `transforms/`:
-  [Eleventy transforms](https://www.11ty.dev/docs/config/#transforms)
-  that modify the output files built from the files in `content/`.
+- 📂 `utils/`:
+  Utils, helpers and such.
+  Place stuff here instead of in `data/`
+  if you don't need the stuff in content files (Markdown).
 - 📄 `.eleventy.js`:
   [Eleventy's config file.](https://www.11ty.dev/docs/config/)
 - 📄 `.eleventyignore`:
@@ -99,14 +124,17 @@ that's how it quite much feels
 since setting up the site on Netlify was so easy.
 I don't even remember what I did
 since Netlify did most of the job.
-(This is not a paid endorsement,
-but it could very well be.
-I'm looking at you, Netlify!)
 
-But seriously:
-just follow Netlify's good documentation and instructions.
+Just follow Netlify's good documentation and instructions.
 Deploying to Netlify is easy.
 
 If you are dealing with Git submodules (hi me!),
 check out
 [info about Git submodules on Netlify Docs](https://docs.netlify.com/configure-builds/repo-permissions-linking/#git-submodules).
+
+## License
+
+MIT &copy; Matias Kinnunen
+
+Note that content files (blog posts etc.) are not openly licensed.
+They reside in a separate, private Git repo.
