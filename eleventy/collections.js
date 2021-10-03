@@ -1,12 +1,15 @@
+const { isProductionBuild } = require('../utils/env')
 const { alphabetically, byDate } = require('../utils/sort')
-const { isDraft, isProductionEnv, isScheduled } = require('../utils/utils')
+const { isDraft, isScheduled } = require('../utils/utils')
 
 module.exports = (config) => {
   config.addCollection('blogPosts', (collectionApi) =>
     collectionApi
       .getFilteredByGlob('./content/blog/**/*.md')
       .filter((page) =>
-        isProductionEnv ? !(isDraft(page.data) || isScheduled(page.data)) : true
+        isProductionBuild
+          ? !(isDraft(page.data) || isScheduled(page.data))
+          : true
       )
       // Newest first
       .reverse()
@@ -29,7 +32,7 @@ module.exports = (config) => {
   config.addCollection('weeklyLogEntries', (collectionApi) =>
     collectionApi
       .getFilteredByGlob('./content/weekly-log/**/*.md')
-      .filter((page) => (isProductionEnv ? !isScheduled(page.data) : true))
+      .filter((page) => (isProductionBuild ? !isScheduled(page.data) : true))
       // Newest first
       .reverse()
   )

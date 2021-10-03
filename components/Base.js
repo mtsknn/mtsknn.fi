@@ -6,6 +6,7 @@ const Breadcrumb = require('./Breadcrumb')
 const SkipLink = require('./SkipLink')
 const site = require('../data/site')
 const entity = require('../utils/entity')
+const { isDevelopmentBuild } = require('../utils/env')
 const navItems = require('../utils/navItems')
 const { isNetlifyProductionContext } = require('../utils/utils')
 
@@ -28,7 +29,7 @@ module.exports = ({
     <body
       class=${clsx(
         'bg-gray-50 break-words font-sans',
-        process.env.NODE_ENV === 'development' && 'debug-screens'
+        isDevelopmentBuild && 'debug-screens'
       )}
       id="top"
     >
@@ -145,7 +146,7 @@ function Head({ intro, metaDescription, metaTitle, page, title }) {
         title="Weekly log (JSON)"
       />
 
-      ${isNetlifyProductionContext() &&
+      ${isNetlifyProductionContext &&
       html`
         <script
           data-api="/elbisualp/api/event"

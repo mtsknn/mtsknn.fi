@@ -1,4 +1,5 @@
-const { isDraft, isProductionEnv, isScheduled } = require('../../utils/utils')
+const { isProductionBuild } = require('../../utils/env')
+const { isDraft, isScheduled } = require('../../utils/utils')
 
 module.exports = {
   // Without a default value, `md.render(intro)` would throw an error.
@@ -7,9 +8,9 @@ module.exports = {
 
   eleventyComputed: {
     eleventyExcludeFromCollections: (data) =>
-      isProductionEnv && (isDraft(data) || isScheduled(data)),
+      isProductionBuild && (isDraft(data) || isScheduled(data)),
     permalink: (data) =>
-      isProductionEnv && (isDraft(data) || isScheduled(data))
+      isProductionBuild && (isDraft(data) || isScheduled(data))
         ? false
         : data.permalink,
   },
