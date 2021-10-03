@@ -1,6 +1,6 @@
+const { isDraft, isScheduled } = require('../utils')
 const { isProductionBuild } = require('../utils/env')
 const { alphabetically, byDate } = require('../utils/sort')
-const { isDraft, isScheduled } = require('../utils/utils')
 
 module.exports = (config) => {
   config.addCollection('blogPosts', (collectionApi) =>
