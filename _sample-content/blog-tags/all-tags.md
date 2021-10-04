@@ -1,5 +1,5 @@
 ---
-layout: blog-tags
+layout: BlogTags
 permalink: /blog/tags/
 
 title: Tags

@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: Home
 title: Home sweet home
 # metaTitle: ...
 # metaDescription: ...

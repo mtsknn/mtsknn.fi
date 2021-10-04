@@ -1,3 +1,5 @@
+const { isProductionBuild } = require('../utils/env')
+
 module.exports = ({
   collections,
   collectionsKey,
@@ -55,13 +57,13 @@ module.exports = ({
   // Validate important fields that can possibly be undefined/empty
   // TODO: Move this elsewhere
   if (
-    process.env.NODE_ENV === 'production' &&
+    isProductionBuild &&
     json.items.find((item) => !item.title || !item.content_html)
   ) {
     throw new Error('got you!')
   }
 
-  return process.env.NODE_ENV === 'production'
+  return isProductionBuild
     ? JSON.stringify(json)
     : JSON.stringify(json, null, 2) // Pretty print in dev mode
 }

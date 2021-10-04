@@ -1,8 +1,49 @@
-const md = require('./md')
+const { html } = require('htm/preact')
 
-// "If you return a `function`, we'll use the return value from that function."
-// Source: https://www.11ty.dev/docs/data-js/
-module.exports = () => (markdown) => {
+const SkipLink = require('./SkipLink')
+const md = require('../utils/md')
+
+module.exports = ({ markdown }) => {
+  const items = getItems(markdown)
+
+  if (items.length < 2) return null
+
+  return html`
+    <h2 class="tracking-widest uppercase !text-base !text-gray-700 xl:!text-lg">
+      Table of contents
+    </h2>
+    <${SkipLink} href="#skip-toc">Skip table of contents<//>
+    <nav aria-label="Table of contents">
+      <${List} items=${items} />
+    </nav>
+    <hr aria-hidden="true" class="!mb-0" />
+    <div id="skip-toc"></div>
+  `
+}
+
+function List({ items }) {
+  return html`
+    <ol>
+      ${items.map(
+        (item) => html`
+          <li>
+            <a
+              class="link"
+              dangerouslySetInnerHTML=${{ __html: item.content }}
+              href=${item.href}
+            ></a>
+            ${item.subItems.length > 0 &&
+            html`
+              <${List} items=${item.subItems} />
+            `}
+          </li>
+        `
+      )}
+    </ol>
+  `
+}
+
+function getItems(markdown) {
   const tokens = md.parse(markdown, {})
 
   /*

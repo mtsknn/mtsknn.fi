@@ -1,4 +1,4 @@
 ---
-layout: feed-json
+layout: FeedJson
 permalink: /feeds/all.json
 ---

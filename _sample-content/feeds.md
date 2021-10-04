@@ -1,6 +1,6 @@
 ---
 title: Feeds
-layout: feeds
+layout: Feeds
 intro: RSS/Atom and JSON feeds.
 ---
 
