@@ -39,7 +39,7 @@ module.exports = ({
           ${page.url !== '/' &&
           page.url !== '/404.html' &&
           html`<${Breadcrumb} url=${page.url} />`}
-          <!---->
+          <!-- -->
           ${children}
         </main>
         <${Footer} />
