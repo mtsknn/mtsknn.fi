@@ -23,7 +23,10 @@ module.exports = (data) => {
               </li>
             `
           })}
-          ${collections.blogTags.length === 0 && html`<li>No tags yet. 🤷‍♂️</li>`}
+          ${collections.blogTags.length === 0 &&
+          html`
+            <li>No tags yet. 🤷‍♂️</li>
+          `}
         </ul>
       </div>
     <//>

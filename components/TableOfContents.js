@@ -33,7 +33,9 @@ function List({ items }) {
               href=${item.href}
             ></a>
             ${item.subItems.length > 0 &&
-            html`<${List} items=${item.subItems} />`}
+            html`
+              <${List} items=${item.subItems} />
+            `}
           </li>
         `
       )}

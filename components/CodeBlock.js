@@ -54,7 +54,9 @@ function LineHighlights({ lines }) {
                 ${entity.nbsp}
               </span>
             `
-          : html` <br /> `
+          : html`
+              <br />
+            `
       )}
     </span>
   `

@@ -47,10 +47,16 @@ module.exports = (data) => {
                 <${Markdown} inline>${post.data.intro}<//>
               </p>
             </article>
-            ${i !== blogPosts.length - 1 && html`<hr aria-hidden="true" />`}
+            ${i !== blogPosts.length - 1 &&
+            html`
+              <hr aria-hidden="true" />
+            `}
           `
         )}
-        ${blogPosts.length === 0 && html`<p>No blog posts yet. 🤷‍♂️</p>`}
+        ${blogPosts.length === 0 &&
+        html`
+          <p>No blog posts yet. 🤷‍♂️</p>
+        `}
       </div>
     <//>
   `

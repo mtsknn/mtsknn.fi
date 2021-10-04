@@ -12,7 +12,11 @@ const CodeBlock = require('../components/CodeBlock')
 
 const md = markdownIt({
   highlight: (code, lang, attrs) =>
-    render(html`<${CodeBlock} attrs=${attrs} code=${code} lang=${lang} />`),
+    render(
+      html`
+        <${CodeBlock} attrs=${attrs} code=${code} lang=${lang} />
+      `
+    ),
   html: true,
 })
   .use(markdownItAnchor, {

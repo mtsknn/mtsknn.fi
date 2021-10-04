@@ -10,7 +10,9 @@ module.exports = ({ date, updated, tags = [] }) => html`
       ${datetime.human(date)}
     </time>
     ${date > Date.now() &&
-    html`<span aria-hidden="true" title="Scheduled"> ⌚</span>`}
+    html`
+      <span aria-hidden="true" title="Scheduled">${' '}⌚</span>
+    `}
 
     <!-- -->
 

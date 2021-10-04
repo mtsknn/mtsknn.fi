@@ -52,7 +52,10 @@ module.exports = (data) => {
                   : getPublishedDate(item)}
               </updated>
               ${(item.data.tags || []).map(
-                (tag) => html`<category term=${tag} />`
+                (tag) =>
+                  html`
+                    <category term=${tag} />
+                  `
               )}
               <content type="html">${getFullContent(item)}</content>
             </entry>

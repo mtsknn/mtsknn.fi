@@ -38,8 +38,9 @@ module.exports = ({
         <main class="mb-12 pt-12" id="main">
           ${page.url !== '/' &&
           page.url !== '/404.html' &&
-          html`<${Breadcrumb} url=${page.url} />`}
-          <!-- -->
+          html`
+            <${Breadcrumb} url=${page.url} />
+          `}
           ${children}
         </main>
         <${Footer} />
@@ -200,7 +201,10 @@ function Header({ page }) {
                   </span>
                   <span class="logo-domain-extension">.fi</span>
                 `
-              : html`mtsknn<span class="opacity-50">.fi</span>`}
+              : html`
+                  mtsknn
+                  <span class="opacity-50">.fi</span>
+                `}
           </span>
         </a>
         <div class="-ml-6 space-x-6 space-y-4 sm:space-y-0 xl:space-x-8">
