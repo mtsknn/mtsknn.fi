@@ -7,7 +7,7 @@ const markdownItFootnote = require('markdown-it-footnote')
 const markdownItLinkAttributes = require('markdown-it-link-attributes')
 const { render } = require('preact-render-to-string')
 
-const { slugify } = require('./slugify')
+const slugify = require('./slugify')
 const CodeBlock = require('../components/CodeBlock')
 
 const md = markdownIt({

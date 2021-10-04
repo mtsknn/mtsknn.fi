@@ -1,7 +1,7 @@
 const { html } = require('htm/preact')
 
 const datetime = require('../utils/datetime')
-const { slugify } = require('../utils/slugify')
+const slugify = require('../utils/slugify')
 
 module.exports = ({ date, updated, tags = [] }) => html`
   <p class="!mb-0">
