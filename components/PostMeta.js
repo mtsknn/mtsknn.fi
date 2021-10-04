@@ -9,6 +9,10 @@ module.exports = ({ date, updated, tags = [] }) => html`
     <time class="whitespace-no-wrap" datetime=${datetime.robot(date)}>
       ${datetime.human(date)}
     </time>
+    ${date > Date.now() &&
+    html`<span aria-hidden="true" title="Scheduled"> ⌚</span>`}
+
+    <!-- -->
 
     ${tags.length > 0 &&
     html`

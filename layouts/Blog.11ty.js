@@ -3,6 +3,7 @@ const { html } = require('htm/preact')
 const Base = require('../components/Base')
 const Markdown = require('../components/Markdown')
 const PostMeta = require('../components/PostMeta')
+const { isDraft } = require('../utils')
 
 module.exports = (data) => {
   const {
@@ -27,6 +28,10 @@ module.exports = (data) => {
           (post, i) => html`
             <article>
               <h3>
+                ${isDraft(post.data) &&
+                html`
+                  <span aria-hidden="true" class="pr-3" title="Draft">✏</span>
+                `}
                 <a class="link" href=${post.url}>
                   <${Markdown} inline>${post.data.title}<//>
                 </a>
