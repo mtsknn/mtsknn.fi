@@ -176,11 +176,11 @@ function Header({ page }) {
           href="/"
         >
           <!--
-          Even though the link has an aria-label,
-          VoiceOver on iPad would sometimes choose one of the elements below
-          and read it instead of the aria-label.
-          Thus the aria-hidden is required even though it seems redundant.
-        -->
+            Even though the link has an aria-label,
+            VoiceOver on iPad would sometimes choose one of the elements below
+            and read it instead of the aria-label.
+            Thus the aria-hidden is required even though it seems redundant.
+          -->
           <span aria-hidden="true">
             ${page.url === '/'
               ? html`
