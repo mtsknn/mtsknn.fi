@@ -22,7 +22,10 @@ module.exports = (data) => {
                   (project) => html`
                     <dt>
                       <a
-                        class=${clsx('link', project.url && 'link-external')}
+                        class=${clsx(
+                          'link',
+                          project.data.externalUrl && 'link-external'
+                        )}
                         href=${project.url || project.data.externalUrl}
                       >
                         <${Markdown} inline>${project.data.title}<//>
