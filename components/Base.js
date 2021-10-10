@@ -174,40 +174,14 @@ function Header({ page }) {
         class="flex flex-col justify-between text-center sm:flex-row sm:text-left"
       >
         <a
-          aria-label="mtsknn dot f i - go to the front page."
-          class="font-bold font-mono hover:text-red-600 active:text-red-700 xl:text-lg"
+          aria-label=${`${site.author.name}. Go to the front page.`}
+          class=${clsx(
+            'hover:text-red-600 active:text-red-700 xl:text-lg',
+            page.url === '/' && 'font-bold'
+          )}
           href="/"
         >
-          <!--
-            Even though the link has an aria-label,
-            VoiceOver on iPad would sometimes choose one of the elements below
-            and read it instead of the aria-label.
-            Thus the aria-hidden is required even though it seems redundant.
-          -->
-          <span aria-hidden="true">
-            ${page.url === '/'
-              ? html`
-                  m
-                  <span class="logo-character">a</span>
-                  t
-                  <span class="logo-character logo-character--length-2">
-                    ia
-                  </span>
-                  s
-                  <span class="logo-character">${entity.nbsp}</span>
-                  k
-                  <span class="logo-character">i</span>
-                  nn
-                  <span class="logo-character logo-character--length-4">
-                    unen
-                  </span>
-                  <span class="logo-domain-extension">.fi</span>
-                `
-              : html`
-                  mtsknn
-                  <span class="opacity-50">.fi</span>
-                `}
-          </span>
+          ${site.author.name}
         </a>
         <div class="-ml-6 space-x-6 space-y-4 sm:space-y-0 xl:space-x-8">
           ${navItems.topNav.map(
