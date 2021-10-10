@@ -1,3 +1,4 @@
+const clsx = require('clsx')
 const { html } = require('htm/preact')
 
 const Base = require('../components/Base')
@@ -20,7 +21,10 @@ module.exports = (data) => {
                 ${projects.map(
                   (project) => html`
                     <dt>
-                      <a class="link" href=${project.url}>
+                      <a
+                        class=${clsx('link', project.url && 'link-external')}
+                        href=${project.url || project.data.externalUrl}
+                      >
                         <${Markdown} inline>${project.data.title}<//>
                       </a>
                       <span class="block text-gray-500">

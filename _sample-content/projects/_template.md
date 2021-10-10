@@ -7,6 +7,11 @@ year: 2021
 # Date is not shown, but is used for sorting (newest first)
 date: 2021-05
 
+# If you don't want to create a page for the project (`/projects/project-x/`),
+# set `permalink` to `false` and provide `externalUrl`:
+permalink: false
+externalUrl: 'https://github.com/...'
+
 intro: |
   Text...
 metaDescription: |
@@ -16,4 +21,5 @@ metaTitle: |
 ---
 
 The content area right here
-is rendered on the project's own page.
+is rendered on the project's own page
+(which is created only if `permalink` is not `false`).
