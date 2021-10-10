@@ -17,7 +17,7 @@ module.exports = (data) => {
           >
             Blog posts tagged with${' '}
           </span>
-          <span class="block">${tag}</span>
+          ${tag}
         </h1>
 
         <ol>
