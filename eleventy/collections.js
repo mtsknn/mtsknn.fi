@@ -29,6 +29,13 @@ module.exports = (config) => {
     return (tag) => blogPosts.filter((post) => post.data.tags?.includes(tag))
   })
 
+  config.addCollection('projects', (collectionApi) =>
+    collectionApi
+      .getFilteredByGlob('./content/projects/**/*.md')
+      // Newest first
+      .reverse()
+  )
+
   config.addCollection('weeklyLogEntries', (collectionApi) =>
     collectionApi
       .getFilteredByGlob('./content/weekly-log/**/*.md')

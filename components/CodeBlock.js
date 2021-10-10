@@ -2,7 +2,7 @@ const { html } = require('htm/preact')
 const Prism = require('prismjs')
 const PrismLanguageLoader = require('prismjs/components/index.js')
 
-const entity = require('../utils/entity')
+const entity = require('../data/entity')
 
 setupPrism()
 
