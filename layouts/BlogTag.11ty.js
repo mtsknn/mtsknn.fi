@@ -10,7 +10,7 @@ module.exports = (data) => {
   return html`
     <${Base} ...${data}>
       <div class="mt-6 prose xl:prose-lg">
-        <h1 aria-label=${`Blog posts tagged with ${tag}`} class="text-center">
+        <h1 aria-label=${`Blog posts tagged with ${tag}`}>
           <div
             aria-hidden="true"
             class="font-bold mb-2 text-gray-500 text-xl xl:mb-4 xl:text-2xl"

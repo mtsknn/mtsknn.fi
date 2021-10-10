@@ -9,7 +9,7 @@ module.exports = (data) => {
   return html`
     <${Base} ...${data}>
       <div class="prose xl:prose-lg">
-        <h1 class="text-center">${title}</h1>
+        <h1>${title}</h1>
 
         <ul>
           ${collections.blogTags.map((tag) => {

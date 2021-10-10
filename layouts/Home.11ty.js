@@ -12,7 +12,7 @@ module.exports = (data) => {
   return html`
     <${Base} ...${data}>
       <div class="prose xl:prose-lg">
-        <h1 aria-label=${title} class="text-center">
+        <h1 aria-label=${title}>
           <div
             class="font-bold mb-2 text-gray-500 text-2xl xl:mb-4 xl:text-3xl"
           >
