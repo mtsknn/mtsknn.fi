@@ -8,12 +8,12 @@ module.exports = ({ url }) => {
   if (!url) return null
 
   return html`
-    <nav aria-label="Breadcrumb" class="mb-4 text-center">
+    <nav aria-label="Breadcrumb" class="mb-4">
       <ul>
         <li class="inline list-none">
           <a
             aria-label="Home"
-            class="ml-4 text-gray-500 hover:text-red-600 active:text-red-800"
+            class="text-gray-500 hover:text-red-600 active:text-red-800"
             href="/"
           >
             <${HomeIcon}

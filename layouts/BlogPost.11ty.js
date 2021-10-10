@@ -11,7 +11,7 @@ module.exports = (data) => {
   return html`
     <${Base} ...${data}>
       <article class="prose xl:prose-lg">
-        <div class="max-w-none text-center">
+        <div class="max-w-none">
           <h1 class="!mb-6">
             <${Markdown} inline>${title}<//>
           </h1>

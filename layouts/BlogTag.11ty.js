@@ -10,14 +10,14 @@ module.exports = (data) => {
   return html`
     <${Base} ...${data}>
       <div class="mt-6 prose xl:prose-lg">
-        <h1 aria-label=${`Blog posts tagged with ${tag}`} class="text-center">
-          <div
+        <h1 aria-label=${`Blog posts tagged with ${tag}`}>
+          <span
             aria-hidden="true"
-            class="font-bold mb-2 text-gray-500 text-xl xl:mb-4 xl:text-2xl"
+            class="block font-bold mb-2 text-gray-500 text-xl xl:mb-4 xl:text-2xl"
           >
             Blog posts tagged with${' '}
-          </div>
-          <div>${tag}</div>
+          </span>
+          ${tag}
         </h1>
 
         <ol>
