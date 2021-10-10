@@ -3,6 +3,10 @@ title: Project X
 
 # Year is shown next to the title
 year: 2021
+# If you want to use `{{ entity.ndash }}`,
+# you have to do it in `eleventyComputed`:
+eleventyComputed:
+  year: '2020{{ entity.ndash }}2021'
 
 # Date is not shown, but is used for sorting (newest first)
 date: 2021-05
