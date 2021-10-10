@@ -20,7 +20,7 @@ module.exports = ({
   page,
   title,
 }) => html`
-  <html lang="en">
+  <html class="h-full" lang="en">
     <${Head}
       intro=${intro}
       metaDescription=${metaDescription}
@@ -30,12 +30,12 @@ module.exports = ({
     />
     <body
       class=${clsx(
-        'bg-gray-50 break-words font-sans',
+        'bg-gray-50 break-words font-sans h-full',
         isDevelopmentBuild && 'debug-screens'
       )}
       id="top"
     >
-      <div class="max-w-4xl mx-auto p-6">
+      <div class="flex flex-col max-w-4xl min-h-full mx-auto p-6">
         <${Header} page=${page} />
         <main class="mb-12 pt-12" id="main">
           ${page.url !== '/' &&
@@ -174,40 +174,14 @@ function Header({ page }) {
         class="flex flex-col justify-between text-center sm:flex-row sm:text-left"
       >
         <a
-          aria-label="mtsknn dot f i - go to the front page."
-          class="font-bold font-mono hover:text-red-600 active:text-red-700 xl:text-lg"
+          aria-label=${`${site.author.name}. Go to the front page.`}
+          class=${clsx(
+            'hover:text-red-600 active:text-red-700 xl:text-lg',
+            page.url === '/' && 'font-bold'
+          )}
           href="/"
         >
-          <!--
-            Even though the link has an aria-label,
-            VoiceOver on iPad would sometimes choose one of the elements below
-            and read it instead of the aria-label.
-            Thus the aria-hidden is required even though it seems redundant.
-          -->
-          <span aria-hidden="true">
-            ${page.url === '/'
-              ? html`
-                  m
-                  <span class="logo-character">a</span>
-                  t
-                  <span class="logo-character logo-character--length-2">
-                    ia
-                  </span>
-                  s
-                  <span class="logo-character">${entity.nbsp}</span>
-                  k
-                  <span class="logo-character">i</span>
-                  nn
-                  <span class="logo-character logo-character--length-4">
-                    unen
-                  </span>
-                  <span class="logo-domain-extension">.fi</span>
-                `
-              : html`
-                  mtsknn
-                  <span class="opacity-50">.fi</span>
-                `}
-          </span>
+          ${site.author.name}
         </a>
         <div class="-ml-6 space-x-6 space-y-4 sm:space-y-0 xl:space-x-8">
           ${navItems.topNav.map(
@@ -249,7 +223,12 @@ function Header({ page }) {
 function Footer() {
   return html`
     <footer
-      class="border-t border-gray-300 flex items-baseline justify-between pt-6 text-gray-700 text-sm xl:text-base"
+      class=${clsx(
+        'border-gray-300 border-t',
+        'flex items-baseline justify-between',
+        'mt-auto pt-6',
+        'text-gray-700 text-sm xl:text-base'
+      )}
     >
       <div class="text-gray-500 text-left">
         ${entity.copy} ${site.title} 2020${entity.ndash}2021.

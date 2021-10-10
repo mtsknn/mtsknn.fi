@@ -116,68 +116,6 @@
     }
   }
 
-  .logo-character,
-  .logo-domain-extension {
-    @apply inline-block whitespace-no-wrap;
-
-    animation-delay: 2s;
-    animation-fill-mode: forwards;
-
-    /* From Chrome DevTools: "In Out · Cubic" */
-    animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .logo-character,
-    .logo-domain-extension {
-      animation-delay: 0s !important;
-      animation-duration: 0s !important;
-    }
-  }
-
-  .logo-character {
-    animation-duration: 1s;
-    animation-name: hide-logo-character;
-    max-width: 1ch;
-  }
-  .logo-character--length-2 {
-    max-width: 2ch;
-  }
-  .logo-character--length-4 {
-    max-width: 4ch;
-  }
-
-  .logo-domain-extension {
-    @apply opacity-0;
-    animation-duration: 1.25s;
-    animation-name: reveal-logo-domain-extension;
-    max-width: 0;
-  }
-
-  @keyframes hide-logo-character {
-    to {
-      @apply opacity-0;
-      max-width: 0;
-    }
-  }
-
-  @keyframes reveal-logo-domain-extension {
-    40% {
-      @apply opacity-0;
-    }
-
-    /* This step is needed or the focus outline will look weird :D */
-    80% {
-      max-width: 3ch;
-    }
-
-    to {
-      @apply opacity-50;
-
-      /* And this needs to be repeated here or the final `max-width` will be 0 */
-      max-width: 3ch;
-    }
-  }
-
   .prose > * {
     max-width: 65ch;
   }
