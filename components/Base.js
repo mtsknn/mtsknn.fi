@@ -20,7 +20,7 @@ module.exports = ({
   page,
   title,
 }) => html`
-  <html lang="en">
+  <html class="h-full" lang="en">
     <${Head}
       intro=${intro}
       metaDescription=${metaDescription}
@@ -30,12 +30,12 @@ module.exports = ({
     />
     <body
       class=${clsx(
-        'bg-gray-50 break-words font-sans',
+        'bg-gray-50 break-words font-sans h-full',
         isDevelopmentBuild && 'debug-screens'
       )}
       id="top"
     >
-      <div class="max-w-4xl mx-auto p-6">
+      <div class="flex flex-col max-w-4xl min-h-full mx-auto p-6">
         <${Header} page=${page} />
         <main class="mb-12 pt-12" id="main">
           ${page.url !== '/' &&
@@ -249,7 +249,12 @@ function Header({ page }) {
 function Footer() {
   return html`
     <footer
-      class="border-t border-gray-300 flex items-baseline justify-between pt-6 text-gray-700 text-sm xl:text-base"
+      class=${clsx(
+        'border-gray-300 border-t',
+        'flex items-baseline justify-between',
+        'mt-auto pt-6',
+        'text-gray-700 text-sm xl:text-base'
+      )}
     >
       <div class="text-gray-500 text-left">
         ${entity.copy} ${site.title} 2020${entity.ndash}2021.
