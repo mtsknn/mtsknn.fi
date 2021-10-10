@@ -4,8 +4,8 @@ const { html } = require('htm/preact')
 
 const Breadcrumb = require('./Breadcrumb')
 const SkipLink = require('./SkipLink')
+const entity = require('../data/entity')
 const site = require('../data/site')
-const entity = require('../utils/entity')
 const {
   isDevelopmentBuild,
   isNetlifyProductionContext,
