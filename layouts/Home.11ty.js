@@ -12,20 +12,7 @@ module.exports = (data) => {
   return html`
     <${Base} ...${data}>
       <div class="prose xl:prose-lg">
-        <h1 aria-label=${title}>
-          <span
-            class="block font-bold mb-2 text-gray-500 text-2xl xl:mb-4 xl:text-3xl"
-          >
-            Yello! I'm${' '}
-          </span>
-          ${site.author.name}
-          <span class="text-gray-500">,</span>
-          <span
-            class="block font-bold mt-2 text-gray-500 text-2xl xl:mt-4 xl:text-3xl"
-          >
-            ${' '}a full-stack web developer
-          </span>
-        </h1>
+        <h1>${title}</h1>
 
         <div class="lead">
           <${Markdown}>${intro}<//>
