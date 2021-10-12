@@ -1,31 +1,23 @@
+const { ArrowNarrowRightIcon } = require('@heroicons/react/solid')
 const { html } = require('htm/preact')
 
 const Base = require('../components/Base')
+const BlogList = require('../components/BlogList')
 const Markdown = require('../components/Markdown')
-const entity = require('../data/entity')
 const site = require('../data/site')
-const datetime = require('../utils/datetime')
+const { isDraft } = require('../utils')
 
 module.exports = (data) => {
   const { collections, content, intro, title } = data
 
+  const latestBlogPosts = collections.blogPosts
+    .filter((post) => !isDraft(post.data))
+    .slice(0, 3)
+
   return html`
     <${Base} ...${data}>
       <div class="prose xl:prose-lg">
-        <h1 aria-label=${title}>
-          <span
-            class="block font-bold mb-2 text-gray-500 text-2xl xl:mb-4 xl:text-3xl"
-          >
-            Yello! I'm${' '}
-          </span>
-          ${site.author.name}
-          <span class="text-gray-500">,</span>
-          <span
-            class="block font-bold mt-2 text-gray-500 text-2xl xl:mt-4 xl:text-3xl"
-          >
-            ${' '}a full-stack web developer
-          </span>
-        </h1>
+        <h1>${title}</h1>
 
         <div class="lead">
           <${Markdown}>${intro}<//>
@@ -68,39 +60,23 @@ module.exports = (data) => {
           )}
         </ul>
 
+        <h2>Latest blog posts</h2>
+        <${BlogList} posts=${latestBlogPosts} />
+
         <hr aria-hidden="true" />
 
-        <h2>Latest content</h2>
-        <ul>
-          ${[
-            { type: 'Blog post', data: collections.blogPosts[0] },
-            { type: 'Weekly log entry', data: collections.weeklyLogEntries[0] },
-          ].map(
-            (item) => html`
-              <li>
-                ${item.type}${': '}
-                <a class="link" href=${item.data.url}>
-                  <${Markdown} inline>${item.data.data.title}<//>
-                </a>
-                ${` (${datetime.human(item.data.date)})`}
-              </li>
-            `
-          )}
-        </ul>
-
-        <h2>More content</h2>
-        <ul>
-          <li>
+        <aside>
+          <p class="!mb-3">
             <a class="link" href="/blog/">
-              Blog ${entity.ndash} my wildest adventures with computers
+              All blog posts
+              <${ArrowNarrowRightIcon}
+                aria-hidden="true"
+                class="inline ml-2 text-gray-500"
+                style=${{ width: '1.25rem' }}
+              />
             </a>
-          </li>
-          <li>
-            <a class="link" href="/weekly-log/">
-              Weekly log ${entity.ndash} learnings and cool stuff
-            </a>
-          </li>
-        </ul>
+          </p>
+        </aside>
       </div>
     <//>
   `
