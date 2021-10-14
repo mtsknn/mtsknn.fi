@@ -14,6 +14,13 @@ module.exports = (data) => {
     .filter((post) => !isDraft(post.data))
     .slice(0, 3)
 
+  const recentlyUpdatedBlogPosts = collections.blogPosts
+    .filter((post) => !isDraft(post.data))
+    .filter((post) => !latestBlogPosts.includes(post))
+    .filter((post) => post.data.updated)
+    .sort((a, b) => b.data.updated - a.data.updated)
+    .slice(0, 3)
+
   return html`
     <${Base} ...${data}>
       <div class="prose xl:prose-lg">
@@ -60,10 +67,20 @@ module.exports = (data) => {
           )}
         </ul>
 
+        <hr aria-hidden="true" />
+
         <h2>Latest blog posts</h2>
         <${BlogList} posts=${latestBlogPosts} />
 
         <hr aria-hidden="true" />
+
+        ${recentlyUpdatedBlogPosts.length > 0 &&
+        html`
+          <h2>Recently updated blog posts</h2>
+          <${BlogList} posts=${recentlyUpdatedBlogPosts} />
+
+          <hr aria-hidden="true" />
+        `}
 
         <aside>
           <p class="!mb-3">
