@@ -21,6 +21,8 @@ module.exports = (config) => {
   // which wouldn't otherwise be possible (https://github.com/11ty/eleventy/issues/1206).
   config.setLibrary('md', { render: (markdown) => markdown })
 
+  config.setQuietMode(true)
+
   return {
     dir: {
       input: './content/',
