@@ -7,6 +7,7 @@ const Markdown = require('../components/Markdown')
 module.exports = (data) => {
   const {
     collections: { projects },
+    intro,
     title,
   } = data
 
@@ -14,6 +15,12 @@ module.exports = (data) => {
     <${Base} ...${data}>
       <div class="prose xl:prose-lg">
         <h1>${title}</h1>
+
+        <p class="lead">
+          <${Markdown} inline>${intro}<//>
+        </p>
+
+        <hr aria-hidden="true" />
 
         ${projects.length > 0
           ? html`
