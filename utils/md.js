@@ -122,7 +122,7 @@ md.renderer.rules.footnote_anchor = (tokens, idx, options, env, slf) => {
         <!--
           Without the 'font-mono' class
           this would look like an emoji instead of a Unicode symbol
-          at least in Chrome on Windows and Chrome on Android
+          at least in Chrome on Windows and Firefox on Android
         -->
         ↩
       </a>
