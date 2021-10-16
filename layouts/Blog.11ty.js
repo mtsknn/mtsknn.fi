@@ -22,7 +22,7 @@ module.exports = (data) => {
         </p>
         <${Markdown}>${content}<//>
 
-        <hr />
+        <hr aria-hidden="true" />
 
         <${BlogList} headingLevel=${2} posts=${blogPosts} />
       </div>
