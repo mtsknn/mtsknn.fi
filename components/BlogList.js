@@ -4,7 +4,7 @@ const Markdown = require('./Markdown')
 const PostMeta = require('./PostMeta')
 const { isDraft } = require('../utils')
 
-module.exports = ({ posts }) => {
+module.exports = ({ headingLevel, posts }) => {
   if (posts.length === 0) {
     return html`
       <p>No blog posts yet. 🤷‍♂️</p>
@@ -14,7 +14,8 @@ module.exports = ({ posts }) => {
   return posts.map(
     (post) => html`
       <article>
-        <h3>
+        <!-- h3 styles, even if h2 -->
+        <${`h${headingLevel}`} class="!text-xl xl:!text-2xl">
           ${isDraft(post.data) &&
           html`
             <span aria-hidden="true" class="pr-3" title="Draft">✏</span>
@@ -22,7 +23,7 @@ module.exports = ({ posts }) => {
           <a class="link" href=${post.url}>
             <${Markdown} inline>${post.data.title}<//>
           </a>
-        </h3>
+        <//>
         <div class="text-sm xl:text-base">
           <${PostMeta}
             date=${post.date}

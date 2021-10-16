@@ -70,14 +70,14 @@ module.exports = (data) => {
         <hr aria-hidden="true" />
 
         <h2>Latest blog posts</h2>
-        <${BlogList} posts=${latestBlogPosts} />
+        <${BlogList} headingLevel=${3} posts=${latestBlogPosts} />
 
         <hr aria-hidden="true" />
 
         ${recentlyUpdatedBlogPosts.length > 0 &&
         html`
           <h2>Recently updated blog posts</h2>
-          <${BlogList} posts=${recentlyUpdatedBlogPosts} />
+          <${BlogList} headingLevel=${3} posts=${recentlyUpdatedBlogPosts} />
 
           <hr aria-hidden="true" />
         `}

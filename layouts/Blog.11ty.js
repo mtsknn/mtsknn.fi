@@ -22,8 +22,9 @@ module.exports = (data) => {
         </p>
         <${Markdown}>${content}<//>
 
-        <h2>Coolest blog posts, hot off the press</h2>
-        <${BlogList} posts=${blogPosts} />
+        <hr />
+
+        <${BlogList} headingLevel=${2} posts=${blogPosts} />
       </div>
     <//>
   `

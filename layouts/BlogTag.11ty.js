@@ -1,8 +1,7 @@
 const { html } = require('htm/preact')
 
 const Base = require('../components/Base')
-const Markdown = require('../components/Markdown')
-const datetime = require('../utils/datetime')
+const BlogList = require('../components/BlogList')
 
 module.exports = (data) => {
   const { collections, tag } = data
@@ -20,22 +19,10 @@ module.exports = (data) => {
           ${tag}
         </h1>
 
-        <ol>
-          ${collections.blogPostsWithTag(tag).map(
-            (post) => html`
-              <li>
-                <a class="link" href=${post.url}>
-                  <${Markdown} inline>${post.data.title}<//>
-                </a>
-                <span class="whitespace-no-wrap">
-                  ${' ('}
-                  <span class="sr-only">published on${' '}</span>
-                  ${datetime.human(post.date)})
-                </span>
-              </li>
-            `
-          )}
-        </ol>
+        <${BlogList}
+          headingLevel=${2}
+          posts=${collections.blogPostsWithTag(tag)}
+        />
       </div>
     <//>
   `
