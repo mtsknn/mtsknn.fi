@@ -218,6 +218,13 @@
     text-decoration-color: theme('colors.red.600');
   }
 
+  /* TODO: Move this elsewhere.
+     Related to this post:
+     https://mtsknn.fi/blog/contenteditable-first-letter-chrome-buggy-combo/ */
+  .drop-cap-demo > p:first-child::first-letter {
+    @apply font-bold text-4xl;
+  }
+
   /**
    * GHColors theme for Prism by Avi Aryan (https://aviaryan.in/)
    * Inspired by GitHub syntax coloring
