@@ -24,6 +24,8 @@ My little personal website / blog.
 
 ## Running locally
 
+### If you are not me
+
 1. Run `npm install` to install dependencies.
    - Version 14+ of [Node.js](https://nodejs.org/) is required
      because it's the minimum version that supports
@@ -34,8 +36,15 @@ My little personal website / blog.
    to commit the previous step's changes.
 4. Run `npm start` and open <http://localhost:8080/>.
 
-If you are me,
-in step 2 you can instead run `git submodule update --init`.
+### If you are me
+
+Hi me!
+
+1. `npm install`
+2. `git submodule update --init`
+3. `cd content && git checkout master`
+4. `cd .. && npm start`
+
 The content that I have written is in a separate, private Git repo.
 It's private so that I can store drafts and scheduled posts there
 (and fix embarrassing typos and mistakes
