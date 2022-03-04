@@ -26,7 +26,7 @@
     "markdown-it-link-attributes": "^3.0.0",
     "preact": "^10.5.14",
     "preact-render-to-string": "^5.1.19",
-    "prismjs": "^1.24.1",
+    "prismjs": "^1.27.0",
     "react": "^17.0.2",
     "slugify": "^1.4.6",
     "tailwindcss": "^1.9.6",
