@@ -173,10 +173,9 @@ function getLineHighlights(attributes) {
     return to ? range(from, to) : from
   })
 
-  return range(1, maxLineNumber).reduce((lines, lineNumber) => {
-    lines.push(highlightedLines.includes(lineNumber))
-    return lines
-  }, [])
+  return range(1, maxLineNumber).map((lineNumber) =>
+    highlightedLines.includes(lineNumber)
+  )
 }
 
 /**
