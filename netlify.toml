@@ -180,3 +180,26 @@
   from = "/feeds/cookbook.xml"
   to   = "/blog/goodbye-cookbook-hello-more-blog-posts/"
   status = 301
+
+# Domain aliases
+
+[[redirects]]
+  from   = "https://matiaskinnunen.fi/*"
+  to     = "https://mtsknn.fi/:splat"
+  status = 301
+  force  = true
+[[redirects]]
+  from   = "https://mtsknn.com/*"
+  to     = "https://mtsknn.fi/:splat"
+  status = 301
+  force  = true
+[[redirects]]
+  from   = "https://mtsknn.dev/*"
+  to     = "https://mtsknn.fi/:splat"
+  status = 301
+  force  = true
+[[redirects]]
+  from   = "https://mtsknn.netlify.app/*"
+  to     = "https://mtsknn.fi/:splat"
+  status = 301
+  force  = true
