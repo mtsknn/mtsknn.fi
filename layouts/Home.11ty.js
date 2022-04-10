@@ -93,7 +93,7 @@ module.exports = async (data) => {
         ${mostVisitedBlogPosts.length > 0 &&
         html`
           <h2>Most visited blog posts in the past 30 days</h2>
-          <p>Visitor counts updated once a day.</p>
+          <p>Table updated once a day.</p>
 
           <table>
             <thead>
