@@ -24,6 +24,7 @@
     "markdown-it-deflist": "^2.1.0",
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-link-attributes": "^3.0.0",
+    "node-fetch": "^2.6.7",
     "preact": "^10.5.14",
     "preact-render-to-string": "^5.1.19",
     "prismjs": "^1.27.0",

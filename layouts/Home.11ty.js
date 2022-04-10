@@ -1,5 +1,6 @@
 const { ArrowNarrowRightIcon } = require('@heroicons/react/solid')
 const { html } = require('htm/preact')
+const fetch = require('node-fetch')
 
 const Base = require('../components/Base')
 const BlogList = require('../components/BlogList')
@@ -7,19 +8,26 @@ const Markdown = require('../components/Markdown')
 const site = require('../data/site')
 const { isDraft } = require('../utils')
 
-module.exports = (data) => {
-  const { collections, content, intro, title } = data
+module.exports = async (data) => {
+  const {
+    collections: { blogPosts },
+    content,
+    intro,
+    title,
+  } = data
 
-  const latestBlogPosts = collections.blogPosts
+  const latestBlogPosts = blogPosts
     .filter((post) => !isDraft(post.data))
     .slice(0, 3)
 
-  const recentlyUpdatedBlogPosts = collections.blogPosts
+  const recentlyUpdatedBlogPosts = blogPosts
     .filter((post) => !isDraft(post.data))
     .filter((post) => !latestBlogPosts.includes(post))
     .filter((post) => post.data.updated)
     .sort((a, b) => b.data.updated - a.data.updated)
     .slice(0, 3)
+
+  const mostVisitedBlogPosts = await getMostVisitedBlogPosts(blogPosts)
 
   return html`
     <${Base} ...${data}>
@@ -81,6 +89,38 @@ module.exports = (data) => {
 
           <hr aria-hidden="true" />
         `}
+        ${mostVisitedBlogPosts.length > 0 &&
+        html`
+          <h2>Most visited blog posts in the past 30 days</h2>
+          <p>Visitor counts updated once a day.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Post</th>
+                <th class="text-right">Visitors</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${mostVisitedBlogPosts.map(
+                (post) => html`
+                  <tr>
+                    <td>
+                      <a class="link" href=${post.url}>
+                        <${Markdown} inline>${post.title}<//>
+                      </a>
+                    </td>
+                    <td class="text-right">
+                      ${post.visitors.toLocaleString('en')}
+                    </td>
+                  </tr>
+                `
+              )}
+            </tbody>
+          </table>
+
+          <hr aria-hidden="true" />
+        `}
 
         <aside>
           <p class="!mb-3">
@@ -97,6 +137,46 @@ module.exports = (data) => {
       </div>
     <//>
   `
+}
+
+async function getMostVisitedBlogPosts(allBlogPosts) {
+  const plausibleApiToken = process.env.PLAUSIBLE_API_TOKEN
+  const plausibleSiteId = process.env.PLAUSIBLE_SITE_ID
+
+  if (!plausibleApiToken || !plausibleSiteId) {
+    console.warn(
+      'Missing PLAUSIBLE_API_TOKEN and/or PLAUSIBLE_SITE_ID env variables -> not getting most visited blog posts'
+    )
+    return []
+  }
+
+  try {
+    const response = await fetch(
+      `https://plausible.io/api/v1/stats/breakdown?site_id=${plausibleSiteId}&period=30d&property=event:page`,
+      {
+        headers: { Authorization: `Bearer ${plausibleApiToken}` },
+      }
+    )
+    const json = await response.json()
+
+    return json.results
+      .filter(
+        ({ page: url }) =>
+          url.startsWith('/blog/') &&
+          !url.startsWith('/blog/tags/') &&
+          url !== '/blog/'
+      )
+      .map(({ page: url, visitors }) => {
+        const blogPost = allBlogPosts.find((post) => post.url === url)
+        if (!blogPost) return null
+        return { title: blogPost.data.title, url, visitors }
+      })
+      .filter(Boolean)
+      .slice(0, 5)
+  } catch (e) {
+    console.error('Error getting most visited blog posts:', e)
+    return []
+  }
 }
 
 // Font Awesome Free 5.15.2 icons by @fontawesome - https://fontawesome.com.
