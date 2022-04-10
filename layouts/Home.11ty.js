@@ -7,6 +7,7 @@ const BlogList = require('../components/BlogList')
 const Markdown = require('../components/Markdown')
 const site = require('../data/site')
 const { isDraft } = require('../utils')
+const { isDevelopmentBuild } = require('../utils/env')
 
 module.exports = async (data) => {
   const {
@@ -148,6 +149,27 @@ async function getMostVisitedBlogPosts(allBlogPosts) {
       'Missing PLAUSIBLE_API_TOKEN and/or PLAUSIBLE_SITE_ID env variables -> not getting most visited blog posts'
     )
     return []
+  }
+
+  if (isDevelopmentBuild) {
+    // `min` is inclusive, `max` is exclusive
+    const rand = (min, max) => Math.floor(Math.random() * (max - min) + min)
+
+    const oneFifth = Math.floor(allBlogPosts.length / 5)
+
+    return [
+      allBlogPosts[rand(oneFifth * 0, oneFifth * 1)],
+      allBlogPosts[rand(oneFifth * 1, oneFifth * 2)],
+      allBlogPosts[rand(oneFifth * 2, oneFifth * 3)],
+      allBlogPosts[rand(oneFifth * 3, oneFifth * 4)],
+      allBlogPosts[rand(oneFifth * 4, oneFifth * 5)],
+    ]
+      .map((post) => ({
+        title: post.data.title,
+        url: post.url,
+        visitors: rand(1, 12_345),
+      }))
+      .sort((a, b) => b.visitors - a.visitors)
   }
 
   try {
