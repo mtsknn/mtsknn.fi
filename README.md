@@ -110,6 +110,12 @@ Plus the content files are not openly licensed (they are &copy; me).
   [Eleventy's config file.](https://www.11ty.dev/docs/config/)
 - 📄 `.eleventyignore`:
   [Eleventy's ignore file.](https://www.11ty.dev/docs/ignores/)
+- 📄 `.env.example`:
+  Example environment variables
+  used to get most visited blog posts from [Plausible Analytics](https://plausible.io/).
+  - If you don't use Plausible Analytics, you can ignore this file.
+  - Otherwise you can copy and save this as `.env` to set local environment variables.
+    You need to set the environment variables to Netlify too (or wherever you are hosting your site).
 - 📄 `.gitmodules`:
   Specifies a Git submodule pointing to my private Git repo
   which contains all content.
