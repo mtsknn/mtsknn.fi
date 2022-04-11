@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const setupBrowserSync = require('./eleventy/browserSync')
 const setupCollections = require('./eleventy/collections')
 const setupPreact = require('./eleventy/preact')
