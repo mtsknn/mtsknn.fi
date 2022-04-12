@@ -24,7 +24,7 @@ module.exports = ({ attrs, code, lang }) => {
       role="region"
       tabindex="0"
     >
-      <code class="min-w-full !px-6 py-4 relative sm:!px-5">
+      <code class="min-w-full !px-6 !py-4 relative sm:!px-5">
         <${LineHighlights} lines=${getLineHighlights(attrs)} />
         <${Code}
           highlightedCode=${highlightCode(code, lang)}

@@ -120,16 +120,6 @@
     max-width: 65ch;
   }
 
-  .prose code {
-    /* Fix for Safari and iOS Safari:
-     * without this,
-     * inline code might span two lines
-     * even if it has plenty room on a single line.
-     * Screenshot: https://github.com/mtsknn/mtsknn.fi/pull/34
-     */
-    white-space: pre-wrap;
-  }
-
   .prose h1 code {
     @apply leading-tight;
   }

@@ -126,8 +126,9 @@ module.exports = {
 
             backgroundColor: theme('colors.white'),
             borderRadius: theme('borderRadius.lg'),
-            display: 'inline-block',
             lineHeight: theme('lineHeight.relaxed'),
+            paddingTop: '0.125rem', // 0.5 theme value
+            paddingBottom: '0.125rem', // 0.5 theme value
             paddingLeft: theme('padding.1'),
             paddingRight: theme('padding.1'),
             borderWidth: theme('borderWidth.default'),
@@ -150,6 +151,7 @@ module.exports = {
             paddingLeft: null,
           },
           'pre code': {
+            display: 'inline-block',
             padding: null,
             whiteSpace: 'pre',
           },
