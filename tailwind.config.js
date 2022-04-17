@@ -132,6 +132,9 @@ module.exports = {
             paddingLeft: theme('padding.1'),
             paddingRight: theme('padding.1'),
             borderWidth: theme('borderWidth.default'),
+
+            // Render trailing spaces if the inline code spans 2+ lines
+            whiteSpace: 'pre-wrap',
           },
           'code::before': {
             content: null,
