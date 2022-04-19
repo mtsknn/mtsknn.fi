@@ -114,39 +114,14 @@ function Head({ intro, metaDescription, metaTitle, page, title }) {
       <link
         rel="alternate"
         type="application/atom+xml"
-        href="/feeds/all.xml"
-        title="All content (Atom/RSS)"
-      />
-      <link
-        rel="alternate"
-        type="application/atom+xml"
         href="/feeds/blog.xml"
         title="Blog (Atom/RSS)"
-      />
-      <link
-        rel="alternate"
-        type="application/atom+xml"
-        href="/feeds/weekly-log.xml"
-        title="Weekly log (Atom/RSS)"
-      />
-
-      <link
-        rel="alternate"
-        type="application/json+feed"
-        href="/feeds/all.json"
-        title="All content (JSON)"
       />
       <link
         rel="alternate"
         type="application/json+feed"
         href="/feeds/blog.json"
         title="Blog (JSON)"
-      />
-      <link
-        rel="alternate"
-        type="application/json+feed"
-        href="/feeds/weekly-log.json"
-        title="Weekly log (JSON)"
       />
 
       ${isNetlifyProductionContext &&
