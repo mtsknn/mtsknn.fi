@@ -121,7 +121,8 @@
   }
 
   .prose h1 code {
-    @apply leading-tight;
+    background: rgba(255, 255, 255, 0.5);
+    @apply leading-tight py-0;
   }
 
   .prose .link-external code,
