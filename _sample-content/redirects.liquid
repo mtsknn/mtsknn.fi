@@ -1,0 +1,25 @@
+---
+eleventyExcludeFromCollections: true
+permalink: _redirects # Used automatically by Netlify
+---
+
+# About this file:
+# - https://www.aleksandrhovhannisyan.com/blog/eleventy-netlify-redirects/
+# - https://docs.netlify.com/routing/redirects/
+
+
+/weekly-log/2021/  /weekly-log/#2021  302
+
+
+# Domain aliases
+https://your-site.netlify.app/*  https://example.com/:splat  301!
+
+
+# Dynamic redirect rules (using the default status code 301 = permanent redirect)
+{%- for page in collections.all -%}
+  {%- if page.url and page.data.oldUrls %}
+    {%- for oldUrl in page.data.oldUrls %}
+{{ oldUrl }}  {{ page.url }}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endfor -%}
