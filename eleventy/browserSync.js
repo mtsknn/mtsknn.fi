@@ -5,9 +5,28 @@ module.exports = (config) => {
   config.setBrowserSyncConfig({
     callbacks: {
       ready(err, browserSync) {
-        browserSync.addMiddleware('/weekly-log/2021/', (req, res) => {
-          res.writeHead(302, { location: '/weekly-log/#2021' })
-          res.end()
+        // Mimics the redirect rules in the `_redirects` file (generated from `redirects.liquid`).
+        // Does not check for redirect rules in the `netlify.toml` file.
+        browserSync.addMiddleware('*', (req, res, next) => {
+          const redirectsFile = fs.readFileSync('./_site/_redirects', 'utf-8')
+          const redirects = redirectsFile
+            .split('\n')
+            .filter((line) => !line.startsWith('#'))
+            .filter((line) => line.trim().length > 0)
+            .map((line) => line.split(/ +/))
+            .map(([fromUrl, toUrl, status]) => ({
+              fromUrl,
+              toUrl,
+              status: Number(status) || 301,
+            }))
+
+          const redirect = redirects.find(({ fromUrl }) => fromUrl === req.url)
+          if (redirect) {
+            res.writeHead(redirect.status, { location: redirect.toUrl })
+            res.end()
+          } else {
+            next()
+          }
         })
 
         // Provides the 404 content without redirect. Original source:

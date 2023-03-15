@@ -45,6 +45,12 @@ metaTitle: |
   but can be split on multiple lines like this to ease editing.
   Displayed in the browser tab and Google.
   If not set, `title` will be used.
+
+# If you change the URL of a blog post, add the old URL(s) here.
+# Automatic redirects are set up in the `redirects.liquid` file.
+oldUrls:
+  - /blog/old-url/
+  - /blog/another-old-url/
 ---
 
 ## First heading
