@@ -11,6 +11,13 @@ permalink: _redirects # Used automatically by Netlify
 /weekly-log/2021/  /weekly-log/#2021  302
 
 
+# Note: if a page has `eleventyExcludeFromCollections: true`,
+# it won't be included in `collections.all`,
+# so its redirects need to be manually added here.
+# Example:
+/blog/feed.xml  /feeds/blog.xml
+
+
 # Domain aliases
 https://your-site.netlify.app/*  https://example.com/:splat  301!
 
