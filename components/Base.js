@@ -115,7 +115,7 @@ function Head({ intro, metaDescription, metaTitle, page, title }) {
         rel="alternate"
         type="application/atom+xml"
         href="/feeds/blog.xml"
-        title="Blog (Atom/RSS)"
+        title="Blog (RSS/Atom)"
       />
       <link
         rel="alternate"
