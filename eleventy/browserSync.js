@@ -20,7 +20,12 @@ module.exports = (config) => {
               status: Number(status) || 301,
             }))
 
-          const redirect = redirects.find(({ fromUrl }) => fromUrl === req.url)
+          const redirect = redirects.find(({ fromUrl }) =>
+            fromUrl.endsWith('*')
+              ? req.url.startsWith(fromUrl.slice(0, -1))
+              : fromUrl === req.url
+          )
+
           if (redirect) {
             res.writeHead(redirect.status, { location: redirect.toUrl })
             res.end()
