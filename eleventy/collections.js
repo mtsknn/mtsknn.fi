@@ -1,6 +1,6 @@
 const { isDraft, isScheduled } = require('../utils')
 const { isProductionBuild } = require('../utils/env')
-const { alphabetically, byDate } = require('../utils/sort')
+const { alphabetically } = require('../utils/sort')
 
 module.exports = (config) => {
   config.addCollection('blogPosts', (collectionApi) =>
@@ -35,12 +35,4 @@ module.exports = (config) => {
       // Newest first
       .reverse()
   )
-
-  config.addCollection('allContentPages', (collectionApi) => {
-    const collections = config.getCollections()
-
-    const blogPosts = collections.blogPosts(collectionApi)
-
-    return blogPosts.sort(byDate)
-  })
 }

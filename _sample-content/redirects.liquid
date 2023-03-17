@@ -8,11 +8,15 @@ permalink: _redirects # Used automatically by Netlify
 # - https://docs.netlify.com/routing/redirects/
 
 
-# Note: if a page has `eleventyExcludeFromCollections: true`,
+# Note:
+# if a page has `eleventyExcludeFromCollections: true`,
 # it won't be included in `collections.all`,
 # so its redirects need to be manually added here.
 # Example:
-/blog/feed.xml  /feeds/blog.xml
+/blog/feed.json  /feeds/blog.json
+/blog/feed.xml   /feeds/blog.xml
+/feeds/all.json  /feeds/blog.json
+/feeds/all.xml   /feeds/blog.xml
 
 
 # Domain aliases
