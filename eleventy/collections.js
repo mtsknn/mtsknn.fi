@@ -36,20 +36,11 @@ module.exports = (config) => {
       .reverse()
   )
 
-  config.addCollection('weeklyLogEntries', (collectionApi) =>
-    collectionApi
-      .getFilteredByGlob('./content/weekly-log/**/*.md')
-      .filter((page) => (isProductionBuild ? !isScheduled(page.data) : true))
-      // Newest first
-      .reverse()
-  )
-
   config.addCollection('allContentPages', (collectionApi) => {
     const collections = config.getCollections()
 
     const blogPosts = collections.blogPosts(collectionApi)
-    const weeklyLogEntries = collections.weeklyLogEntries(collectionApi)
 
-    return blogPosts.concat(weeklyLogEntries).sort(byDate)
+    return blogPosts.sort(byDate)
   })
 }
