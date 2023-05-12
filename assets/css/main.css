@@ -120,6 +120,10 @@
     max-width: 65ch;
   }
 
+  .prose table {
+    max-width: none;
+  }
+
   .prose h1 code {
     background: rgba(255, 255, 255, 0.5);
     @apply leading-tight py-0;
