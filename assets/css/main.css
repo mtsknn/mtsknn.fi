@@ -189,7 +189,7 @@
    * - Doesn't require modifying the HTML (i.e. I wanted a CSS-only solution)
    *
    * Luckily I found this underappreciated SO answer with a simple solution:
-   * https://stackoverflow.com/a/3841827/10798699
+   * https://stackoverflow.com/a/38418279/1079869
    */
   .link.link-external::after {
     @apply bg-center bg-no-repeat;
