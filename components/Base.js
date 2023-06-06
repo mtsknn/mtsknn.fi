@@ -206,7 +206,7 @@ function Footer() {
       )}
     >
       <div class="text-gray-500 text-left">
-        ${entity.copy} ${site.title} 2020${entity.ndash}2022.
+        ${entity.copy} ${site.title} 2020${entity.ndash}2023.
       </div>
       <a aria-label="Scroll to top" class="ml-4 hover:opacity-75" href="#top">
         <${ArrowCircleUpIcon}
