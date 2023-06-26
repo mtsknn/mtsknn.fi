@@ -124,6 +124,10 @@
     max-width: none;
   }
 
+  .prose p:has(img:only-child) {
+    max-width: none;
+  }
+
   .prose h1 code {
     background: rgba(255, 255, 255, 0.5);
     @apply leading-tight py-0;
