@@ -319,6 +319,10 @@
     }
   }
 
+  .token.block {
+    display: inline;
+  }
+
   .token.prefix.inserted {
     color: #008000;
   }
