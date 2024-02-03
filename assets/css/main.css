@@ -103,9 +103,16 @@
     @apply relative;
   }
 
+  button,
   kbd {
     @apply bg-gray-100 border border-b-2 border-gray-400 mx-px px-1 py-px rounded;
     box-shadow: inset 0 2px 0 0 #fff;
+  }
+  button:hover {
+    @apply bg-gray-50;
+  }
+  button:active {
+    @apply bg-gray-100;
   }
 }
 
