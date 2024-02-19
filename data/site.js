@@ -1,6 +1,5 @@
 const site = {
   author: {
-    email: 'hello@mtsknn.fi',
     name: 'Matias Kinnunen',
   },
   sitemapUrl: '/sitemap.txt',

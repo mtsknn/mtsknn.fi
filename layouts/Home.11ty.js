@@ -5,7 +5,6 @@ const fetch = require('node-fetch')
 const Base = require('../components/Base')
 const BlogList = require('../components/BlogList')
 const Markdown = require('../components/Markdown')
-const site = require('../data/site')
 const { isDraft } = require('../utils')
 const { isDevelopmentBuild } = require('../utils/env')
 
@@ -41,13 +40,19 @@ module.exports = async (data) => {
         <${Markdown}>${content}<//>
 
         <ul class="sm:space-x-8">
+          <li class="list-none !my-4 !pl-0 sm:inline">
+            <span>
+              <${FontAwesomeIcon.envelope}
+                aria-hidden="true"
+                class="align-text-bottom inline mr-3 text-gray-500"
+                style=${{ width: '1.25rem' }}
+              />
+
+              <!-- Hardcoded for now™ -->
+              hello @ this domain
+            </span>
+          </li>
           ${[
-            {
-              ariaLabel: `My email address: ${site.author.email}`,
-              href: `mailto:${site.author.email}`,
-              icon: 'envelope',
-              text: site.author.email,
-            },
             {
               ariaLabel: 'My GitHub account',
               href: 'https://github.com/mtsknn',

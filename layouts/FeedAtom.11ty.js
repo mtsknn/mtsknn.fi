@@ -32,7 +32,6 @@ module.exports = (data) => {
         <updated>${getFeedUpdatedDate(items)}</updated>
         <author>
           <name>${site.author.name}</name>
-          <email>${site.author.email}</email>
         </author>
         ${items.map((item) => {
           const fullUrl = `${site.url}${item.url}`
