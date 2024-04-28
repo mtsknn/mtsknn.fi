@@ -16,6 +16,8 @@ date: 2021-05
 permalink: false
 externalUrl: 'https://github.com/...'
 
+linkText: Read more
+
 intro: |
   Text...
 metaDescription: |

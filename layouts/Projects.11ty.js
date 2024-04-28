@@ -23,31 +23,29 @@ module.exports = (data) => {
         <hr aria-hidden="true" />
 
         ${projects.length > 0
-          ? html`
-              <dl class="!ml-0">
-                ${projects.map(
-                  (project) => html`
-                    <dt>
-                      <a
-                        class=${clsx(
-                          'link',
-                          project.data.externalUrl && 'link-external'
-                        )}
-                        href=${project.url || project.data.externalUrl}
-                      >
-                        <${Markdown} inline>${project.data.title}<//>
-                      </a>
-                      <span class="block text-gray-500">
-                        ${project.data.year}
-                      </span>
-                    </dt>
-                    <dd>
-                      <${Markdown} inline>${project.data.intro}<//>
-                    </dd>
-                  `
-                )}
-              </dl>
-            `
+          ? projects.map(
+              (project) => html`
+                <h2>
+                  <${Markdown} inline>${project.data.title}<//>
+                  <span class="text-gray-500">
+                    ${' '}(${project.data.year})
+                  </span>
+                </h2>
+                <${Markdown}>${project.data.intro}<//>
+
+                <p>
+                  <a
+                    class=${clsx(
+                      'link',
+                      project.data.externalUrl && 'link-external'
+                    )}
+                    href=${project.url || project.data.externalUrl}
+                  >
+                    <${Markdown} inline>${project.data.linkText}<//>
+                  </a>
+                </p>
+              `
+            )
           : html`
               <p>No projects yet. 🤷‍♂️</p>
             `}
