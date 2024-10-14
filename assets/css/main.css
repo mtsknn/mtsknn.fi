@@ -123,15 +123,17 @@
     }
   }
 
-  .prose > * {
+  .prose p,
+  .prose dd {
     max-width: 65ch;
   }
 
-  .prose table {
-    max-width: none;
+  .prose li:not(:has(p)) {
+    max-width: 65ch;
   }
 
-  .prose p:has(img:only-child) {
+  .prose p:has(img:only-child),
+  .prose li:has(pre:only-child) {
     max-width: none;
   }
 
