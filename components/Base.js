@@ -6,10 +6,7 @@ const Breadcrumb = require('./Breadcrumb')
 const SkipLink = require('./SkipLink')
 const entity = require('../data/entity')
 const site = require('../data/site')
-const {
-  isDevelopmentBuild,
-  isNetlifyProductionContext,
-} = require('../utils/env')
+const { isDevelopmentBuild } = require('../utils/env')
 const navItems = require('../utils/navItems')
 
 module.exports = ({
@@ -123,16 +120,6 @@ function Head({ intro, metaDescription, metaTitle, page, title }) {
         href="/feeds/blog.json"
         title="Blog (JSON)"
       />
-
-      ${isNetlifyProductionContext &&
-      html`
-        <script
-          data-api="/elbisualp/api/event"
-          data-domain="mtsknn.fi"
-          defer
-          src="/elbisualp/js/script.js"
-        ></script>
-      `}
     </head>
   `
 }
